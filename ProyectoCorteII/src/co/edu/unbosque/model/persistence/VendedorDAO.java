@@ -91,6 +91,7 @@ public class VendedorDAO implements DAO<Vendedor> {
 		for (Vendedor vendedor : listaVendedores) {
 			sb.append(vendedor.getCorreo());
 			sb.append(vendedor.getNombre());
+			sb.append("\n");
 		}
 		
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());

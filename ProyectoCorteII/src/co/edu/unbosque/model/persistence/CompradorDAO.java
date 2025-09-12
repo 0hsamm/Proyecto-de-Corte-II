@@ -1,6 +1,5 @@
 package co.edu.unbosque.model.persistence;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.Comprador;
@@ -103,6 +102,7 @@ public class CompradorDAO implements DAO<Comprador> {
 			sb.append(comprador.isEsMiembroVIP() + ";");
 			sb.append(comprador.getCarroCompras() + ";");
 			sb.append(comprador.getListacomprasRealizadas() + ";");
+			sb.append("\n");
 		}
 
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
