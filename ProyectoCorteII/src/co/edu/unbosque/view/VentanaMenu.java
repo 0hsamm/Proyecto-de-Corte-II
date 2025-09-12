@@ -13,6 +13,7 @@ public class VentanaMenu extends JFrame {
 	
 	private JLabel fondoMenu;
 	private JButton salir;
+	private JButton iniciar;
 	
 	public VentanaMenu() {
 		inicializarComponentes();
@@ -33,8 +34,22 @@ public class VentanaMenu extends JFrame {
 		fondoMenu.setBounds(0, 0, 1280, 720);
 		this.add(fondoMenu);
 		
+		JLabel texto = new JLabel("Bienvenid@ a Mercado Libre!");
+		texto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
+		texto.setBounds(260, 80, 1200, 70);
+		fondoMenu.add(texto);
+		
+		iniciar = new JButton("Iniciar");
+		iniciar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
+		iniciar.setBounds(170, 263, 200, 60);
+		iniciar.setBackground(new Color(254, 230, 1));
+		iniciar.setForeground(Color.WHITE);
+		iniciar.setFocusPainted(false);
+		iniciar.setBorderPainted(false);
+		fondoMenu.add(iniciar);
+		
 		salir = new JButton("Salir");
-		salir.setFont(new Font("Nunito", Font.BOLD, 40));
+		salir.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
 		salir.setBounds(100, 600, 150, 50);
 		salir.setBackground(new Color(254, 230, 1));
 		salir.setForeground(Color.WHITE);
@@ -58,6 +73,18 @@ public class VentanaMenu extends JFrame {
 	public void setSalir(JButton salir) {
 		this.salir = salir;
 	}
+
+	public JButton getIniciar() {
+		return iniciar;
+	}
+
+	public void setIniciar(JButton iniciar) {
+		this.iniciar = iniciar;
+	}
+
+	
+	
+	
 	
 	
 	
