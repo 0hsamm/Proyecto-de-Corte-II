@@ -1,17 +1,17 @@
 package co.edu.unbosque.view;
 
 public class ViewFacade {
-	private VentanaInicioDeSesion venInicioSesion;
+	private VentanaOpcionInicioSesion venInicioSesion;
 	
 	public ViewFacade() {
-		venInicioSesion = new VentanaInicioDeSesion();
+		venInicioSesion = new VentanaOpcionInicioSesion();
 	}
 
-	public VentanaInicioDeSesion getVenInicioSesion() {
+	public VentanaOpcionInicioSesion getVenInicioSesion() {
 		return venInicioSesion;
 	}
 
-	public void setVenInicioSesion(VentanaInicioDeSesion venInicioSesion) {
+	public void setVenInicioSesion(VentanaOpcionInicioSesion venInicioSesion) {
 		this.venInicioSesion = venInicioSesion;
 	}
 	
