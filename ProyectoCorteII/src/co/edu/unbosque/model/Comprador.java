@@ -17,16 +17,20 @@ public class Comprador extends Persona{
 		this.listacomprasRealizadas = listacomprasRealizadas;
 	}
 
-	public Comprador(String correo, String nombre, String telefono, String id, char sexo, boolean esMiembroVIP,
-			int carroCompras, int listacomprasRealizadas) {
-		super(correo, nombre, telefono, id, sexo);
+	
+
+	public Comprador(String correo, String nombre, String telefono, String id, char sexo, String contrasena,
+			boolean esMiembroVIP, int carroCompras, int listacomprasRealizadas) {
+		super(correo, nombre, telefono, id, sexo, contrasena);
 		EsMiembroVIP = esMiembroVIP;
 		this.carroCompras = carroCompras;
 		this.listacomprasRealizadas = listacomprasRealizadas;
 	}
 
-	public Comprador(String correo, String nombre, String telefono, String id, char sexo) {
-		super(correo, nombre, telefono, id, sexo);
+	
+	
+	public Comprador(String correo, String nombre, String telefono, String id, char sexo, String contrasena) {
+		super(correo, nombre, telefono, id, sexo, contrasena);
 		// TODO Auto-generated constructor stub
 	}
 

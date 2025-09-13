@@ -104,8 +104,7 @@ public class CompradorDAO implements DAO<Comprador> {
 			sb.append(comprador.getListacomprasRealizadas() + ";");
 			sb.append("\n");
 		}
-
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
-
+	
 }

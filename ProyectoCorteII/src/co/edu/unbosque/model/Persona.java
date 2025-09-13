@@ -7,19 +7,25 @@ public abstract class Persona {
 	private String telefono;
 	private String id;
 	private char sexo;
+	private String contrasena;
 	
 	public Persona() {
 		
 	}
 
-	public Persona(String correo, String nombre, String telefono, String id, char sexo) {
+	
+
+	public Persona(String correo, String nombre, String telefono, String id, char sexo, String contrasena) {
 		super();
 		this.correo = correo;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.id = id;
 		this.sexo = sexo;
+		this.contrasena = contrasena;
 	}
+
+
 
 	public String getCorreo() {
 		return correo;

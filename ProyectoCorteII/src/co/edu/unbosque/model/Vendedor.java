@@ -17,16 +17,20 @@ public class Vendedor extends Persona {
 		this.puntuacionDeVenta = puntuacionDeVenta;
 	}
 
-	public Vendedor(String correo, String nombre, String telefono, String id, char sexo, int cantidadObjetosVendidos,
-			int objetosEnVenta, float puntuacionDeVenta) {
-		super(correo, nombre, telefono, id, sexo);
+	
+
+	public Vendedor(String correo, String nombre, String telefono, String id, char sexo, String contrasena,
+			int cantidadObjetosVendidos, int objetosEnVenta, float puntuacionDeVenta) {
+		super(correo, nombre, telefono, id, sexo, contrasena);
 		this.cantidadObjetosVendidos = cantidadObjetosVendidos;
 		this.objetosEnVenta = objetosEnVenta;
 		this.puntuacionDeVenta = puntuacionDeVenta;
 	}
-
-	public Vendedor(String correo, String nombre, String telefono, String id, char sexo) {
-		super(correo, nombre, telefono, id, sexo);
+	
+	
+	
+	public Vendedor(String correo, String nombre, String telefono, String id, char sexo, String contrasena) {
+		super(correo, nombre, telefono, id, sexo, contrasena);
 		// TODO Auto-generated constructor stub
 	}
 

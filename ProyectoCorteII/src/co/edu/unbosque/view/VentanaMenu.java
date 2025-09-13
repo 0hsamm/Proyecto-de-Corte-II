@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 public class VentanaMenu extends JFrame {
 	
 	private JLabel fondoMenu;
-	private JButton salir;
-	private JButton iniciar;
+	private JButton btnSalir;
+	private JButton btnIniciar;
 	
 	public VentanaMenu() {
 		inicializarComponentes();
@@ -39,23 +39,23 @@ public class VentanaMenu extends JFrame {
 		texto.setBounds(260, 80, 1200, 70);
 		fondoMenu.add(texto);
 		
-		iniciar = new JButton("Iniciar");
-		iniciar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
-		iniciar.setBounds(170, 263, 200, 60);
-		iniciar.setBackground(new Color(254, 230, 1));
-		iniciar.setForeground(Color.WHITE);
-		iniciar.setFocusPainted(false);
-		iniciar.setBorderPainted(false);
-		fondoMenu.add(iniciar);
+		btnIniciar = new JButton("Iniciar");
+		btnIniciar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
+		btnIniciar.setBounds(170, 263, 280, 60);
+		btnIniciar.setBackground(new Color(254, 230, 1));
+		btnIniciar.setForeground(Color.WHITE);
+		btnIniciar.setFocusPainted(false);
+		btnIniciar.setBorderPainted(false);
+		fondoMenu.add(btnIniciar);
 		
-		salir = new JButton("Salir");
-		salir.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
-		salir.setBounds(100, 600, 150, 50);
-		salir.setBackground(new Color(254, 230, 1));
-		salir.setForeground(Color.WHITE);
-		salir.setFocusPainted(false);
-		salir.setBorderPainted(false);
-		fondoMenu.add(salir);
+		btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
+		btnSalir.setBounds(100, 600, 150, 50);
+		btnSalir.setBackground(new Color(254, 230, 1));
+		btnSalir.setForeground(Color.WHITE);
+		btnSalir.setFocusPainted(false);
+		btnSalir.setBorderPainted(false);
+		fondoMenu.add(btnSalir);
 	}
 
 	public JLabel getFondoMenu() {
@@ -66,24 +66,22 @@ public class VentanaMenu extends JFrame {
 		this.fondoMenu = fondoMenu;
 	}
 
-	public JButton getSalir() {
-		return salir;
+	public JButton getBtnSalir() {
+		return btnSalir;
 	}
 
-	public void setSalir(JButton salir) {
-		this.salir = salir;
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
 	}
 
-	public JButton getIniciar() {
-		return iniciar;
+	public JButton getBtnIniciar() {
+		return btnIniciar;
 	}
 
-	public void setIniciar(JButton iniciar) {
-		this.iniciar = iniciar;
+	public void setBtnIniciar(JButton btnIniciar) {
+		this.btnIniciar = btnIniciar;
 	}
 
-	
-	
 	
 	
 	
