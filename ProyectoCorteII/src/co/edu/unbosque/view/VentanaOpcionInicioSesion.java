@@ -22,14 +22,14 @@ public class VentanaOpcionInicioSesion extends JFrame{
 	
 	public void inicializarComponentes() {
 		
-		this.setBounds(10, 10, 1280, 720);
+		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("OpcionInicioSesion");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(null);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		
-		ImageIcon fondo = new ImageIcon("src/co/edu/unbosque/view/OpcionInicioSesion.PNG");
+		ImageIcon fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaCV.PNG");
 		Image escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		fondoCV = new JLabel(new ImageIcon(escalar));
 		fondoCV.setBounds(0, 0, 1280, 720);
@@ -46,8 +46,8 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		fondoCV.add(texto2);
 		
 		btnEsComprador = new JButton("Comprador");
-		btnEsComprador.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
-		btnEsComprador.setBounds(95, 420, 400, 40);
+		btnEsComprador.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
+		btnEsComprador.setBounds(95, 420, 400, 60);
 		btnEsComprador.setBackground(new Color(254, 230, 1));
 		btnEsComprador.setForeground(Color.WHITE);
 		btnEsComprador.setFocusPainted(false);
@@ -55,8 +55,8 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		fondoCV.add(btnEsComprador);
 		
 		btnEsVendedor = new JButton("Vendedor");
-		btnEsVendedor.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
-		btnEsVendedor.setBounds(800, 420, 400, 40);
+		btnEsVendedor.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
+		btnEsVendedor.setBounds(790, 420, 400, 60);
 		btnEsVendedor.setBackground(new Color(254, 230, 1));
 		btnEsVendedor.setForeground(Color.WHITE);
 		btnEsVendedor.setFocusPainted(false);

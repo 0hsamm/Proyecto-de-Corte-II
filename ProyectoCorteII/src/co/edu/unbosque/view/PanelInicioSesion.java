@@ -2,74 +2,70 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.TextField;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-public class PanelInicioSesion extends JPanel{
+public class PanelInicioSesion extends JPanel {
 	private JLabel labelUsuario;
-	private TextField textUsuario;
+	private JTextField textUsuario;
 	private JLabel labelContrasena;
-	private TextField textContrasena;
+	private JPasswordField textContrasena;
 	private JButton btnIniciarSesion;
 	private JButton btnRegistro;
-	private JButton btnVolver;
-	
+
 	public PanelInicioSesion() {
 		inicializarComponentes();
 	}
-	
+
 	public void inicializarComponentes() {
+
+		this.setBounds(0, 0, 1280, 720);
 		this.setLayout(null);
-	
-        labelUsuario = new JLabel("Usuario:");
-        labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelUsuario.setBounds(540, 200, 140, 30);
-        this.add(labelUsuario);
+		this.setOpaque(false);
 
-        
-        textUsuario = new TextField();
-        textUsuario.setBounds(540, 240, 200, 30);
-        this.add(textUsuario);
+		labelUsuario = new JLabel("Usuario");
+		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		labelUsuario.setBounds(209, 130, 200, 35);
+		this.add(labelUsuario);
 
-        labelContrasena = new JLabel("Contraseña:");
-        labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelContrasena.setBounds(540, 300, 200, 30);
-        this.add(labelContrasena);
+		textUsuario = new JTextField();
+		textUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
+		textUsuario.setBounds(170, 170, 345, 70);
+		textUsuario.setBorder(null);
+		this.add(textUsuario);
 
-        textContrasena = new TextField();
-        textContrasena.setBounds(540, 340, 200, 30);
-        this.add(textContrasena);
-		
-		btnIniciarSesion = new JButton("Iniciar sesion");
-		btnIniciarSesion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		btnIniciarSesion.setBounds(490, 400, 300, 30);
-		btnIniciarSesion.setBackground(new Color(254, 230, 1));
+		labelContrasena = new JLabel("Contraseña");
+		labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		labelContrasena.setBounds(209, 260, 200, 35);
+		this.add(labelContrasena);
+
+		textContrasena = new JPasswordField();
+		textContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
+		textContrasena.setBounds(170, 305,  345, 70);
+		textContrasena.setBorder(null);
+		this.add(textContrasena);
+
+		btnIniciarSesion = new JButton("Iniciar sesión");
+		btnIniciarSesion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
+		btnIniciarSesion.setBounds(209, 393, 200, 35);
+		btnIniciarSesion.setBackground(new Color(41, 47, 117));
 		btnIniciarSesion.setForeground(Color.WHITE);
 		btnIniciarSesion.setFocusPainted(false);
 		btnIniciarSesion.setBorderPainted(false);
 		this.add(btnIniciarSesion);
-		
-		btnRegistro = new JButton("¿No tienes cuenta? Crea una aqui.");
-		btnRegistro.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		btnRegistro.setBounds(440, 450, 400, 20);
-		btnRegistro.setBackground(Color.white);
-		btnRegistro.setForeground(Color.CYAN);
+
+		btnRegistro = new JButton("¿No tienes cuenta? Crea una aquí.");
+		btnRegistro.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 18));
+		btnRegistro.setBounds(100, 457, 400, 30);
+		btnRegistro.setBackground(new Color(41, 47, 117));
+		btnRegistro.setForeground(Color.WHITE);
 		btnRegistro.setFocusPainted(false);
 		btnRegistro.setBorderPainted(false);
 		this.add(btnRegistro);
-		
-		btnVolver = new JButton("Volver");
-		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
-		btnVolver.setBounds(27, 620, 200, 50);
-		btnVolver.setBackground(new Color(254, 230, 1));
-		btnVolver.setForeground(Color.WHITE);
-		btnVolver.setFocusPainted(false);
-		btnVolver.setBorderPainted(false);
-		this.add(btnVolver);
-		
 
 	}
 
@@ -81,11 +77,11 @@ public class PanelInicioSesion extends JPanel{
 		this.labelUsuario = labelUsuario;
 	}
 
-	public TextField getTextUsuario() {
+	public JTextField getTextUsuario() {
 		return textUsuario;
 	}
 
-	public void setTextUsuario(TextField textUsuario) {
+	public void setTextUsuario(JTextField textUsuario) {
 		this.textUsuario = textUsuario;
 	}
 
@@ -97,11 +93,11 @@ public class PanelInicioSesion extends JPanel{
 		this.labelContrasena = labelContrasena;
 	}
 
-	public TextField getTextContrasena() {
+	public JPasswordField getTextContrasena() {
 		return textContrasena;
 	}
 
-	public void setTextContrasena(TextField textContrasena) {
+	public void setTextContrasena(JPasswordField textContrasena) {
 		this.textContrasena = textContrasena;
 	}
 
@@ -121,13 +117,4 @@ public class PanelInicioSesion extends JPanel{
 		this.btnRegistro = btnRegistro;
 	}
 
-	public JButton getBtnVolver() {
-		return btnVolver;
-	}
-
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-	
-	
 }
