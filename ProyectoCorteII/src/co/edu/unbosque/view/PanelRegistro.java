@@ -2,75 +2,109 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.TextField;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class PanelRegistro extends JPanel{
+public class PanelRegistro extends JPanel {
 	private JLabel labelCorreo;
-	private TextField textCorreo;
-	private JLabel labelUsuario;
-	private TextField textUsuario;
-	private JLabel labelContrasena;
-	private TextField textContrasena;
-	private JButton btnIniciarSesion;
-	private JButton btnVolver;
+	private JTextField textCorreo;
 	
+	private JLabel labelUsuario;
+	private JTextField textUsuario;
+	
+	private JLabel labelTelefono;
+	private JTextField textTelefono;
+	
+	private JLabel labelID;
+	private JTextField textID;
+	
+	private JLabel labelContrasena;
+	private JTextField textContrasena;
+	
+	private JButton btnCrear;
+	
+
+
 	public PanelRegistro() {
 		inicializarComponentes();
 	}
-	
+
 	public void inicializarComponentes() {
+		this.setBounds(0, 0, 1280, 720);
 		this.setLayout(null);
-		
-		
-		
-        labelCorreo = new JLabel("Correo:");
-        labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelCorreo.setBounds(540, 100, 140, 30);
-        this.add(labelCorreo);
+		this.setOpaque(false);
 
-        textCorreo = new TextField();
-        textCorreo.setBounds(540, 140, 200, 30);
-        this.add(textCorreo);
-		
-        labelUsuario = new JLabel("Usuario:");
-        labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelUsuario.setBounds(540, 200, 140, 30);
-        this.add(labelUsuario);
+		labelCorreo = new JLabel("Correo");
+		labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		labelCorreo.setBounds(35, 78, 200, 40);
+		this.add(labelCorreo);
 
-        textUsuario = new TextField();
-        textUsuario.setBounds(540, 240, 200, 30);
-        this.add(textUsuario);
+		textCorreo = new JTextField();
+		textCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		textCorreo.setBounds(196, 78, 260, 40);
+		textCorreo.setBorder(null);
+		this.add(textCorreo);
 
-        labelContrasena = new JLabel("Contraseña:");
-        labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelContrasena.setBounds(540, 300, 200, 30);
-        this.add(labelContrasena);
+		labelUsuario = new JLabel("Usuario");
+		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		labelUsuario.setBounds(35, 149, 200, 40);
+		this.add(labelUsuario);
 
-        textContrasena = new TextField();
-        textContrasena.setBounds(540, 340, 200, 30);
-        this.add(textContrasena);
+		textUsuario = new JTextField();
+		textUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		textUsuario.setBounds(196, 149, 260, 40);
+		textUsuario.setBorder(null);
+		this.add(textUsuario);
 		
-		btnIniciarSesion = new JButton("Crear nuevo usuario");
-		btnIniciarSesion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		btnIniciarSesion.setBounds(465, 400, 350, 30);
-		btnIniciarSesion.setBackground(new Color(254, 230, 1));
-		btnIniciarSesion.setForeground(Color.WHITE);
-		btnIniciarSesion.setFocusPainted(false);
-		btnIniciarSesion.setBorderPainted(false);
-		this.add(btnIniciarSesion);
+		labelTelefono = new JLabel("Telefono");
+		labelTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		labelTelefono.setBounds(35, 220, 200, 40);
+		this.add(labelTelefono);
 		
-		btnVolver = new JButton("Volver a inicio de sesion");
-		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		btnVolver.setBounds(27, 620, 450, 50);
-		btnVolver.setBackground(new Color(254, 230, 1));
-		btnVolver.setForeground(Color.WHITE);
-		btnVolver.setFocusPainted(false);
-		btnVolver.setBorderPainted(false);
-		this.add(btnVolver);
+		textTelefono = new JTextField();
+		textTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		textTelefono.setBounds(196, 220, 260, 40);
+		textTelefono.setBorder(null);
+		this.add(textTelefono);
+		
+		labelID = new JLabel("ID");
+		labelID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		labelID.setBounds(35, 289, 200, 40);
+		this.add(labelID);
+		
+		textID = new JTextField();
+		textID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		textID.setBounds(196, 289, 260, 40);
+		textID.setBorder(null);
+		this.add(textID);
+
+		labelContrasena = new JLabel("Contraseña");
+		labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		labelContrasena.setBounds(35, 357, 200, 40);
+		this.add(labelContrasena);
+
+		textContrasena = new JTextField();
+		textContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		textContrasena.setBounds(196, 357, 260, 40);
+		textContrasena.setBorder(null);
+		this.add(textContrasena);
+
+		btnCrear = new JButton("Crear");
+		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnCrear.setBounds(153, 458, 350, 32);
+		btnCrear.setBackground(new Color(41, 47, 117));
+		btnCrear.setForeground(Color.WHITE);
+		btnCrear.setFocusPainted(false);
+		btnCrear.setBorder(null);
+		this.add(btnCrear);
+
 	}
 
 	public JLabel getLabelCorreo() {
@@ -81,11 +115,11 @@ public class PanelRegistro extends JPanel{
 		this.labelCorreo = labelCorreo;
 	}
 
-	public TextField getTextCorreo() {
+	public JTextField getTextCorreo() {
 		return textCorreo;
 	}
 
-	public void setTextCorreo(TextField textCorreo) {
+	public void setTextCorreo(JTextField textCorreo) {
 		this.textCorreo = textCorreo;
 	}
 
@@ -97,12 +131,44 @@ public class PanelRegistro extends JPanel{
 		this.labelUsuario = labelUsuario;
 	}
 
-	public TextField getTextUsuario() {
+	public JTextField getTextUsuario() {
 		return textUsuario;
 	}
 
-	public void setTextUsuario(TextField textUsuario) {
+	public void setTextUsuario(JTextField textUsuario) {
 		this.textUsuario = textUsuario;
+	}
+
+	public JLabel getLabelTelefono() {
+		return labelTelefono;
+	}
+
+	public void setLabelTelefono(JLabel labelTelefono) {
+		this.labelTelefono = labelTelefono;
+	}
+
+	public JTextField getTextTelefono() {
+		return textTelefono;
+	}
+
+	public void setTextTelefono(JTextField textTelefono) {
+		this.textTelefono = textTelefono;
+	}
+
+	public JLabel getLabelID() {
+		return labelID;
+	}
+
+	public void setLabelID(JLabel labelID) {
+		this.labelID = labelID;
+	}
+
+	public JTextField getTextID() {
+		return textID;
+	}
+
+	public void setTextID(JTextField textID) {
+		this.textID = textID;
 	}
 
 	public JLabel getLabelContrasena() {
@@ -113,28 +179,21 @@ public class PanelRegistro extends JPanel{
 		this.labelContrasena = labelContrasena;
 	}
 
-	public TextField getTextContrasena() {
+	public JTextField getTextContrasena() {
 		return textContrasena;
 	}
 
-	public void setTextContrasena(TextField textContrasena) {
+	public void setTextContrasena(JTextField textContrasena) {
 		this.textContrasena = textContrasena;
 	}
 
-	public JButton getBtnIniciarSesion() {
-		return btnIniciarSesion;
+	public JButton getBtnCrear() {
+		return btnCrear;
 	}
 
-	public void setBtnIniciarSesion(JButton btnIniciarSesion) {
-		this.btnIniciarSesion = btnIniciarSesion;
+	public void setBtnCrear(JButton btnCrear) {
+		this.btnCrear = btnCrear;
 	}
 
-	public JButton getBtnVolver() {
-		return btnVolver;
-	}
 
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-	
 }

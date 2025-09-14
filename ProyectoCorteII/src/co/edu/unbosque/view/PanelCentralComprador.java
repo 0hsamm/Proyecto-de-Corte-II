@@ -5,25 +5,22 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-public class PanelCentralComprador extends JPanel{
+public class PanelCentralComprador extends JPanel {
 	private PanelInicioSesion pInicioSesion;
-	private PanelRegistro pRegistro;
 	private CardLayout cardLayout;
-	
+
 	public PanelCentralComprador() {
 		inicializarComponentes();
 		mostrarPanel("panelInicioSesion");
 	}
-	
+
 	public void inicializarComponentes() {
 		cardLayout = new CardLayout();
 		this.setLayout(cardLayout);
-		
+
 		pInicioSesion = new PanelInicioSesion();
-		pRegistro = new PanelRegistro();
-		
+
 		this.add(pInicioSesion, "panelInicioSesion");
-		this.add(pRegistro, "panelRegistro");
 	}
 
 	public PanelInicioSesion getpInicioSesion() {
@@ -34,14 +31,6 @@ public class PanelCentralComprador extends JPanel{
 		this.pInicioSesion = pInicioSesion;
 	}
 
-	public PanelRegistro getpRegistro() {
-		return pRegistro;
-	}
-
-	public void setpRegistro(PanelRegistro pRegistro) {
-		this.pRegistro = pRegistro;
-	}
-
 	public CardLayout getCardLayout() {
 		return cardLayout;
 	}
@@ -49,7 +38,7 @@ public class PanelCentralComprador extends JPanel{
 	public void setCardLayout(CardLayout cardLayout) {
 		this.cardLayout = cardLayout;
 	}
-	
+
 	public void mostrarPanel(String nombrePanel) {
 		cardLayout.show(this, nombrePanel);
 	}
