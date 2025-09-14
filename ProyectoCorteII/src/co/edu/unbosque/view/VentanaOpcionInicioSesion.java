@@ -12,9 +12,9 @@ import javax.swing.JLabel;
 public class VentanaOpcionInicioSesion extends JFrame{
 	
 	private JLabel fondoCV;
-	private JButton esComprador;
-	private JButton esVendedor;
-	private JButton volver;
+	private JButton btnEsComprador;
+	private JButton btnEsVendedor;
+	private JButton btnVolver;
 	
 	public VentanaOpcionInicioSesion() {
 		inicializarComponentes();
@@ -45,32 +45,32 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		texto2.setBounds(320, 250, 1200, 70);
 		fondoCV.add(texto2);
 		
-		esComprador = new JButton("Comprador");
-		esComprador.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
-		esComprador.setBounds(95, 420, 400, 40);
-		esComprador.setBackground(new Color(254, 230, 1));
-		esComprador.setForeground(Color.WHITE);
-		esComprador.setFocusPainted(false);
-		esComprador.setBorderPainted(false);
-		fondoCV.add(esComprador);
+		btnEsComprador = new JButton("Comprador");
+		btnEsComprador.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
+		btnEsComprador.setBounds(95, 420, 400, 40);
+		btnEsComprador.setBackground(new Color(254, 230, 1));
+		btnEsComprador.setForeground(Color.WHITE);
+		btnEsComprador.setFocusPainted(false);
+		btnEsComprador.setBorderPainted(false);
+		fondoCV.add(btnEsComprador);
 		
-		esVendedor = new JButton("Vendedor");
-		esVendedor.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
-		esVendedor.setBounds(800, 420, 400, 40);
-		esVendedor.setBackground(new Color(254, 230, 1));
-		esVendedor.setForeground(Color.WHITE);
-		esVendedor.setFocusPainted(false);
-		esVendedor.setBorderPainted(false);
-		fondoCV.add(esVendedor);
+		btnEsVendedor = new JButton("Vendedor");
+		btnEsVendedor.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
+		btnEsVendedor.setBounds(800, 420, 400, 40);
+		btnEsVendedor.setBackground(new Color(254, 230, 1));
+		btnEsVendedor.setForeground(Color.WHITE);
+		btnEsVendedor.setFocusPainted(false);
+		btnEsVendedor.setBorderPainted(false);
+		fondoCV.add(btnEsVendedor);
 		
-		volver = new JButton("Volver");
-		volver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
-		volver.setBounds(27, 620, 200, 50);
-		volver.setBackground(new Color(254, 230, 1));
-		volver.setForeground(Color.WHITE);
-		volver.setFocusPainted(false);
-		volver.setBorderPainted(false);
-		fondoCV.add(volver);
+		btnVolver = new JButton("Volver");
+		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
+		btnVolver.setBounds(27, 620, 200, 50);
+		btnVolver.setBackground(new Color(254, 230, 1));
+		btnVolver.setForeground(Color.WHITE);
+		btnVolver.setFocusPainted(false);
+		btnVolver.setBorderPainted(false);
+		fondoCV.add(btnVolver);
 		
 		
 	}
@@ -83,29 +83,31 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		this.fondoCV = fondoCV;
 	}
 
-	public JButton getEsComprador() {
-		return esComprador;
+	public JButton getBtnEsComprador() {
+		return btnEsComprador;
 	}
 
-	public void setEsComprador(JButton esComprador) {
-		this.esComprador = esComprador;
+	public void setBtnEsComprador(JButton btnEsComprador) {
+		this.btnEsComprador = btnEsComprador;
 	}
 
-	public JButton getEsVendedor() {
-		return esVendedor;
+	public JButton getBtnEsVendedor() {
+		return btnEsVendedor;
 	}
 
-	public void setEsVendedor(JButton esVendedor) {
-		this.esVendedor = esVendedor;
+	public void setBtnEsVendedor(JButton btnEsVendedor) {
+		this.btnEsVendedor = btnEsVendedor;
 	}
 
-	public JButton getVolver() {
-		return volver;
+	public JButton getBtnVolver() {
+		return btnVolver;
 	}
 
-	public void setVolver(JButton volver) {
-		this.volver = volver;
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
 	}
+
+
 	
 	
 }
