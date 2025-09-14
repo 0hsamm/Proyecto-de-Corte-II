@@ -8,16 +8,19 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 
 	private ArrayList<PrendaDeVestir> listaPrendaDeVestir;
 	private final String FILE_NAME = "PrendaDeVestir.csv";
+	private final String SERIAL_FILE_NAME = "PrendaDeVestir.bin";
 
 	public PrendaDeVestirDAO() {
 		listaPrendaDeVestir = new ArrayList<PrendaDeVestir>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(PrendaDeVestir newData) {
 		listaPrendaDeVestir.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 
 	}
 
@@ -28,6 +31,7 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 		} else {
 			listaPrendaDeVestir.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +43,7 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 		} else {
 			listaPrendaDeVestir.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -99,4 +104,18 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaPrendaDeVestir = (ArrayList<PrendaDeVestir>) contenido;
+		}
+		else {
+			listaPrendaDeVestir = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaPrendaDeVestir);
+	}
+	
 }

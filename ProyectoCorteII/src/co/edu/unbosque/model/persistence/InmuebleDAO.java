@@ -9,6 +9,7 @@ public class InmuebleDAO implements DAO<Inmueble> {
 
 	private ArrayList<Inmueble> listaInmueble;
 	private final String FILE_NAME = "Inmueble.csv";
+	private final String SERIAL_FILE_NAME = "Inmueble.bin";
 
 	public InmuebleDAO() {
 		listaInmueble = new ArrayList<Inmueble>();
@@ -100,4 +101,18 @@ public class InmuebleDAO implements DAO<Inmueble> {
 
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaInmueble = (ArrayList<Inmueble>) contenido;
+		}
+		else {
+			listaInmueble = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaInmueble);
+	}
+	
 }

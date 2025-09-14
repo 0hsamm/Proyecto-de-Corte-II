@@ -8,6 +8,7 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 
 	private ArrayList<Tecnologia> listaTecnologia;
 	private final String FILE_NAME = "Tecnologia.csv";
+	private final String SERIAL_FILE_NAME = "Tecnologia.bin";
 
 	public TecnologiaDAO() {
 		listaTecnologia = new ArrayList<Tecnologia>();
@@ -97,4 +98,18 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaTecnologia = (ArrayList<Tecnologia>) contenido;
+		}
+		else {
+			listaTecnologia = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaTecnologia);
+	}
+	
 }

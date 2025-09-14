@@ -8,16 +8,19 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 
 	private ArrayList<EquipoDeportivo> listaEquipoDeportivo;
 	private final String FILE_NAME = "EquipoDeportivo.csv";
+	private final String SERIAL_FILE_NAME = " EquipoDeportivo.bin";
 
 	public EquipoDeportivoDAO() {
 		listaEquipoDeportivo = new ArrayList<EquipoDeportivo>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(EquipoDeportivo newData) {
 		listaEquipoDeportivo.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 
 	}
 
@@ -28,6 +31,7 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		} else {
 			listaEquipoDeportivo.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +43,7 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		} else {
 			listaEquipoDeportivo.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -96,4 +101,18 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaEquipoDeportivo = (ArrayList<EquipoDeportivo>) contenido;
+		}
+		else {
+			listaEquipoDeportivo = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaEquipoDeportivo);
+	}
+	
 }

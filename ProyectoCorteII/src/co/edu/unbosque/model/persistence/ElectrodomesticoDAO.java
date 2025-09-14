@@ -8,17 +8,19 @@ public class ElectrodomesticoDAO implements DAO<Electrodomestico> {
 
 	private ArrayList<Electrodomestico> listaElectrodomestico;
 	private final String FILE_NAME = "Electrodomesticos.csv";
+	private final String SERIAL_FILE_NAME = "Electrodomesticos.bin";
 
 	public ElectrodomesticoDAO() {
 
 		listaElectrodomestico = new ArrayList<Electrodomestico>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(Electrodomestico newData) {
 		listaElectrodomestico.add(newData);
-		escribirEnArchivoDeTexto();
+		escribirEnArchivoDeTexto();escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class ElectrodomesticoDAO implements DAO<Electrodomestico> {
 		} else {
 			listaElectrodomestico.remove(index);
 			escribirEnArchivoDeTexto();
+			cargarDesdeArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +42,7 @@ public class ElectrodomesticoDAO implements DAO<Electrodomestico> {
 		} else {
 			listaElectrodomestico.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -97,4 +101,18 @@ public class ElectrodomesticoDAO implements DAO<Electrodomestico> {
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
 
+
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaElectrodomestico = (ArrayList<Electrodomestico>) contenido;
+		}
+		else {
+			listaElectrodomestico = new ArrayList<>();
+		}
+	}
+
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaElectrodomestico);
+	}
 }

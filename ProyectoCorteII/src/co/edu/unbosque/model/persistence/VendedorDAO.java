@@ -8,15 +8,19 @@ public class VendedorDAO implements DAO<Vendedor> {
 	
 	private ArrayList<Vendedor> listaVendedores;
 	private final String FILE_NAME = "Vendedor.csv";
+	private final String SERIAL_FILE_NAME = "Vendedor.bin";
 	
 	public VendedorDAO() {
 		listaVendedores = new ArrayList<Vendedor>();
-		
+		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(Vendedor newData) {
 		listaVendedores.add(newData);
+		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 		
 	}
 
@@ -26,6 +30,8 @@ public class VendedorDAO implements DAO<Vendedor> {
 			return false;
 		} else {
 			listaVendedores.remove(index);
+			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -36,6 +42,8 @@ public class VendedorDAO implements DAO<Vendedor> {
 			return false;
 		} else {
 			listaVendedores.set(index, newData);
+			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -98,6 +106,18 @@ public class VendedorDAO implements DAO<Vendedor> {
 		
 	}
 	
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaVendedores = (ArrayList<Vendedor>) contenido;
+		}
+		else {
+			listaVendedores = new ArrayList<>();
+		}
+	}
 	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaVendedores);
+	}
 
 }

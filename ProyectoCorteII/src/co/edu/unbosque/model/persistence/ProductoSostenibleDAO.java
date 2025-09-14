@@ -8,16 +8,19 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 
 	private ArrayList<ProductoSostenible> listaProductoSostenible;
 	private final String FILE_NAME = "ProductoSostenible.csv";
+	private final String SERIAL_FILE_NAME = "ProductoSostenible.bin";
 
 	public ProductoSostenibleDAO() {
 		listaProductoSostenible = new ArrayList<ProductoSostenible>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(ProductoSostenible newData) {
 		listaProductoSostenible.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -27,6 +30,7 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		} else {
 			listaProductoSostenible.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -38,6 +42,7 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		} else {
 			listaProductoSostenible.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -98,4 +103,18 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaProductoSostenible = (ArrayList<ProductoSostenible>) contenido;
+		}
+		else {
+			listaProductoSostenible = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoSostenible);
+	}
+	
 }

@@ -8,7 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import co.edu.unbosque.util.exception.InvalidEmailException;
+import co.edu.unbosque.util.exception.LanzadorDeExcepcion;
+
 public class PanelRegistro extends JPanel{
+
+	private JLabel lblValidarEmail;
 	private JLabel labelCorreo;
 	private TextField textCorreo;
 	private JLabel labelUsuario;
@@ -18,9 +23,15 @@ public class PanelRegistro extends JPanel{
 	private JButton btnIniciarSesion;
 	private JButton btnVolver;
 	
+	
+	
 	public PanelRegistro() {
 		inicializarComponentes();
+		inicializarEventos();
+		
 	}
+	
+	
 	
 	public void inicializarComponentes() {
 		this.setLayout(null);
@@ -35,6 +46,12 @@ public class PanelRegistro extends JPanel{
         textCorreo = new TextField();
         textCorreo.setBounds(540, 140, 200, 30);
         this.add(textCorreo);
+        
+        lblValidarEmail = new JLabel("");
+        lblValidarEmail.setForeground(Color.red);
+        lblValidarEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+        lblValidarEmail.setBounds(540, 170, 400, 30);
+        this.add(lblValidarEmail);
 		
         labelUsuario = new JLabel("Usuario:");
         labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
@@ -71,6 +88,26 @@ public class PanelRegistro extends JPanel{
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		this.add(btnVolver);
+	}
+	
+	public void inicializarEventos() {
+		 lblValidarEmail.setText("");
+		btnIniciarSesion.addActionListener(e -> {
+		    String correo = textCorreo.getText().trim();
+
+		    if (correo.isEmpty()) {
+		        lblValidarEmail.setText("");
+		        return;
+		    }
+
+		    try {
+		        LanzadorDeExcepcion.verificarEmail(correo);
+		        
+		    } catch (InvalidEmailException e1) {
+		        lblValidarEmail.setText(e1.getMessage());
+		    }
+		});
+
 	}
 
 	public JLabel getLabelCorreo() {

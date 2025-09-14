@@ -8,10 +8,13 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 
 	private ArrayList<AccesorioVehiculo> listaAccesorioVehiculo;
 	private final String FILE_NAME = "AccesorioVehiculo.csv";
+	private final String SERIAL_FILE_NAME = "AccesorioVehiculo.bin";
 
 	public AccesorioVehiculoDAO() {
 		listaAccesorioVehiculo = new ArrayList<AccesorioVehiculo>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
+		
 
 	}
 
@@ -19,6 +22,7 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 	public void create(AccesorioVehiculo newData) {
 		listaAccesorioVehiculo.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +32,7 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		} else {
 			listaAccesorioVehiculo.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +44,7 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		} else {
 			listaAccesorioVehiculo.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -96,4 +102,20 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaAccesorioVehiculo = (ArrayList<AccesorioVehiculo>) contenido;
+		}
+		else {
+			listaAccesorioVehiculo = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaAccesorioVehiculo);
+	}
+
+	
+	
 }

@@ -8,6 +8,7 @@ public class JugueteDAO implements DAO<Juguete> {
 
 	private ArrayList<Juguete> listaJuguete;
 	private final String FILE_NAME = "Juguete.csv";
+	private final String SERIAL_FILE_NAME = "Juguete.bin";
 
 	public JugueteDAO() {
 		listaJuguete = new ArrayList<Juguete>();
@@ -100,4 +101,18 @@ public class JugueteDAO implements DAO<Juguete> {
 
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaJuguete = (ArrayList<Juguete>) contenido;
+		}
+		else {
+			listaJuguete = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaJuguete);
+	}
+	
 }

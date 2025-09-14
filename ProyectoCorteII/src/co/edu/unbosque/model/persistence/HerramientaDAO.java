@@ -8,17 +8,20 @@ public class HerramientaDAO implements DAO<Herramienta> {
 
 	private ArrayList<Herramienta> listaHerramienta;
 	private final String FILE_NAME = "Herramienta.csv";
+	private final String SERIAL_FILE_NAME = "Herramienta.bin";
 
 	public HerramientaDAO() {
 
 		listaHerramienta = new ArrayList<Herramienta>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(Herramienta newData) {
 		listaHerramienta.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +31,7 @@ public class HerramientaDAO implements DAO<Herramienta> {
 		} else {
 			listaHerramienta.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +43,7 @@ public class HerramientaDAO implements DAO<Herramienta> {
 		} else {
 			listaHerramienta.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -97,4 +102,18 @@ public class HerramientaDAO implements DAO<Herramienta> {
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaHerramienta = (ArrayList<Herramienta>) contenido;
+		}
+		else {
+			listaHerramienta = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaHerramienta);
+	}
+	
 }

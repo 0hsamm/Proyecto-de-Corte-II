@@ -8,10 +8,13 @@ public class CompradorDAO implements DAO<Comprador> {
 
 	private ArrayList<Comprador> listaCompradores;
 	private final String FILE_NAME = "Comprador.csv";
+	private final String SERIAL_FILE_NAME = "Comprador.bin";
 
 	public CompradorDAO() {
 		listaCompradores = new ArrayList<Comprador>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
+		
 
 	}
 
@@ -19,6 +22,7 @@ public class CompradorDAO implements DAO<Comprador> {
 	public void create(Comprador newData) {
 		listaCompradores.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 
 	}
 
@@ -29,6 +33,7 @@ public class CompradorDAO implements DAO<Comprador> {
 		} else {
 			listaCompradores.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -40,6 +45,7 @@ public class CompradorDAO implements DAO<Comprador> {
 		} else {
 			listaCompradores.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -106,5 +112,17 @@ public class CompradorDAO implements DAO<Comprador> {
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaCompradores = (ArrayList<Comprador>) contenido;
+		}
+		else {
+			listaCompradores = new ArrayList<>();
+		}
+	}
 	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaCompradores);
+	}
 }

@@ -8,17 +8,20 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 
 	private ArrayList<ProductoFarmaceutico> listaProductoFarmaceutico;
 	private final String FILE_NAME = "ProductoFarmaceutico.csv";
+	private final String SERIAL_FILE_NAME = "ProductoFarmaceutico.bin";
 
 	public ProductoFarmaceuticoDAO() {
 
 		listaProductoFarmaceutico = new ArrayList<ProductoFarmaceutico>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void create(ProductoFarmaceutico newData) {
 		listaProductoFarmaceutico.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +31,7 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		} else {
 			listaProductoFarmaceutico.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +43,7 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		} else {
 			listaProductoFarmaceutico.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -97,4 +102,18 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
 
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaProductoFarmaceutico = (ArrayList<ProductoFarmaceutico>) contenido;
+		}
+		else {
+			listaProductoFarmaceutico = new ArrayList<>();
+		}
+	}
+	
+	public void escribirEnArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoFarmaceutico);
+	}
+	
 }
