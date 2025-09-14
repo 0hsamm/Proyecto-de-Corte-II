@@ -22,29 +22,29 @@ public class PanelRegistro extends JPanel{
 
 	private JLabel labelCorreo;
 	private JTextField textCorreo;
-	
+
 
 	private JLabel labelUsuario;
 	private JTextField textUsuario;
-	
+
 	private JLabel labelTelefono;
 	private JTextField textTelefono;
-	
+
 	private JLabel labelID;
 	private JTextField textID;
-	
+
 	private JLabel labelContrasena;
 	private JTextField textContrasena;
-	
+
 	private JButton btnCrear;
-	
+
 
 
 
 	public PanelRegistro() {
 		inicializarComponentes();
 		inicializarEventos();
-		
+
 	}
 
 	public void inicializarComponentes() {
@@ -53,20 +53,14 @@ public class PanelRegistro extends JPanel{
 		this.setOpaque(false);
 
 
-        textCorreo = new TextField();
-        textCorreo.setBounds(540, 140, 200, 30);
-        this.add(textCorreo);
-        
-        lblValidarEmail = new JLabel("");
-        lblValidarEmail.setForeground(Color.red);
-        lblValidarEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-        lblValidarEmail.setBounds(540, 170, 400, 30);
-        this.add(lblValidarEmail);
-		
-        labelUsuario = new JLabel("Usuario:");
-        labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-        labelUsuario.setBounds(540, 200, 140, 30);
-        this.add(labelUsuario);
+
+
+
+
+		labelUsuario = new JLabel("Usuario:");
+		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		labelUsuario.setBounds(540, 200, 140, 30);
+		this.add(labelUsuario);
 
 		labelCorreo = new JLabel("Correo");
 		labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -80,6 +74,12 @@ public class PanelRegistro extends JPanel{
 		textCorreo.setBorder(null);
 		this.add(textCorreo);
 
+		lblValidarEmail = new JLabel("");
+		lblValidarEmail.setForeground(Color.red);
+		lblValidarEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarEmail.setBounds(196, 123, 260, 25);
+		this.add(lblValidarEmail);
+
 		labelUsuario = new JLabel("Usuario");
 		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelUsuario.setBounds(35, 149, 200, 40);
@@ -90,23 +90,23 @@ public class PanelRegistro extends JPanel{
 		textUsuario.setBounds(196, 149, 260, 40);
 		textUsuario.setBorder(null);
 		this.add(textUsuario);
-		
+
 		labelTelefono = new JLabel("Telefono");
 		labelTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTelefono.setBounds(35, 220, 200, 40);
 		this.add(labelTelefono);
-		
+
 		textTelefono = new JTextField();
 		textTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		textTelefono.setBounds(196, 220, 260, 40);
 		textTelefono.setBorder(null);
 		this.add(textTelefono);
-		
+
 		labelID = new JLabel("ID");
 		labelID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelID.setBounds(35, 289, 200, 40);
 		this.add(labelID);
-		
+
 		textID = new JTextField();
 		textID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		textID.setBounds(196, 289, 260, 40);
@@ -134,23 +134,23 @@ public class PanelRegistro extends JPanel{
 		this.add(btnCrear);
 
 	}
-	
+
 	public void inicializarEventos() {
-		 lblValidarEmail.setText("");
-		btnIniciarSesion.addActionListener(e -> {
-		    String correo = textCorreo.getText().trim();
+		lblValidarEmail.setText("");
+		btnCrear.addActionListener(e -> {
+			String correo = textCorreo.getText().trim();
 
-		    if (correo.isEmpty()) {
-		        lblValidarEmail.setText("");
-		        return;
-		    }
+			if (correo.isEmpty()) {
+				lblValidarEmail.setText("");
+				return;
+			}
 
-		    try {
-		        LanzadorDeExcepcion.verificarEmail(correo);
-		        
-		    } catch (InvalidEmailException e1) {
-		        lblValidarEmail.setText(e1.getMessage());
-		    }
+			try {
+				LanzadorDeExcepcion.verificarEmail(correo);
+
+			} catch (InvalidEmailException e1) {
+				lblValidarEmail.setText(e1.getMessage());
+			}
 		});
 
 	}
