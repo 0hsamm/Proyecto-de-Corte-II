@@ -13,7 +13,7 @@ public class Controller implements ActionListener {
 	}
 
 	public void runGUI() {
-		vf.getVenMenu().setVisible(true);
+		vf.getVenCRUD().setVisible(true);
 		asignarListeners();
 
 	}
@@ -44,8 +44,8 @@ public class Controller implements ActionListener {
 		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnIniciarSesion().addActionListener(this);
 		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnIniciarSesion().setActionCommand("INICIAR_SESION_VENDEDOR");
 		
-		vf.getVenCRUD().getPanelCRUD().getBtnVolver().addActionListener(this);
-		vf.getVenCRUD().getPanelCRUD().getBtnVolver().setActionCommand("VOLVER_MENU_CRUD");
+		vf.getVenCRUD().getBtnVolver().addActionListener(this);
+		vf.getVenCRUD().getBtnVolver().setActionCommand("VOLVER_MENU_CRUD");
 
 		vf.getVenInicioVendedor().getBtnVolver().addActionListener(this);
 		vf.getVenInicioVendedor().getBtnVolver().setActionCommand("VOLVER_ISVENDEDOR");
@@ -67,7 +67,21 @@ public class Controller implements ActionListener {
 
 		vf.getVenRegistroVendedor().getBtnMenu().addActionListener(this);
 		vf.getVenRegistroVendedor().getBtnMenu().setActionCommand("VOLVER_MENU_REGISTRO_VENDEDOR");
-
+		
+		vf.getVenCRUD().getBtnCrear().addActionListener(this);
+		vf.getVenCRUD().getBtnCrear().setActionCommand("BOTON_CREAR");
+		
+		vf.getVenCRUD().getBtnMostrar().addActionListener(this);
+		vf.getVenCRUD().getBtnMostrar().setActionCommand("BOTON_MOSTRAR");
+		
+		vf.getVenCRUD().getBtnActualizar().addActionListener(this);
+		vf.getVenCRUD().getBtnActualizar().setActionCommand("BOTON_ACTUALIZAR");
+		
+		vf.getVenCRUD().getBtnEliminar().addActionListener(this);
+		vf.getVenCRUD().getBtnEliminar().setActionCommand("BOTON_ELIMINAR");
+		
+		vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias().addActionListener(this);
+		vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias().setActionCommand("COMBOBOX_CREAR");
 	}
 
 	@Override
@@ -143,6 +157,70 @@ public class Controller implements ActionListener {
 		case "VOLVER_MENU_REGISTRO_VENDEDOR": {
 			vf.getVenRegistroVendedor().setVisible(false);
 			vf.getVenMenu().setVisible(true);
+			break;
+		}
+		case "BOTON_CREAR": {
+			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelCrear");
+			break;
+		}
+		case "BOTON_MOSTRAR": {
+			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelMostrar");
+			break;
+		}
+		case "BOTON_ACTUALIZAR": {
+			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelActualizar");
+			break;
+		}
+		case "BOTON_ELIMINAR": {
+			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelEliminar");
+			break;
+		}
+		case "COMBOBOX_CREAR":{
+			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias().getSelectedItem();
+			if (seleccionado.equals("-Seleccione-")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+			}
+			else if (seleccionado.equals("Accesorio para vehiculo")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarAccesorioCarro();
+			}
+			else if (seleccionado.equals("Electrodomestico")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarElectrodomestico();
+			}
+			else if (seleccionado.equals("Equipo deportivo")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarEquipoDeporte();
+			}
+			else if (seleccionado.equals("Herramientas")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarHerramienta();
+			}
+			else if (seleccionado.equals("Inmuebles")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarInmueble();
+			}
+			else if (seleccionado.equals("Juguetes")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarJuguete();
+			}
+			else if (seleccionado.equals("Prenda de vestir")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarPrendaVestir();
+			}
+			else if (seleccionado.equals("Producto farmaceutico")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarFarmaceutico();
+			}
+			else if (seleccionado.equals("Producto sostenible")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarSostenible();
+			}
+			else if (seleccionado.equals("Tecnologia")) {
+				vf.getVenCRUD().getPanelCRUD().getpCrear().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpCrear().mostrarTecnologia();
+			}
+			break;
 		}
 		}
 

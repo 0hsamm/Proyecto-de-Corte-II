@@ -1,5 +1,13 @@
 package co.edu.unbosque.view;
 
-public class PanelMostrar {
+import java.awt.Color;
 
+import javax.swing.JPanel;
+
+public class PanelMostrar extends JPanel{
+	
+	public PanelMostrar() {
+		this.setBackground(Color.ORANGE);
+	}
+	
 }

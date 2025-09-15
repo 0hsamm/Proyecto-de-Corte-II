@@ -12,7 +12,12 @@ import javax.swing.JLabel;
 public class VentanaCRUD extends JFrame{
 	private JLabel fondoCRUD;
 	private PanelCRUD panelCRUD;
-	
+	private JButton btnVolver;
+
+	private JButton btnCrear;
+	private JButton btnMostrar;
+	private JButton btnActualizar;
+	private JButton btnEliminar;
 	
 	public VentanaCRUD() {
 		inicializarComponentes();
@@ -38,11 +43,59 @@ public class VentanaCRUD extends JFrame{
 		fondoCRUD.add(texto0);
 		
 		panelCRUD = new PanelCRUD();
-		panelCRUD.setBounds(0, 200, 755, 993);
+		panelCRUD.setBounds(450, 200, 800, 500);
 		panelCRUD.setOpaque(false);
 		fondoCRUD.add(panelCRUD);
+		
+		btnCrear = new JButton("Crear artículo");
+		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnCrear.setBounds(80, 235, 300, 50);
+		btnCrear.setBackground(new Color(254, 230, 1));
+		btnCrear.setForeground(Color.WHITE);
+		btnCrear.setFocusPainted(false);
+		btnCrear.setBorderPainted(false);
+		this.add(btnCrear);
 
+		btnMostrar = new JButton("Mostrar artículos");
+		btnMostrar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnMostrar.setBounds(80, 335, 300, 50);
+		btnMostrar.setBackground(new Color(254, 230, 1));
+		btnMostrar.setForeground(Color.WHITE);
+		btnMostrar.setFocusPainted(false);
+		btnMostrar.setBorderPainted(false);
+		this.add(btnMostrar);
 
+		btnActualizar = new JButton("Actualizar artículo");
+		btnActualizar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnActualizar.setBounds(80, 440, 300, 50);
+		btnActualizar.setBackground(new Color(254, 230, 1));
+		btnActualizar.setForeground(Color.WHITE);
+		btnActualizar.setFocusPainted(false);
+		btnActualizar.setBorderPainted(false);
+		this.add(btnActualizar);
+
+		btnEliminar = new JButton("Eliminar artículo");
+		btnEliminar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnEliminar.setBounds(80, 542, 300, 50);
+		btnEliminar.setBackground(new Color(254, 230, 1));
+		btnEliminar.setForeground(Color.WHITE);
+		btnEliminar.setFocusPainted(false);
+		btnEliminar.setBorderPainted(false);
+		this.add(btnEliminar);
+
+		btnVolver = new JButton("Menu");
+		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnVolver.setBounds(18, 643, 200, 50);
+		btnVolver.setBackground(new Color(254, 230, 1));
+		btnVolver.setForeground(Color.WHITE);
+		btnVolver.setFocusPainted(false);
+		btnVolver.setBorderPainted(false);
+		this.add(btnVolver);
+		
+		
+		
+		
+		
 	}
 
 	public JLabel getFondoCRUD() {
@@ -59,6 +112,46 @@ public class VentanaCRUD extends JFrame{
 
 	public void setPanelCRUD(PanelCRUD panelCRUD) {
 		this.panelCRUD = panelCRUD;
+	}
+
+	public JButton getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+
+	public JButton getBtnCrear() {
+		return btnCrear;
+	}
+
+	public void setBtnCrear(JButton btnCrear) {
+		this.btnCrear = btnCrear;
+	}
+
+	public JButton getBtnMostrar() {
+		return btnMostrar;
+	}
+
+	public void setBtnMostrar(JButton btnMostrar) {
+		this.btnMostrar = btnMostrar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JButton getBtnEliminar() {
+		return btnEliminar;
+	}
+
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
 	}
 	
 	

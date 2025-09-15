@@ -1,5 +1,11 @@
 package co.edu.unbosque.view;
 
-public class PanelActualizar {
+import java.awt.Color;
 
+import javax.swing.JPanel;
+
+public class PanelActualizar extends JPanel{
+	public PanelActualizar() {
+		this.setBackground(Color.CYAN);
+	}
 }
