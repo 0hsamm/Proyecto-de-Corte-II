@@ -13,7 +13,7 @@ public class Controller implements ActionListener {
 	}
 
 	public void runGUI() {
-		vf.getVenCRUD().setVisible(true);
+		vf.getVenMenu().setVisible(true);
 		asignarListeners();
 
 	}
@@ -112,9 +112,10 @@ public class Controller implements ActionListener {
 			break;
 			
 		}case "INICIAR_SESION_VENDEDOR": {
-			vf.getVenInicioSesion().setVisible(false);
+			vf.getVenInicioVendedor().setVisible(false);
 			vf.getVenCRUD().setVisible(true);
 			break;
+			
 		}case "VOLVER_MENU_CRUD": {
 			vf.getVenMenu().setVisible(true);
 			vf.getVenCRUD().setVisible(false);
@@ -143,6 +144,7 @@ public class Controller implements ActionListener {
 		case "VOLVER_MENU_REGISTRO_COMPRADOR": {
 			vf.getVenRegistroComprador().setVisible(false);
 			vf.getVenMenu().setVisible(true);
+			break;
 		}
 		case "REGISTRO_VENDEDOR": {
 			vf.getVenInicioVendedor().setVisible(false);

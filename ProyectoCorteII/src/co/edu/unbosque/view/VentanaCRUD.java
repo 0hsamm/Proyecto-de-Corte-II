@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class VentanaCRUD extends JFrame{
+public class VentanaCRUD extends JFrame {
 	private JLabel fondoCRUD;
 	private PanelCRUD panelCRUD;
 	private JButton btnVolver;
@@ -18,11 +18,11 @@ public class VentanaCRUD extends JFrame{
 	private JButton btnMostrar;
 	private JButton btnActualizar;
 	private JButton btnEliminar;
-	
+
 	public VentanaCRUD() {
 		inicializarComponentes();
 	}
-	
+
 	public void inicializarComponentes() {
 		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("Funciones Artículos");
@@ -36,17 +36,17 @@ public class VentanaCRUD extends JFrame{
 		fondoCRUD.setBounds(0, 0, 1280, 720);
 		this.setContentPane(fondoCRUD);
 		fondoCRUD.setLayout(null);
-		
+
 		JLabel texto0 = new JLabel("Funciones del vendedor");
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoCRUD.add(texto0);
-		
+
 		panelCRUD = new PanelCRUD();
 		panelCRUD.setBounds(450, 200, 800, 500);
 		panelCRUD.setOpaque(false);
 		fondoCRUD.add(panelCRUD);
-		
+
 		btnCrear = new JButton("Crear artículo");
 		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCrear.setBounds(80, 235, 300, 50);
@@ -91,11 +91,6 @@ public class VentanaCRUD extends JFrame{
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		this.add(btnVolver);
-		
-		
-		
-		
-		
 	}
 
 	public JLabel getFondoCRUD() {
@@ -153,7 +148,5 @@ public class VentanaCRUD extends JFrame{
 	public void setBtnEliminar(JButton btnEliminar) {
 		this.btnEliminar = btnEliminar;
 	}
-	
-	
 
 }
