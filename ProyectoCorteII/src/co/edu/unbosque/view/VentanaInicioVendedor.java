@@ -38,10 +38,10 @@ public class VentanaInicioVendedor extends JFrame {
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoVendedor.add(texto0);
 		
-		JLabel texto = new JLabel("Inicia sesión");
-		texto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
-		texto.setBounds(40, 270, 1200, 70);
-		fondoVendedor.add(texto);
+		JLabel texto1 = new JLabel("Inicia sesión");
+		texto1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
+		texto1.setBounds(40, 270, 1200, 70);
+		fondoVendedor.add(texto1);
 		
 		JLabel texto2 = new JLabel("Aquí!");
 		texto2.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));

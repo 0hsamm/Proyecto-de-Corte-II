@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +19,8 @@ public class PanelActualizar extends JPanel{
 	private JLabel labelPrecio;
 	private TextField textPrecio;
 	private JLabel labelCategoria;
+	
+	private JButton btnActualizar;
 	
 	//Accesorio para vehiculo
 	private JLabel labelMaterialAccesorio;
@@ -79,20 +82,22 @@ public class PanelActualizar extends JPanel{
 	private JLabel labelConectividad;
 	private TextField textConectividad;
 	
+	
+	
 	public PanelActualizar() {
 		inicializarComponentes();
 		ocultarOpcionesEspecificas();
 	}
 	
 	public void inicializarComponentes() {
-		this.setLayout(null);
+this.setLayout(null);
 		
-		JLabel texto0 = new JLabel("Actualizar artículo");
+		JLabel texto0 = new JLabel("Actualizar");
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		texto0.setBounds(30, 5, 340, 25);
 		this.add(texto0);
 		
-		labelNombre = new JLabel("Ingrese el nombre del producto a actualizar:");
+		labelNombre = new JLabel("Ingrese el nombre del producto:");
 		labelNombre.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelNombre.setBounds(30, 35, 425, 25);
 		this.add(labelNombre);
@@ -329,6 +334,14 @@ public class PanelActualizar extends JPanel{
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
 		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnActualizar.setBounds(230, 350, 300, 50);
+		btnActualizar.setBackground(new Color(254, 230, 1));
+		btnActualizar.setForeground(Color.WHITE);
+		btnActualizar.setFocusPainted(false);
+		btnActualizar.setBorderPainted(false);
+		this.add(btnActualizar);
 		
 	}
 	
@@ -532,5 +545,10 @@ public class PanelActualizar extends JPanel{
 	public void setTextCompatibilidad(TextField textCompatibilidad) {
 		this.textCompatibilidad = textCompatibilidad;
 	}
+	
+	
+	
+	
+	
 	
 }

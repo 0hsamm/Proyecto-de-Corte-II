@@ -83,7 +83,7 @@ public class VentanaCRUD extends JFrame {
 		btnEliminar.setBorderPainted(false);
 		this.add(btnEliminar);
 
-		btnVolver = new JButton("Menu");
+		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnVolver.setBounds(18, 643, 200, 50);
 		btnVolver.setBackground(new Color(254, 230, 1));

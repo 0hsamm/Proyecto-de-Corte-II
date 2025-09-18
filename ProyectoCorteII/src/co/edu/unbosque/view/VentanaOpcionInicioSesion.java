@@ -35,15 +35,15 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		fondoCV.setBounds(0, 0, 1280, 720);
 		this.add(fondoCV);
 		
-		JLabel texto = new JLabel("Inicio de sesión");
-		texto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 70));
-		texto.setBounds(260, 80, 1200, 70);
-		fondoCV.add(texto);
+		JLabel texto0 = new JLabel("Inicio de sesión");
+		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 70));
+		texto0.setBounds(260, 80, 1200, 70);
+		fondoCV.add(texto0);
 		
-		JLabel texto2 = new JLabel("Es usted comprador o vendedor?");
-		texto2.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
-		texto2.setBounds(320, 250, 1200, 70);
-		fondoCV.add(texto2);
+		JLabel texto1 = new JLabel("Es usted comprador o vendedor?");
+		texto1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
+		texto1.setBounds(320, 250, 1200, 70);
+		fondoCV.add(texto1);
 		
 		btnEsComprador = new JButton("Comprador");
 		btnEsComprador.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));

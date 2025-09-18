@@ -12,17 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
 import co.edu.unbosque.util.exception.InvalidEmailException;
 import co.edu.unbosque.util.exception.LanzadorDeExcepcion;
 
-public class PanelRegistro extends JPanel{
+public class PanelRegistro extends JPanel {
 
 	private JLabel lblValidarEmail;
 
 	private JLabel labelCorreo;
 	private JTextField textCorreo;
-
 
 	private JLabel labelUsuario;
 	private JTextField textUsuario;
@@ -38,9 +36,6 @@ public class PanelRegistro extends JPanel{
 
 	private JButton btnCrear;
 
-
-
-
 	public PanelRegistro() {
 		inicializarComponentes();
 		inicializarEventos();
@@ -52,21 +47,10 @@ public class PanelRegistro extends JPanel{
 		this.setLayout(null);
 		this.setOpaque(false);
 
-
-
-
-
-
-		labelUsuario = new JLabel("Usuario:");
-		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		labelUsuario.setBounds(540, 200, 140, 30);
-		this.add(labelUsuario);
-
 		labelCorreo = new JLabel("Correo");
 		labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCorreo.setBounds(35, 78, 200, 40);
 		this.add(labelCorreo);
-
 
 		textCorreo = new JTextField();
 		textCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -242,6 +226,5 @@ public class PanelRegistro extends JPanel{
 	public void setBtnCrear(JButton btnCrear) {
 		this.btnCrear = btnCrear;
 	}
-
 
 }

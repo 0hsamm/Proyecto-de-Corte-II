@@ -1,8 +1,10 @@
 package co.edu.unbosque.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +18,8 @@ public class PanelCrear extends JPanel{
 	private JLabel labelPrecio;
 	private TextField textPrecio;
 	private JLabel labelCategoria;
+	
+	private JButton btnCrear;
 	
 	//Accesorio para vehiculo
 	private JLabel labelMaterialAccesorio;
@@ -76,6 +80,8 @@ public class PanelCrear extends JPanel{
 	private TextField textSO;
 	private JLabel labelConectividad;
 	private TextField textConectividad;
+	
+	
 	
 	public PanelCrear() {
 		inicializarComponentes();
@@ -327,6 +333,14 @@ this.setLayout(null);
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
 		
+		btnCrear = new JButton("Crear");
+		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		btnCrear.setBounds(230, 350, 300, 50);
+		btnCrear.setBackground(new Color(254, 230, 1));
+		btnCrear.setForeground(Color.WHITE);
+		btnCrear.setFocusPainted(false);
+		btnCrear.setBorderPainted(false);
+		this.add(btnCrear);
 		
 	}
 	
