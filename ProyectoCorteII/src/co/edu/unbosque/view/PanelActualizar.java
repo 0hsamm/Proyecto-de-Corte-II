@@ -81,7 +81,7 @@ public class PanelActualizar extends JPanel{
 	private TextField textSO;
 	private JLabel labelConectividad;
 	private TextField textConectividad;
-	
+	private JLabel texto0;
 	
 	
 	public PanelActualizar() {
@@ -92,7 +92,7 @@ public class PanelActualizar extends JPanel{
 	public void inicializarComponentes() {
 this.setLayout(null);
 		
-		JLabel texto0 = new JLabel("Actualizar");
+		texto0 = new JLabel("Actualizar");
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		texto0.setBounds(30, 5, 340, 25);
 		this.add(texto0);

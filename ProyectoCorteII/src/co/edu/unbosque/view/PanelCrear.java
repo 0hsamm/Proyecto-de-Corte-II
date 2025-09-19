@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelCrear extends JPanel{
+	private Properties prop;
 	private JComboBox<String> listaCategorias;
 	private JLabel labelNombre;
 	private TextField textNombre;
@@ -81,7 +83,7 @@ public class PanelCrear extends JPanel{
 	private JLabel labelConectividad;
 	private TextField textConectividad;
 	
-	
+	private JLabel labelCrear;
 	
 	public PanelCrear() {
 		inicializarComponentes();
@@ -91,10 +93,11 @@ public class PanelCrear extends JPanel{
 	public void inicializarComponentes() {
 this.setLayout(null);
 		
-		JLabel texto0 = new JLabel("Crear");
-		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		texto0.setBounds(30, 5, 340, 25);
-		this.add(texto0);
+		labelCrear = new JLabel("Crear");
+		//texto0.setText(prop.getProperty("mercadolibre.panelcrear.texto0"));
+		labelCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		labelCrear.setBounds(30, 5, 340, 25);
+		this.add(labelCrear);
 		
 		labelNombre = new JLabel("Ingrese el nombre del producto:");
 		labelNombre.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));

@@ -14,6 +14,7 @@ public class InmuebleDAO implements DAO<Inmueble> {
 	public InmuebleDAO() {
 		listaInmueble = new ArrayList<Inmueble>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		escribirEnArchivoSerializado();
 
 	}
 
@@ -21,6 +22,7 @@ public class InmuebleDAO implements DAO<Inmueble> {
 	public void create(Inmueble newData) {
 		listaInmueble.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -30,6 +32,7 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		} else {
 			listaInmueble.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -41,6 +44,7 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		} else {
 			listaInmueble.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}

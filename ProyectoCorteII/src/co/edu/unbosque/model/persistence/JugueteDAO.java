@@ -13,12 +13,14 @@ public class JugueteDAO implements DAO<Juguete> {
 	public JugueteDAO() {
 		listaJuguete = new ArrayList<Juguete>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
 	public void create(Juguete newData) {
 		listaJuguete.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class JugueteDAO implements DAO<Juguete> {
 		} else {
 			listaJuguete.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +42,7 @@ public class JugueteDAO implements DAO<Juguete> {
 		} else {
 			listaJuguete.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}

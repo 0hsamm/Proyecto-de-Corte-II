@@ -13,12 +13,14 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 	public TecnologiaDAO() {
 		listaTecnologia = new ArrayList<Tecnologia>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
 	public void create(Tecnologia newData) {
 		listaTecnologia.add(newData);
 		escribirEnArchivoDeTexto();
+		escribirEnArchivoSerializado();
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		} else {
 			listaTecnologia.remove(index);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -39,6 +42,7 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		} else {
 			listaTecnologia.set(index, newData);
 			escribirEnArchivoDeTexto();
+			escribirEnArchivoSerializado();
 			return true;
 		}
 	}
