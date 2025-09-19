@@ -125,4 +125,29 @@ public class CompradorDAO implements DAO<Comprador> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaCompradores);
 	}
+
+	public ArrayList<Comprador> getListaCompradores() {
+		return listaCompradores;
+	}
+
+	public void setListaCompradores(ArrayList<Comprador> listaCompradores) {
+		this.listaCompradores = listaCompradores;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 }

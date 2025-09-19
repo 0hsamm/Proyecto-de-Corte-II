@@ -115,4 +115,29 @@ public class ElectrodomesticoDAO implements DAO<Electrodomestico> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaElectrodomestico);
 	}
+
+	public ArrayList<Electrodomestico> getListaElectrodomestico() {
+		return listaElectrodomestico;
+	}
+
+	public void setListaElectrodomestico(ArrayList<Electrodomestico> listaElectrodomestico) {
+		this.listaElectrodomestico = listaElectrodomestico;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 }

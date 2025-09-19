@@ -116,5 +116,30 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoSostenible);
 	}
+
+	public ArrayList<ProductoSostenible> getListaProductoSostenible() {
+		return listaProductoSostenible;
+	}
+
+	public void setListaProductoSostenible(ArrayList<ProductoSostenible> listaProductoSostenible) {
+		this.listaProductoSostenible = listaProductoSostenible;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 	
 }

@@ -115,5 +115,30 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoFarmaceutico);
 	}
+
+	public ArrayList<ProductoFarmaceutico> getListaProductoFarmaceutico() {
+		return listaProductoFarmaceutico;
+	}
+
+	public void setListaProductoFarmaceutico(ArrayList<ProductoFarmaceutico> listaProductoFarmaceutico) {
+		this.listaProductoFarmaceutico = listaProductoFarmaceutico;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 	
 }

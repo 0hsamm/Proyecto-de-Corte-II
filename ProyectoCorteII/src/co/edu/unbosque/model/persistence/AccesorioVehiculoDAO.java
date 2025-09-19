@@ -116,6 +116,31 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaAccesorioVehiculo);
 	}
 
+	public ArrayList<AccesorioVehiculo> getListaAccesorioVehiculo() {
+		return listaAccesorioVehiculo;
+	}
+
+	public void setListaAccesorioVehiculo(ArrayList<AccesorioVehiculo> listaAccesorioVehiculo) {
+		this.listaAccesorioVehiculo = listaAccesorioVehiculo;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
+
 	
 	
 }

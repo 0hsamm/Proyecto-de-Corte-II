@@ -115,5 +115,30 @@ public class HerramientaDAO implements DAO<Herramienta> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaHerramienta);
 	}
+
+	public ArrayList<Herramienta> getListaHerramienta() {
+		return listaHerramienta;
+	}
+
+	public void setListaHerramienta(ArrayList<Herramienta> listaHerramienta) {
+		this.listaHerramienta = listaHerramienta;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 	
 }

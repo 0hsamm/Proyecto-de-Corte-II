@@ -118,5 +118,30 @@ public class InmuebleDAO implements DAO<Inmueble> {
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaInmueble);
 	}
+
+	public ArrayList<Inmueble> getListaInmueble() {
+		return listaInmueble;
+	}
+
+	public void setListaInmueble(ArrayList<Inmueble> listaInmueble) {
+		this.listaInmueble = listaInmueble;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFILE_NAME() {
+		return FILE_NAME;
+	}
+
+	public String getSERIAL_FILE_NAME() {
+		return SERIAL_FILE_NAME;
+	}
+	
 	
 }
