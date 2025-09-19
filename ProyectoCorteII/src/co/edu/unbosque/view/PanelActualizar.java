@@ -19,6 +19,8 @@ public class PanelActualizar extends JPanel{
 	private JLabel labelPrecio;
 	private TextField textPrecio;
 	private JLabel labelCategoria;
+	private JLabel indice;
+	private TextField indiceText;
 	
 	private JButton btnActualizar;
 	
@@ -334,6 +336,15 @@ this.setLayout(null);
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
 		
+		indice = new JLabel("Ingrese el indice");
+		indice.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+		indice.setBounds(30, 280, 200, 25);;
+		this.add(indice);
+		
+		indiceText = new TextField();
+		indiceText.setBounds(450, 280, 200, 25);
+		this.add(indiceText);
+		
 		btnActualizar = new JButton("Actualizar");
 		btnActualizar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnActualizar.setBounds(230, 350, 300, 50);
@@ -386,6 +397,8 @@ this.setLayout(null);
 		textSO.setVisible(false);
 		labelConectividad.setVisible(false);
 		textConectividad.setVisible(false);
+		indice.setVisible(false);
+		indiceText.setVisible(false);
 		}
 	
 	public void mostrarAccesorioCarro() {
@@ -393,6 +406,8 @@ this.setLayout(null);
 		textMaterialAccesorio.setVisible(true);
 		labelCompatibilidad.setVisible(true);
 		textCompatibilidad.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarElectrodomestico() {
@@ -400,6 +415,8 @@ this.setLayout(null);
 		textConsumo.setVisible(true);
 		labelCapacidad.setVisible(true);
 		textCapacidad.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarEquipoDeporte() {
@@ -407,6 +424,8 @@ this.setLayout(null);
 		textDeporte.setVisible(true);
 		labelMaterialDeporte.setVisible(true);
 		textMaterialDeporte.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarHerramienta() {
@@ -414,6 +433,8 @@ this.setLayout(null);
 		textAlimentacion.setVisible(true);
 		labelMaterialHerramienta.setVisible(true);
 		textMaterialHerramienta.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarInmueble() {
@@ -421,6 +442,8 @@ this.setLayout(null);
 		textArea.setVisible(true);
 		labelCantidadCuarto.setVisible(true);
 		textCantidadCuarto.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarJuguete() {
@@ -428,6 +451,8 @@ this.setLayout(null);
 		textEdad.setVisible(true);
 		labelMaterialJuguete.setVisible(true);
 		textMaterialJuguete.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarPrendaVestir() {
@@ -435,6 +460,8 @@ this.setLayout(null);
 		textTalla.setVisible(true);
 		labelTipoTela.setVisible(true);
 		textTipoTela.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarFarmaceutico() {
@@ -442,6 +469,8 @@ this.setLayout(null);
 		textFormaFarmaceutica.setVisible(true);
 		labelConcentracion.setVisible(true);
 		textConcentracion.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarSostenible() {
@@ -449,6 +478,8 @@ this.setLayout(null);
 		textMaterialEcologico.setVisible(true);
 		labelCertificacion.setVisible(true);
 		textCertificacion.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
 	public void mostrarTecnologia() {
@@ -456,8 +487,354 @@ this.setLayout(null);
 		textSO.setVisible(true);
 		labelConectividad.setVisible(true);
 		textConectividad.setVisible(true);
+		indice.setVisible(true);
+		indiceText.setVisible(true);
 	}
 	
+	public JLabel getLabelCategoria() {
+		return labelCategoria;
+	}
+
+	public void setLabelCategoria(JLabel labelCategoria) {
+		this.labelCategoria = labelCategoria;
+	}
+
+	public JLabel getIndice() {
+		return indice;
+	}
+
+	public void setIndice(JLabel indice) {
+		this.indice = indice;
+	}
+
+	public TextField getIndiceText() {
+		return indiceText;
+	}
+
+	public void setIndiceText(TextField indiceText) {
+		this.indiceText = indiceText;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JLabel getLabelMaterialAccesorio() {
+		return labelMaterialAccesorio;
+	}
+
+	public void setLabelMaterialAccesorio(JLabel labelMaterialAccesorio) {
+		this.labelMaterialAccesorio = labelMaterialAccesorio;
+	}
+
+	public TextField getTextMaterialAccesorio() {
+		return textMaterialAccesorio;
+	}
+
+	public void setTextMaterialAccesorio(TextField textMaterialAccesorio) {
+		this.textMaterialAccesorio = textMaterialAccesorio;
+	}
+
+	public JLabel getLabelConsumo() {
+		return labelConsumo;
+	}
+
+	public void setLabelConsumo(JLabel labelConsumo) {
+		this.labelConsumo = labelConsumo;
+	}
+
+	public TextField getTextConsumo() {
+		return textConsumo;
+	}
+
+	public void setTextConsumo(TextField textConsumo) {
+		this.textConsumo = textConsumo;
+	}
+
+	public JLabel getLabelCapacidad() {
+		return labelCapacidad;
+	}
+
+	public void setLabelCapacidad(JLabel labelCapacidad) {
+		this.labelCapacidad = labelCapacidad;
+	}
+
+	public TextField getTextCapacidad() {
+		return textCapacidad;
+	}
+
+	public void setTextCapacidad(TextField textCapacidad) {
+		this.textCapacidad = textCapacidad;
+	}
+
+	public JLabel getLabelDeporte() {
+		return labelDeporte;
+	}
+
+	public void setLabelDeporte(JLabel labelDeporte) {
+		this.labelDeporte = labelDeporte;
+	}
+
+	public TextField getTextDeporte() {
+		return textDeporte;
+	}
+
+	public void setTextDeporte(TextField textDeporte) {
+		this.textDeporte = textDeporte;
+	}
+
+	public JLabel getLabelMaterialDeporte() {
+		return labelMaterialDeporte;
+	}
+
+	public void setLabelMaterialDeporte(JLabel labelMaterialDeporte) {
+		this.labelMaterialDeporte = labelMaterialDeporte;
+	}
+
+	public TextField getTextMaterialDeporte() {
+		return textMaterialDeporte;
+	}
+
+	public void setTextMaterialDeporte(TextField textMaterialDeporte) {
+		this.textMaterialDeporte = textMaterialDeporte;
+	}
+
+	public JLabel getLabelAlimentacion() {
+		return labelAlimentacion;
+	}
+
+	public void setLabelAlimentacion(JLabel labelAlimentacion) {
+		this.labelAlimentacion = labelAlimentacion;
+	}
+
+	public TextField getTextAlimentacion() {
+		return textAlimentacion;
+	}
+
+	public void setTextAlimentacion(TextField textAlimentacion) {
+		this.textAlimentacion = textAlimentacion;
+	}
+
+	public JLabel getLabelMaterialHerramienta() {
+		return labelMaterialHerramienta;
+	}
+
+	public void setLabelMaterialHerramienta(JLabel labelMaterialHerramienta) {
+		this.labelMaterialHerramienta = labelMaterialHerramienta;
+	}
+
+	public TextField getTextMaterialHerramienta() {
+		return textMaterialHerramienta;
+	}
+
+	public void setTextMaterialHerramienta(TextField textMaterialHerramienta) {
+		this.textMaterialHerramienta = textMaterialHerramienta;
+	}
+
+	public JLabel getLabelArea() {
+		return labelArea;
+	}
+
+	public void setLabelArea(JLabel labelArea) {
+		this.labelArea = labelArea;
+	}
+
+	public TextField getTextArea() {
+		return textArea;
+	}
+
+	public void setTextArea(TextField textArea) {
+		this.textArea = textArea;
+	}
+
+	public JLabel getLabelCantidadCuarto() {
+		return labelCantidadCuarto;
+	}
+
+	public void setLabelCantidadCuarto(JLabel labelCantidadCuarto) {
+		this.labelCantidadCuarto = labelCantidadCuarto;
+	}
+
+	public TextField getTextCantidadCuarto() {
+		return textCantidadCuarto;
+	}
+
+	public void setTextCantidadCuarto(TextField textCantidadCuarto) {
+		this.textCantidadCuarto = textCantidadCuarto;
+	}
+
+	public JLabel getLabelEdad() {
+		return labelEdad;
+	}
+
+	public void setLabelEdad(JLabel labelEdad) {
+		this.labelEdad = labelEdad;
+	}
+
+	public TextField getTextEdad() {
+		return textEdad;
+	}
+
+	public void setTextEdad(TextField textEdad) {
+		this.textEdad = textEdad;
+	}
+
+	public JLabel getLabelMaterialJuguete() {
+		return labelMaterialJuguete;
+	}
+
+	public void setLabelMaterialJuguete(JLabel labelMaterialJuguete) {
+		this.labelMaterialJuguete = labelMaterialJuguete;
+	}
+
+	public TextField getTextMaterialJuguete() {
+		return textMaterialJuguete;
+	}
+
+	public void setTextMaterialJuguete(TextField textMaterialJuguete) {
+		this.textMaterialJuguete = textMaterialJuguete;
+	}
+
+	public JLabel getLabelTalla() {
+		return labelTalla;
+	}
+
+	public void setLabelTalla(JLabel labelTalla) {
+		this.labelTalla = labelTalla;
+	}
+
+	public TextField getTextTalla() {
+		return textTalla;
+	}
+
+	public void setTextTalla(TextField textTalla) {
+		this.textTalla = textTalla;
+	}
+
+	public JLabel getLabelTipoTela() {
+		return labelTipoTela;
+	}
+
+	public void setLabelTipoTela(JLabel labelTipoTela) {
+		this.labelTipoTela = labelTipoTela;
+	}
+
+	public TextField getTextTipoTela() {
+		return textTipoTela;
+	}
+
+	public void setTextTipoTela(TextField textTipoTela) {
+		this.textTipoTela = textTipoTela;
+	}
+
+	public JLabel getLabelFormaFarmaceutica() {
+		return labelFormaFarmaceutica;
+	}
+
+	public void setLabelFormaFarmaceutica(JLabel labelFormaFarmaceutica) {
+		this.labelFormaFarmaceutica = labelFormaFarmaceutica;
+	}
+
+	public TextField getTextFormaFarmaceutica() {
+		return textFormaFarmaceutica;
+	}
+
+	public void setTextFormaFarmaceutica(TextField textFormaFarmaceutica) {
+		this.textFormaFarmaceutica = textFormaFarmaceutica;
+	}
+
+	public JLabel getLabelConcentracion() {
+		return labelConcentracion;
+	}
+
+	public void setLabelConcentracion(JLabel labelConcentracion) {
+		this.labelConcentracion = labelConcentracion;
+	}
+
+	public TextField getTextConcentracion() {
+		return textConcentracion;
+	}
+
+	public void setTextConcentracion(TextField textConcentracion) {
+		this.textConcentracion = textConcentracion;
+	}
+
+	public JLabel getLabelMaterialEcologico() {
+		return labelMaterialEcologico;
+	}
+
+	public void setLabelMaterialEcologico(JLabel labelMaterialEcologico) {
+		this.labelMaterialEcologico = labelMaterialEcologico;
+	}
+
+	public TextField getTextMaterialEcologico() {
+		return textMaterialEcologico;
+	}
+
+	public void setTextMaterialEcologico(TextField textMaterialEcologico) {
+		this.textMaterialEcologico = textMaterialEcologico;
+	}
+
+	public JLabel getLabelCertificacion() {
+		return labelCertificacion;
+	}
+
+	public void setLabelCertificacion(JLabel labelCertificacion) {
+		this.labelCertificacion = labelCertificacion;
+	}
+
+	public TextField getTextCertificacion() {
+		return textCertificacion;
+	}
+
+	public void setTextCertificacion(TextField textCertificacion) {
+		this.textCertificacion = textCertificacion;
+	}
+
+	public JLabel getLabelSO() {
+		return labelSO;
+	}
+
+	public void setLabelSO(JLabel labelSO) {
+		this.labelSO = labelSO;
+	}
+
+	public TextField getTextSO() {
+		return textSO;
+	}
+
+	public void setTextSO(TextField textSO) {
+		this.textSO = textSO;
+	}
+
+	public JLabel getLabelConectividad() {
+		return labelConectividad;
+	}
+
+	public void setLabelConectividad(JLabel labelConectividad) {
+		this.labelConectividad = labelConectividad;
+	}
+
+	public TextField getTextConectividad() {
+		return textConectividad;
+	}
+
+	public void setTextConectividad(TextField textConectividad) {
+		this.textConectividad = textConectividad;
+	}
+
+	public JLabel getTexto0() {
+		return texto0;
+	}
+
+	public void setTexto0(JLabel texto0) {
+		this.texto0 = texto0;
+	}
+
 	public JComboBox<String> getListaCategorias() {
 		return listaCategorias;
 	}

@@ -3,6 +3,8 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import co.edu.unbosque.model.AccesorioVehiculo;
 import co.edu.unbosque.model.Electrodomestico;
 import co.edu.unbosque.model.EquipoDeportivo;
@@ -98,11 +100,17 @@ public class Controller implements ActionListener {
 		vf.getVenCRUD().getBtnActualizar().addActionListener(this);
 		vf.getVenCRUD().getBtnActualizar().setActionCommand("BOTON_ACTUALIZAR");
 
+		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().addActionListener(this);
+		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().setActionCommand("ACTUALIZAR_ARTICULO");
+
 		vf.getVenCRUD().getBtnEliminar().addActionListener(this);
 		vf.getVenCRUD().getBtnEliminar().setActionCommand("BOTON_ELIMINAR");
 
 		vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias().setActionCommand("COMBOBOX_CREAR");
+
+		vf.getVenCRUD().getPanelCRUD().getpActualizar().getListaCategorias().addActionListener(this);
+		vf.getVenCRUD().getPanelCRUD().getpActualizar().getListaCategorias().setActionCommand("COMBOBOX_ACTUALIZAR");
 	}
 
 	@Override
@@ -202,6 +210,7 @@ public class Controller implements ActionListener {
 			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelEliminar");
 			break;
 		}
+
 		case "COMBOBOX_CREAR": {
 			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias()
 					.getSelectedItem();
@@ -241,7 +250,47 @@ public class Controller implements ActionListener {
 			break;
 		}
 
-		case "CREAR_ARTICULO": {
+		case "COMBOBOX_ACTUALIZAR": {
+
+			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpActualizar().getListaCategorias()
+					.getSelectedItem();
+			if (seleccionado.equals("-Seleccione-")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+			} else if (seleccionado.equals("Accesorio para vehiculo")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarAccesorioCarro();
+			} else if (seleccionado.equals("Electrodomestico")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarElectrodomestico();
+			} else if (seleccionado.equals("Equipo deportivo")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarEquipoDeporte();
+			} else if (seleccionado.equals("Herramientas")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarHerramienta();
+			} else if (seleccionado.equals("Inmuebles")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarInmueble();
+			} else if (seleccionado.equals("Juguetes")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarJuguete();
+			} else if (seleccionado.equals("Prenda de vestir")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarPrendaVestir();
+			} else if (seleccionado.equals("Producto farmaceutico")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarFarmaceutico();
+			} else if (seleccionado.equals("Producto sostenible")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarSostenible();
+			} else if (seleccionado.equals("Tecnologia")) {
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().ocultarOpcionesEspecificas();
+				vf.getVenCRUD().getPanelCRUD().getpActualizar().mostrarTecnologia();
+			}
+			break;
+		}
+
+		case "CREAR_ARTICULO": { // funcion creacion articulo
 			String artSeleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias()
 					.getSelectedItem();
 
@@ -319,7 +368,8 @@ public class Controller implements ActionListener {
 				String formaFarmaceutico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextFormaFarmaceutica()
 						.getText();
 				String concentracion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConcentracion().getText();
-				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, cantidad, precio, formaFarmaceutico, concentracion);
+				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, cantidad, precio,
+						formaFarmaceutico, concentracion);
 				mf.getProductoFarmaceuticoDAO().create(productoFarmaceutico);
 
 			} else if (artSeleccionado.equals("Producto sostenible")) {
@@ -329,7 +379,8 @@ public class Controller implements ActionListener {
 				String materialEcologico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialEcologico()
 						.getText();
 				String certificacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCertificacion().getText();
-				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, cantidad, precio, materialEcologico, certificacion);
+				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, cantidad, precio,
+						materialEcologico, certificacion);
 				mf.getProductoSostenibleDAO().create(productoSostenible);
 
 			} else if (artSeleccionado.equals("Tecnologia")) {
@@ -343,6 +394,133 @@ public class Controller implements ActionListener {
 
 			}
 		}
+			break;
+
+		case "ACTUALIZAR_ARTICULO": {
+			String artSeleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias()
+					.getSelectedItem();
+
+			if (artSeleccionado.equals("Accesorio para vehiculo")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialAccesorio().getText();
+				String compatibilidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCompatibilidad().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				AccesorioVehiculo accesorioVehiculo = new AccesorioVehiculo(nombre, cantidad, precio, material,
+						compatibilidad);
+				mf.getAccesorioVehiculoDAO().update(indice,accesorioVehiculo);
+
+			} else if (artSeleccionado.equals("Electrodomestico")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String consumoEnergia = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConsumo().getText();
+				String capacidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCapacidad().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				Electrodomestico electrodomestico = new Electrodomestico(nombre, cantidad, precio, consumoEnergia,
+						capacidad);
+				mf.getElectrodomesticoDAO().update(indice,electrodomestico);
+				;
+
+			} else if (artSeleccionado.equals("Equipo deportivo")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String deporte = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextDeporte().getText();
+				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialDeporte().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				EquipoDeportivo equipoDeportivo = new EquipoDeportivo(nombre, cantidad, precio, deporte, material);
+				mf.getEquipoDeportivoDAO().update(indice,equipoDeportivo);
+
+			} else if (artSeleccionado.equals("Herramientas")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String tipoAlimentacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextAlimentacion().getText();
+				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialHerramienta().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				Herramienta herramienta = new Herramienta(nombre, cantidad, precio, tipoAlimentacion, material);
+				mf.getHerramientaDAO().update(indice,herramienta);
+
+			} else if (artSeleccionado.equals("Inmuebles")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String area = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextArea().getText();
+				String cantidadCuarto = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidadCuarto().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				Inmueble inmueble = new Inmueble(nombre, cantidad, precio, area, cantidadCuarto);
+				mf.getInmbuenleDAO().update(indice,inmueble);
+
+			} else if (artSeleccionado.equals("Juguetes")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String edadRecomendada = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextEdad().getText();
+				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialJuguete().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				Juguete juguete = new Juguete(nombre, cantidad, precio, edadRecomendada, material);
+				mf.getJugueteDAO().update(indice,juguete);
+
+			} else if (artSeleccionado.equals("Prenda de vestir")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String talla = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTalla().getText();
+				String tipoTela = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTipoTela().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				PrendaDeVestir prendaDeVestir = new PrendaDeVestir(nombre, cantidad, precio, talla, tipoTela);
+				mf.getPrendaDAO().update(indice,prendaDeVestir);
+
+			} else if (artSeleccionado.equals("Producto farmaceutico")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String formaFarmaceutico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextFormaFarmaceutica()
+						.getText();
+				String concentracion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConcentracion().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, cantidad, precio,
+						formaFarmaceutico, concentracion);
+				mf.getProductoFarmaceuticoDAO().update(indice,productoFarmaceutico);
+
+			} else if (artSeleccionado.equals("Producto sostenible")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String materialEcologico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialEcologico()
+						.getText();
+				String certificacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCertificacion().getText();
+				
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, cantidad, precio,
+						materialEcologico, certificacion);
+				mf.getProductoSostenibleDAO().update(indice, productoSostenible);
+
+			} else if (artSeleccionado.equals("Tecnologia")) {
+				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
+				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
+				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
+				String sistemaOperativo = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextSO().getText();
+				String conectividad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConectividad().getText();		
+								
+				int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+				Tecnologia tecnologia = new Tecnologia(nombre, cantidad, precio, sistemaOperativo, conectividad);
+				mf.getTecnologoiaDAO().update(indice, tecnologia);
+				
+				
+			}
+		}
+
 		}
 
 	}
