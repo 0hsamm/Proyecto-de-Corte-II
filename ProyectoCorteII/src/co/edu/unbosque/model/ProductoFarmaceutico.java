@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class ProductoFarmaceutico extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5158760585695289489L;
 	private String formaFarmaceutica;
 	private String concentracion;
 

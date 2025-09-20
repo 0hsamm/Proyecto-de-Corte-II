@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Electrodomestico extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4741432362815178050L;
 	private String consumoEnergia;
 	private String capacidad;
 

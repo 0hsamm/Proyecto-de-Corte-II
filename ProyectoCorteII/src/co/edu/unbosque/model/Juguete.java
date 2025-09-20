@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Juguete extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2248867723242722229L;
 	private String edadRecomendada;
 	private String material;
 

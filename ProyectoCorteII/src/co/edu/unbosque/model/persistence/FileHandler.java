@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -14,19 +15,25 @@ public class FileHandler {
 	public static Scanner sc;
 	public static File archivo;
 
-	//syso para archivos
+	// syso para archivos
 	public static PrintWriter escritor;
 
-	//scanner para lectura de archivos
+	// scanner para lectura de archivos
 	public static Scanner lector;
 
-	//serializado
-	//leer el archivo o lo crea
+	// serializado
+	// leer el archivo o lo crea
 	public static FileInputStream fis;
 	public static ObjectInputStream ois;
-	//escritura de archivo
+	
+	// escritura de archivo
 	public static FileOutputStream fos;
 	public static ObjectOutputStream oos;
+	
+	//archivo de propiedades
+	public static Properties prop;
+	
+
 	public static void escribirEnArchivoDeTexto(String url, String contenido) {
 		try {
 			archivo = new File(url);
@@ -65,11 +72,12 @@ public class FileHandler {
 		}
 		return null;
 	}
+
 	public static void escribirEnArchivoSerializado(String url, Object contenido) {
 		try {
 			archivo = new File(url);
 			if (!archivo.exists()) {
-			archivo.createNewFile();
+				archivo.createNewFile();
 			}
 			fos = new FileOutputStream(archivo);
 			oos = new ObjectOutputStream(fos);
@@ -80,29 +88,62 @@ public class FileHandler {
 			System.out.println("Error al leer el archivo serializado");
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public static Object leerDesdeArchivoSerializado(String url) {
-		try {
 		archivo = new File(url);
-		if (!archivo.exists()) {
-			archivo.createNewFile();
-		}
-		fis = new FileInputStream(archivo);
-		ois = new ObjectInputStream(fis);
-		Object contenido =  ois.readObject();
-		ois.close();
-		fis.close();
-		return contenido;
+		
+		try {
+
+			if (!archivo.exists()) {
+				archivo.createNewFile();
+			}
+			
+			fis = new FileInputStream(archivo);
+			ois = new ObjectInputStream(fis);
+			
+			Object contenido = ois.readObject();
+			
+			ois.close();
+			fis.close();
+			
+			return contenido;
+			
 		} catch (IOException e) {
 			System.out.println("Error al leer el archivo serializado");
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			System.out.println("Error al deserializar los datos");
+			System.out.println("Error al desserializar los datos del archivo");
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public static Properties cargarArchivoDePropiedades(String url) {
+
+		archivo = new File(url);
+
+		try {
+			archivo = new File(url);
+
+			if (!archivo.exists()) {
+				archivo.createNewFile();
+			}
+			prop = new Properties();
+			
+			prop.load(new FileInputStream(archivo));
+			return prop;
+
+		} catch (IOException e) {
+			System.out.println("Error al cargar el archivo de propiedades");
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		return null;
+
 	}
 
 }

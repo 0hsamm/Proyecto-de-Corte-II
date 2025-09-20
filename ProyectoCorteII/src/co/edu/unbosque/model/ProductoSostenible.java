@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class ProductoSostenible extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7674771899829339560L;
 	private String materialEcologico;
 	private String certificacion;
 

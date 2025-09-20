@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Herramienta extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8699761417900242837L;
 	private String tipoAlimentacion;
 	private String material;
 

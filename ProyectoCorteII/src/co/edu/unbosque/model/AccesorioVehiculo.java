@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
 public class AccesorioVehiculo extends Producto {
+	
+	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6254695010364569926L;
 	private String material;
 	private String compatibilidad;
 

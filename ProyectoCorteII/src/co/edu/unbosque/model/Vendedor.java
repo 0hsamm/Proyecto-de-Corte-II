@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Vendedor extends Persona {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4613984844442717843L;
 	private int cantidadObjetosVendidos;
 	private int objetosEnVenta;
 	private float puntuacionDeVenta;

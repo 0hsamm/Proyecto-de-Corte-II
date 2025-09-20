@@ -460,6 +460,33 @@ this.setLayout(null);
 		labelConectividad.setVisible(true);
 		textConectividad.setVisible(true);
 	}
+	
+	public void limpiarCampos() {
+        textNombre.setText("");
+        textCantidad.setText("");
+        textPrecio.setText("");
+        textMaterialAccesorio.setText("");
+        textCompatibilidad.setText("");
+        textConsumo.setText("");
+        textCapacidad.setText("");
+        textDeporte.setText("");
+        textMaterialDeporte.setText("");
+        textAlimentacion.setText("");
+        textMaterialHerramienta.setText("");
+        textArea.setText("");
+        textCantidadCuarto.setText("");
+        textEdad.setText("");
+        textMaterialJuguete.setText("");
+        textTalla.setText("");
+        textTipoTela.setText("");
+        textFormaFarmaceutica.setText("");
+        textConcentracion.setText("");
+        textMaterialEcologico.setText("");
+        textCertificacion.setText("");
+        textSO.setText("");
+        textConectividad.setText("");
+        listaCategorias.setSelectedIndex(0);
+    }
 
 	public Properties getProp() {
 		return prop;

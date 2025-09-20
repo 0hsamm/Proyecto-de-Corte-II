@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Inmueble extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2960156291223943277L;
 	private String area;
 	private String cantidadCuarto;
 

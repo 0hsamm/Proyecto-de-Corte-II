@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class EquipoDeportivo extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2018166870589387532L;
 	private String deporte;
 	private String material;
 

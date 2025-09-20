@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class PrendaDeVestir extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8985776979768429125L;
 	private String talla;
 	private String tipoTela;
 

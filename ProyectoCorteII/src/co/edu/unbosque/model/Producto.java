@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public abstract class Producto {
+import java.io.Serializable;
+
+public abstract class Producto implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5798130550665023291L;
 	private String nombre;
 	private int cantidad;
 	private float precio;
@@ -53,6 +59,10 @@ public abstract class Producto {
 	public String toString() {
 		return "Producto [nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", estaDisponible="
 				 + "]";
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 

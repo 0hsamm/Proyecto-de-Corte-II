@@ -1,6 +1,13 @@
 package co.edu.unbosque.model;
 
-public abstract class Persona {
+import java.io.Serializable;
+
+public abstract class Persona implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6938235908874924459L;
 	
 	private String correo;
 	private String nombre;

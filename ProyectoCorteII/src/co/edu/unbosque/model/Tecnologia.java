@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Tecnologia extends Producto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2821120056105930729L;
 	private String sistemaOperativo;
 	private String conectividad;
 

@@ -2,6 +2,10 @@ package co.edu.unbosque.model;
 
 public class Comprador extends Persona{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6691308080467243585L;
 	private boolean EsMiembroVIP;
 	private int carroCompras;
 	private int listacomprasRealizadas;
