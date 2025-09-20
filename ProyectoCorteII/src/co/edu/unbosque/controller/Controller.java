@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Properties;
 
 import javax.swing.JOptionPane;
 
@@ -16,12 +17,14 @@ import co.edu.unbosque.model.PrendaDeVestir;
 import co.edu.unbosque.model.ProductoFarmaceutico;
 import co.edu.unbosque.model.ProductoSostenible;
 import co.edu.unbosque.model.Tecnologia;
+import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.PanelCRUD;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controller implements ActionListener {
 	private ViewFacade vf;
 	private ModelFacade mf;
+	private Properties prop;
 
 	public Controller() {
 		vf = new ViewFacade();
@@ -29,6 +32,27 @@ public class Controller implements ActionListener {
 	}
 
 	public void runGUI() {
+		String opcion = JOptionPane.showInputDialog(null, "Seleccione el idioma a ejecutar:\n1.Español\n2.English\n3.Português\n4.Latinus", "Seleccion idioma", JOptionPane.QUESTION_MESSAGE);
+		switch (opcion) {
+		case "1": {
+			prop = FileHandler.cargarArchivoDePropiedades("spa.properties");
+			break;
+		}
+		case "2": {
+			prop = FileHandler.cargarArchivoDePropiedades("eng.properties");
+			break;
+		}
+		case "3": {
+			prop = FileHandler.cargarArchivoDePropiedades("por.properties");
+			break;
+		}
+		case "4": {
+			prop = FileHandler.cargarArchivoDePropiedades("lat.properties");
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + opcion);
+		}
 		vf.getVenMenu().setVisible(true);
 		asignarListeners();
 

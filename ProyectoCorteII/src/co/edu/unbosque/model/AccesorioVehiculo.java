@@ -1,6 +1,6 @@
 package co.edu.unbosque.model;
 
-public class AccesorioVehiculo extends Producto {
+public class AccesorioVehiculo extends Producto  {
 	
 	
 
