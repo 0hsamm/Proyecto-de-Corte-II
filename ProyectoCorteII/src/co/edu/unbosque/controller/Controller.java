@@ -53,7 +53,7 @@ public class Controller implements ActionListener {
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
-		vf.getVenMenu().setVisible(true);
+		vf.getVenCRUD().setVisible(true);
 		asignarListeners();
 
 	}
