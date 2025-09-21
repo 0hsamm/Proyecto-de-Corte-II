@@ -58,7 +58,7 @@ public class VentanaComprar extends JFrame {
 
 		btnCarrito = new JButton("Carrito");
 		btnCarrito.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		btnCarrito.setBounds(80, 335, 300, 50);
+		btnCarrito.setBounds(80, 380, 300, 50);
 		btnCarrito.setBackground(new Color(254, 230, 1));
 		btnCarrito.setForeground(Color.WHITE);
 		btnCarrito.setFocusPainted(false);
