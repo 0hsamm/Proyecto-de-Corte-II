@@ -191,21 +191,22 @@ public class Controller implements ActionListener {
 		}
 
 		case "INICIAR_SESION_COMPRADOR": {
-			//String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			//char[] contrasenaChar = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
-				//	.getPassword();
-			//String contrasena = new String(contrasenaChar);
+			String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			char[] contrasenaChar = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
+					.getPassword();
+			String contrasena = new String(contrasenaChar);
 
-			//if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
-			//		&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+			if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
+					&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
 				vf.getVenInicioComprador().setVisible(false);
 				vf.getVenComprar().setVisible(true);
-		//	} else {
-			//	JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
-				//		"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
-					//	JOptionPane.ERROR_MESSAGE);}
-				break;
-			
+			} else {
+				JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
+						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			break;
+
 		}
 		case "VOLVER_MENU_CRUD": {
 			vf.getVenMenu().setVisible(true);
