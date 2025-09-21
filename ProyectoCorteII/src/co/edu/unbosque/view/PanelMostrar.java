@@ -40,7 +40,7 @@ public class PanelMostrar extends JPanel {
 		verObjeto.setEditable(false);
 
 		zonaMostrar = new JScrollPane(verObjeto);
-		zonaMostrar.setBounds(10, 60, 400, 150);
+		zonaMostrar.setBounds(10, 60, 800, 1000);
 		this.add(zonaMostrar);
 
 	}
@@ -70,3 +70,4 @@ public class PanelMostrar extends JPanel {
 	}
 
 }
+
