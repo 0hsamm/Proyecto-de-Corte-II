@@ -171,8 +171,18 @@ public class Controller implements ActionListener {
 
 		}
 		case "INICIAR_SESION_VENDEDOR": {
+			String usuario = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			char[] passChars = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena().getPassword();
+			String contraseña = new String(passChars);
+			
+			if (mf.getVendedorDAO().getListaVendedores().contains(contraseña)&&mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
 			vf.getVenInicioVendedor().setVisible(false);
 			vf.getVenCRUD().setVisible(true);
+			}
+			else {
+				JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+				
+			}
 			break;
 
 		}
