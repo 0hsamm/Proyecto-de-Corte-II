@@ -1,22 +1,24 @@
 package co.edu.unbosque.view;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class PanelMostrar extends JPanel{
+public class PanelMostrar extends JPanel {
 	private JComboBox<String> listaCategorias;
 	private JTextArea verObjeto;
 	private JScrollPane zonaMostrar;
-	
+
 	public PanelMostrar() {
 		inicializarComponentes();
 	}
-	
+
 	public void inicializarComponentes() {
 		this.setLayout(null);
-		
+
 		listaCategorias = new JComboBox<>();
 		listaCategorias.addItem("-Seleccione-");
 		listaCategorias.addItem("Accesorio para vehiculo");
@@ -31,16 +33,16 @@ public class PanelMostrar extends JPanel{
 		listaCategorias.addItem("Tecnologia");
 		listaCategorias.addItem("Mostrar todo");
 		listaCategorias.setBounds(10, 10, 250, 30);
+
 		this.add(listaCategorias);
 
-		
-	    verObjeto = new JTextArea();
-	    verObjeto.setEditable(false);
-	    
-	    zonaMostrar = new JScrollPane(verObjeto);
-	    zonaMostrar.setBounds(10, 60, 400, 150);
-	    this.add(zonaMostrar);
-	    
+		verObjeto = new JTextArea();
+		verObjeto.setEditable(false);
+
+		zonaMostrar = new JScrollPane(verObjeto);
+		zonaMostrar.setBounds(10, 60, 400, 150);
+		this.add(zonaMostrar);
+
 	}
 
 	public JComboBox<String> getListaCategorias() {
@@ -66,10 +68,5 @@ public class PanelMostrar extends JPanel{
 	public void setZonaMostrar(JScrollPane zonaMostrar) {
 		this.zonaMostrar = zonaMostrar;
 	}
-
-	
-
-	
-	
 
 }
