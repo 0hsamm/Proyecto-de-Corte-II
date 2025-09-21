@@ -74,6 +74,18 @@ public abstract class Persona implements Serializable {
 		this.sexo = sexo;
 	}
 
+	public String getContrasena() {
+		return contrasena;
+	}
+
+
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Persona [correo=" + correo + ", nombre=" + nombre + ", telefono=" + telefono + ", id=" + id + ", sexo="
