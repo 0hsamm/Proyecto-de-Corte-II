@@ -54,7 +54,7 @@ public class Controller implements ActionListener {
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
-		vf.getVenMenu().setVisible(true);
+		vf.getVenCRUD().setVisible(true);
 		asignarListeners();
 
 	}
@@ -76,8 +76,8 @@ public class Controller implements ActionListener {
 		vf.getVenInicioSesion().getBtnVolver().addActionListener(this);
 		vf.getVenInicioSesion().getBtnVolver().setActionCommand("VOLVER_OPCIONES");
 
-		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnIniciarSesion().addActionListener(this);
-		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnIniciarSesion()
+		vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getBtnIniciarSesion().addActionListener(this);
+		vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getBtnIniciarSesion()
 				.setActionCommand("INICIAR_SESION_COMPRADOR");
 
 		vf.getVenInicioComprador().getBtnVolver().addActionListener(this);
@@ -170,32 +170,13 @@ public class Controller implements ActionListener {
 			break;
 
 		}
-		case "INICIAR_SESION_COMPRADOR": {
-			String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			char[] passChars = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
-					.getPassword();
-			String contraseña = new String(passChars);
-
-			if (mf.getCompradorDAO().getListaCompradores().contains(contraseña)
-					&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
-				vf.getVenInicioComprador().setVisible(false);
-				vf.getVenComprar().setVisible(true);
-			} else {
-				JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),
-						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
-						JOptionPane.ERROR_MESSAGE);
-
-			}
-			break;
-
-		}
 		case "INICIAR_SESION_VENDEDOR": {
 			String usuario = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			char[] passChars = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
+			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
 					.getPassword();
-			String contraseña = new String(passChars);
+			String contrasena = new String(contrasenaChar);
 
-			if (mf.getVendedorDAO().getListaVendedores().contains(contraseña)
+			if (mf.getVendedorDAO().getListaVendedores().contains(contrasena)
 					&& mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
 				vf.getVenInicioVendedor().setVisible(false);
 				vf.getVenCRUD().setVisible(true);
@@ -207,6 +188,24 @@ public class Controller implements ActionListener {
 			}
 			break;
 
+		}
+
+		case "INICIAR_SESION_COMPRADOR": {
+			//String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			//char[] contrasenaChar = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
+				//	.getPassword();
+			//String contrasena = new String(contrasenaChar);
+
+			//if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
+			//		&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+				vf.getVenInicioComprador().setVisible(false);
+				vf.getVenComprar().setVisible(true);
+		//	} else {
+			//	JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
+				//		"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
+					//	JOptionPane.ERROR_MESSAGE);}
+				break;
+			
 		}
 		case "VOLVER_MENU_CRUD": {
 			vf.getVenMenu().setVisible(true);
