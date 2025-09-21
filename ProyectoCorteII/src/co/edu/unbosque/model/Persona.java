@@ -89,11 +89,10 @@ public abstract class Persona implements Serializable {
 	@Override
 	public String toString() {
 		return "Persona [correo=" + correo + ", nombre=" + nombre + ", telefono=" + telefono + ", id=" + id + ", sexo="
-				+ sexo + "]";
+				+ sexo + ", contrasena=" + contrasena + "]";
 	}
 
-	
-	
-	
+
+
 
 }
