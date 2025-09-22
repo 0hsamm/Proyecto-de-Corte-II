@@ -13,6 +13,7 @@ public class VentanaComprar extends JFrame {
 
 	private JLabel fondoComprar;
 	private PanelMostrar panelMostrar;
+	private PanelCarrito panelCarrito;
 	private JButton btnVolver;
 
 	private JButton btnMostrar;
@@ -41,7 +42,10 @@ public class VentanaComprar extends JFrame {
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoComprar.add(texto0);
-
+		
+		panelCarrito = new PanelCarrito();
+		
+		
 		panelMostrar = new PanelMostrar();
 		panelMostrar.setBounds(450, 200, 800, 500);
 		panelMostrar.setOpaque(false);

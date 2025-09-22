@@ -2,6 +2,7 @@ package co.edu.unbosque.view;
 
 
 import java.util.Properties;
+import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 
 
@@ -15,7 +16,7 @@ public class PanelMostrar extends JPanel {
 	private JTextArea verObjeto;
 	private JScrollPane zonaMostrar;
 	private Properties prop;
-	
+	private CardLayout cardLayout;
 
 	public PanelMostrar() {
 		prop = new Properties();
@@ -23,6 +24,7 @@ public class PanelMostrar extends JPanel {
 	}
 
 	public void inicializarComponentes() {
+		cardLayout = new CardLayout();
 		this.setLayout(null);
 
 		listaCategorias = new JComboBox<>();
@@ -86,10 +88,14 @@ public class PanelMostrar extends JPanel {
 	public void setProp(Properties prop) {
 		this.prop = prop;
 		aplicarTexto();
-	
-
-	
+		
 }
+	public void mostrarPanel(String nombrePanel) {
+		
+		cardLayout.show(this, nombrePanel);
+	}
+	
+	
 	
 	
 
