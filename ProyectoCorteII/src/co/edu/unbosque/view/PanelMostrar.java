@@ -1,39 +1,43 @@
 package co.edu.unbosque.view;
 
+
 import java.util.Properties;
+import java.awt.event.ActionListener;
+
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class PanelMostrar extends JPanel{
+public class PanelMostrar extends JPanel {
 	private JComboBox<String> listaCategorias;
 	private JTextArea verObjeto;
 	private JScrollPane zonaMostrar;
 	private Properties prop;
 	
+
 	public PanelMostrar() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
-	
+
 	public void inicializarComponentes() {
 		this.setLayout(null);
-		
+
 		listaCategorias = new JComboBox<>();
 		
 		listaCategorias.setBounds(10, 10, 250, 30);
+
 		this.add(listaCategorias);
 
-		
-	    verObjeto = new JTextArea();
-	    verObjeto.setEditable(false);
-	    
-	    zonaMostrar = new JScrollPane(verObjeto);
-	    zonaMostrar.setBounds(10, 60, 400, 150);
-	    this.add(zonaMostrar);
-	    
+		verObjeto = new JTextArea();
+		verObjeto.setEditable(false);
+
+		zonaMostrar = new JScrollPane(verObjeto);
+		zonaMostrar.setBounds(10, 60, 800, 1000);
+		this.add(zonaMostrar);
+
 	}
 	public void aplicarTexto() {
 		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
@@ -74,6 +78,7 @@ public class PanelMostrar extends JPanel{
 		this.zonaMostrar = zonaMostrar;
 	}
 
+
 	public Properties getProp() {
 		return prop;
 	}
@@ -81,11 +86,13 @@ public class PanelMostrar extends JPanel{
 	public void setProp(Properties prop) {
 		this.prop = prop;
 		aplicarTexto();
-	}
-
 	
 
 	
+}
 	
+	
+
 
 }
+

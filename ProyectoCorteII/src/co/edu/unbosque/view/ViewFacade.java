@@ -11,6 +11,7 @@ public class ViewFacade {
 	private VentanaRegistroVendedor venRegistroVendedor;
 	private VentanaCRUD venCRUD;
 	private Properties prop;
+	private VentanaComprar venComprar;
 
 	
 	public ViewFacade() {
@@ -22,9 +23,8 @@ public class ViewFacade {
 		venRegistroComprador = new VentanaRegistroComprador();
 		venRegistroVendedor = new VentanaRegistroVendedor();
 		venCRUD = new VentanaCRUD();
-	
-		
-		
+		venComprar = new VentanaComprar();
+
 		
 	}
 
@@ -104,6 +104,7 @@ public class ViewFacade {
 		this.venCRUD = venCRUD;
 	}
 
+
 	public Properties getProp() {
 		return prop;
 	}
@@ -114,5 +115,14 @@ public class ViewFacade {
 
 	
 	
+
+	public VentanaComprar getVenComprar() {
+		return venComprar;
+	}
+
+	public void setVenComprar(VentanaComprar venComprar) {
+		this.venComprar = venComprar;
+	}
+
 	
 }

@@ -108,12 +108,11 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaPrendaDeVestir = (ArrayList<PrendaDeVestir>) contenido;
-		}
-		else {
+		} else {
 			listaPrendaDeVestir = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaPrendaDeVestir);
 	}
@@ -141,6 +140,5 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
-	
+
 }

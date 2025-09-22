@@ -54,6 +54,9 @@ public class PanelEliminar extends JPanel {
 		btnEliminar.setBorderPainted(false);
 		this.add(btnEliminar);
 	}
+
+
+	
 	
 	public void aplicarTexto() {
 		labelEliminar.setText(prop.getProperty("mercadolibre.paneleliminar.labeleliminar"));
