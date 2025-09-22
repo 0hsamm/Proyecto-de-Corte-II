@@ -133,6 +133,9 @@ public class Controller implements ActionListener {
 
 		vf.getVenCRUD().getBtnActualizar().addActionListener(this);
 		vf.getVenCRUD().getBtnActualizar().setActionCommand("BOTON_ACTUALIZAR");
+		
+		vf.getVenComprar().getBtnMostrar().addActionListener(this);
+		vf.getVenComprar().getBtnMostrar().setActionCommand("BOTON_MOSTRAR_ARTICULO");;
 
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().setActionCommand("ACTUALIZAR_ARTICULO");
@@ -216,6 +219,54 @@ public class Controller implements ActionListener {
 			break;
 
 		}
+		
+		case "BOTON_MOSTRAR_ARTICULO":{
+			vf.getVenComprar().getPanelMostrar().setVisible(true);
+			
+			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
+
+			if (seleccionado.equals("-Seleccione-")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText("Por favor elija un tipo de producto");
+			} else if (seleccionado.equals("Accesorio para vehiculo")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getAccesorioVehiculoDAO().showAll());
+			} else if (seleccionado.equals("Electrodomestico")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getElectrodomesticoDAO().showAll());
+			} else if (seleccionado.equals("Equipo deportivo")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getEquipoDeportivoDAO().showAll());
+			} else if (seleccionado.equals("Herramientas")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getHerramientaDAO().showAll());
+			} else if (seleccionado.equals("Inmuebles")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getInmbuenleDAO().showAll());
+			} else if (seleccionado.equals("Juguetes")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getJugueteDAO().showAll());
+			} else if (seleccionado.equals("Prenda de vestir")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getPrendaDAO().showAll());
+			} else if (seleccionado.equals("Producto farmaceutico")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoFarmaceuticoDAO().showAll());
+			} else if (seleccionado.equals("Producto sostenible")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoSostenibleDAO().showAll());
+			} else if (seleccionado.equals("Tecnologia")) {
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getTecnologoiaDAO().showAll());
+			}  else if (seleccionado.equals("Mostrar todo")) {
+				StringBuilder texto = new StringBuilder();
+
+				texto.append(mf.getAccesorioVehiculoDAO().showAll()).append("\n");
+				texto.append(mf.getElectrodomesticoDAO().showAll()).append("\n");
+				texto.append(mf.getEquipoDeportivoDAO().showAll()).append("\n");
+				texto.append(mf.getHerramientaDAO().showAll()).append("\n");
+				texto.append(mf.getInmbuenleDAO().showAll()).append("\n");
+				texto.append(mf.getJugueteDAO().showAll()).append("\n");
+				texto.append(mf.getPrendaDAO().showAll()).append("\n");
+				texto.append(mf.getProductoFarmaceuticoDAO().showAll()).append("\n");
+				texto.append(mf.getProductoSostenibleDAO().showAll()).append("\n");
+				texto.append(mf.getTecnologoiaDAO().showAll()).append("\n");
+
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(texto.toString());
+			}
+			break;
+
+		}
+			
 		case "VOLVER_MENU_CRUD": {
 			vf.getVenMenu().setVisible(true);
 			vf.getVenCRUD().setVisible(false);
