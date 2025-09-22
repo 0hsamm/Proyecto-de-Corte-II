@@ -1,5 +1,6 @@
 package co.edu.unbosque.util.exception;
 
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,7 +8,7 @@ public class LanzadorDeExcepcion{
 
 	
 
-	public static void verificarEmail(String email) throws InvalidEmailException {
+	public static void verificarEmail( String email) throws InvalidEmailException {
 
 		Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");

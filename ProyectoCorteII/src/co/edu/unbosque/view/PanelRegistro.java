@@ -2,6 +2,8 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 
 import javax.swing.JButton;
@@ -59,7 +61,7 @@ public class PanelRegistro extends JPanel {
 
 		labelCorreo = new JLabel();
 		labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		labelCorreo.setBounds(35, 78, 200, 40);
+		labelCorreo.setBounds(26, 78, 200, 40);
 		this.add(labelCorreo);
 
 		textCorreo = new JTextField();
@@ -76,7 +78,7 @@ public class PanelRegistro extends JPanel {
 
 		labelUsuario = new JLabel();
 		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		labelUsuario.setBounds(35, 149, 200, 40);
+		labelUsuario.setBounds(26, 149, 200, 40);
 		this.add(labelUsuario);
 
 		textUsuario = new JTextField();
@@ -94,7 +96,7 @@ public class PanelRegistro extends JPanel {
 
 		labelTelefono = new JLabel();
 		labelTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		labelTelefono.setBounds(35, 220, 200, 40);
+		labelTelefono.setBounds(26, 220, 200, 40);
 		this.add(labelTelefono);
 
 		textTelefono = new JTextField();
@@ -112,7 +114,7 @@ public class PanelRegistro extends JPanel {
 
 		labelID = new JLabel();
 		labelID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		labelID.setBounds(35, 289, 200, 40);
+		labelID.setBounds(26, 289, 200, 40);
 		this.add(labelID);
 
 		textID = new JTextField();
@@ -129,7 +131,7 @@ public class PanelRegistro extends JPanel {
 
 		labelContrasena = new JLabel();
 		labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		labelContrasena.setBounds(35, 357, 200, 40);
+		labelContrasena.setBounds(26, 357, 200, 40);
 		this.add(labelContrasena);
 
 		textContrasena = new JTextField();
@@ -153,9 +155,12 @@ public class PanelRegistro extends JPanel {
 		btnCrear.setBorder(null);
 		this.add(btnCrear);
 
-	}
 	
 
+		
+	}
+	
+	
 
 	public void inicializarEventos() {
 		lblValidarCorreo.setText("");
@@ -245,6 +250,8 @@ public class PanelRegistro extends JPanel {
 
 	}
 
+	
+	
 	public JLabel getLabelCorreo() {
 		return labelCorreo;
 	}

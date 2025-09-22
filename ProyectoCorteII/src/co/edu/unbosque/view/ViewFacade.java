@@ -113,8 +113,6 @@ public class ViewFacade {
 		this.prop = prop;
 	}
 
-	
-	
 
 	public VentanaComprar getVenComprar() {
 		return venComprar;
