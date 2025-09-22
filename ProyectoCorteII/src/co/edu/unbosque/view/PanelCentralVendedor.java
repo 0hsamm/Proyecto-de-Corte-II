@@ -53,4 +53,5 @@ public class PanelCentralVendedor extends JPanel{
 	public void mostrarPanel(String nombrePanel) {
 		cardLayout.show(this, nombrePanel);
 	}
+	
 }

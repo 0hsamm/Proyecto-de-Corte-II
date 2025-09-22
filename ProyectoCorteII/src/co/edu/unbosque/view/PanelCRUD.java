@@ -19,6 +19,7 @@ public class PanelCRUD extends JPanel {
 	
 	public PanelCRUD() {
 		inicializarComponentes();
+	
 	}
 
 	public void inicializarComponentes() {

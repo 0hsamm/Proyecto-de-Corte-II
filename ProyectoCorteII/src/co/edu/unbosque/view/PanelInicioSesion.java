@@ -2,6 +2,7 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,8 +17,11 @@ public class PanelInicioSesion extends JPanel {
 	private JPasswordField textContrasena;
 	private JButton btnIniciarSesion;
 	private JButton btnRegistro;
-
+	private Properties prop;
+	
+	
 	public PanelInicioSesion() {
+		prop = new Properties();
 		inicializarComponentes();
 	}
 
@@ -27,7 +31,7 @@ public class PanelInicioSesion extends JPanel {
 		this.setLayout(null);
 		this.setOpaque(false);
 
-		labelUsuario = new JLabel("Usuario");
+		labelUsuario = new JLabel();
 		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		labelUsuario.setBounds(209, 130, 200, 35);
 		this.add(labelUsuario);
@@ -38,7 +42,7 @@ public class PanelInicioSesion extends JPanel {
 		textUsuario.setBorder(null);
 		this.add(textUsuario);
 
-		labelContrasena = new JLabel("Contraseña");
+		labelContrasena = new JLabel();
 		labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		labelContrasena.setBounds(209, 260, 200, 35);
 		this.add(labelContrasena);
@@ -49,16 +53,16 @@ public class PanelInicioSesion extends JPanel {
 		textContrasena.setBorder(null);
 		this.add(textContrasena);
 
-		btnIniciarSesion = new JButton("Iniciar sesión");
+		btnIniciarSesion = new JButton();
 		btnIniciarSesion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
-		btnIniciarSesion.setBounds(209, 393, 200, 35);
+		btnIniciarSesion.setBounds(209, 393, 230, 35);
 		btnIniciarSesion.setBackground(new Color(41, 47, 117));
 		btnIniciarSesion.setForeground(Color.WHITE);
 		btnIniciarSesion.setFocusPainted(false);
 		btnIniciarSesion.setBorderPainted(false);
 		this.add(btnIniciarSesion);
 
-		btnRegistro = new JButton("¿No tienes cuenta? Crea una aquí.");
+		btnRegistro = new JButton();
 		btnRegistro.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 18));
 		btnRegistro.setBounds(100, 457, 400, 30);
 		btnRegistro.setBackground(new Color(41, 47, 117));
@@ -66,6 +70,14 @@ public class PanelInicioSesion extends JPanel {
 		btnRegistro.setFocusPainted(false);
 		btnRegistro.setBorderPainted(false);
 		this.add(btnRegistro);
+
+	}
+	
+	public void aplicarTexto() {
+		labelUsuario.setText(prop.getProperty("mercadolibre.paneliniciosesion.labelusuario"));
+		labelContrasena.setText(prop.getProperty("mercadolibre.paneliniciosesion.labelcontrasena"));
+		btnIniciarSesion.setText(prop.getProperty("mercadolibre.paneliniciosesion.btniniciarsesion"));
+		btnRegistro.setText(prop.getProperty("mercadolibre.paneliniciosesion.btnregistro"));
 
 	}
 
@@ -115,6 +127,15 @@ public class PanelInicioSesion extends JPanel {
 
 	public void setBtnRegistro(JButton btnRegistro) {
 		this.btnRegistro = btnRegistro;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
 	}
 
 }

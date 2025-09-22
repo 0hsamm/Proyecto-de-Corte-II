@@ -29,33 +29,42 @@ public class Controller implements ActionListener {
 	public Controller() {
 		vf = new ViewFacade();
 		mf = new ModelFacade();
+		prop = new Properties();
 	}
 
 	public void runGUI() {
 		String opcion = JOptionPane.showInputDialog(null, "Seleccione el idioma a ejecutar:\n1.Español\n2.English\n3.Português\n4.Latinus", "Seleccion idioma", JOptionPane.QUESTION_MESSAGE);
 		switch (opcion) {
 		case "1": {
-			prop = FileHandler.cargarArchivoDePropiedades("spa.properties");
+			prop = FileHandler.cargarArchivoDePropiedades("spa.properties");				
+			vf.setProp(prop);
+            vf.cargarIdioma();
 			break;
 		}
 		case "2": {
 			prop = FileHandler.cargarArchivoDePropiedades("eng.properties");
+			vf.setProp(prop);
+            vf.cargarIdioma();
 			break;
 		}
 		case "3": {
 			prop = FileHandler.cargarArchivoDePropiedades("por.properties");
+			vf.setProp(prop);
+            vf.cargarIdioma();
 			break;
 		}
 		case "4": {
 			prop = FileHandler.cargarArchivoDePropiedades("lat.properties");
+			vf.setProp(prop);
+            vf.cargarIdioma();
 			break;
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
-		vf.getVenCRUD().setVisible(true);
+		vf.getVenMenu().setVisible(true);
 		asignarListeners();
-
+		
 	}
 
 	public void asignarListeners() {

@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
+import java.util.Properties;
+
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -9,8 +11,10 @@ public class PanelMostrar extends JPanel{
 	private JComboBox<String> listaCategorias;
 	private JTextArea verObjeto;
 	private JScrollPane zonaMostrar;
+	private Properties prop;
 	
 	public PanelMostrar() {
+		prop = new Properties();
 		inicializarComponentes();
 	}
 	
@@ -18,18 +22,7 @@ public class PanelMostrar extends JPanel{
 		this.setLayout(null);
 		
 		listaCategorias = new JComboBox<>();
-		listaCategorias.addItem("-Seleccione-");
-		listaCategorias.addItem("Accesorio para vehiculo");
-		listaCategorias.addItem("Electrodomestico");
-		listaCategorias.addItem("Equipo deportivo");
-		listaCategorias.addItem("Herramientas");
-		listaCategorias.addItem("Inmuebles");
-		listaCategorias.addItem("Juguetes");
-		listaCategorias.addItem("Prenda de vestir");
-		listaCategorias.addItem("Producto farmaceutico");
-		listaCategorias.addItem("Producto sostenible");
-		listaCategorias.addItem("Tecnologia");
-		listaCategorias.addItem("Mostrar todo");
+		
 		listaCategorias.setBounds(10, 10, 250, 30);
 		this.add(listaCategorias);
 
@@ -41,6 +34,20 @@ public class PanelMostrar extends JPanel{
 	    zonaMostrar.setBounds(10, 60, 400, 150);
 	    this.add(zonaMostrar);
 	    
+	}
+	public void aplicarTexto() {
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"));
+		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.mostrartodo"));
 	}
 
 	public JComboBox<String> getListaCategorias() {
@@ -65,6 +72,15 @@ public class PanelMostrar extends JPanel{
 
 	public void setZonaMostrar(JScrollPane zonaMostrar) {
 		this.zonaMostrar = zonaMostrar;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
 	}
 
 	

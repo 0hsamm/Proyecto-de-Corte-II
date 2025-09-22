@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
+import java.util.Properties;
+
 public class ViewFacade {
 	private VentanaMenu venMenu;
 	private VentanaOpcionInicioSesion venInicioSesion;
@@ -8,8 +10,11 @@ public class ViewFacade {
 	private VentanaRegistroComprador venRegistroComprador;
 	private VentanaRegistroVendedor venRegistroVendedor;
 	private VentanaCRUD venCRUD;
+	private Properties prop;
+
 	
 	public ViewFacade() {
+		prop = new Properties();
 		venInicioSesion = new VentanaOpcionInicioSesion();
 		venMenu = new VentanaMenu();
 		venInicioComprador = new VentanaInicioComprador();
@@ -17,9 +22,32 @@ public class ViewFacade {
 		venRegistroComprador = new VentanaRegistroComprador();
 		venRegistroVendedor = new VentanaRegistroVendedor();
 		venCRUD = new VentanaCRUD();
+	
+		
+		
 		
 	}
 
+	public void cargarIdioma() {
+		venMenu.setProp(prop);
+		venInicioSesion.setProp(prop);
+		venInicioComprador.setProp(prop);
+		venInicioVendedor.setProp(prop);
+		venRegistroComprador.setProp(prop);
+		venRegistroVendedor.setProp(prop);
+		venCRUD.setProp(prop);
+		venInicioComprador.getPanelCentral().getpInicioSesion().setProp(prop);
+        venInicioVendedor.getPanelCentral().getpInicioSesion().setProp(prop);
+        venRegistroComprador.getPanelRegistro().setProp(prop);
+        venRegistroVendedor.getPanelRegistro().setProp(prop);
+        venCRUD.getPanelCRUD().getpCrear().setProp(prop);
+        venCRUD.getPanelCRUD().getpActualizar().setProp(prop);
+        venCRUD.getPanelCRUD().getpEliminar().setProp(prop);
+        venCRUD.getPanelCRUD().getpMostrar().setProp(prop);
+		
+		
+	}
+	
 	public VentanaMenu getVenMenu() {
 		return venMenu;
 	}
@@ -75,6 +103,16 @@ public class ViewFacade {
 	public void setVenCRUD(VentanaCRUD venCRUD) {
 		this.venCRUD = venCRUD;
 	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+
+	
 	
 	
 }

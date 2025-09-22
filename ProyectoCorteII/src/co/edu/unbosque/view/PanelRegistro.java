@@ -2,23 +2,26 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.TextField;
+import java.util.Properties;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import co.edu.unbosque.util.exception.InvalidEmailException;
+import co.edu.unbosque.util.exception.InvalidIDException;
+import co.edu.unbosque.util.exception.InvalidPasswordException;
+import co.edu.unbosque.util.exception.InvalidPhoneException;
 import co.edu.unbosque.util.exception.LanzadorDeExcepcion;
 
 public class PanelRegistro extends JPanel {
 
-	private JLabel lblValidarEmail;
-
+	private JLabel lblValidarUsuario;
+	private JLabel lblValidarTelefono;
+	private JLabel lblValidarContrasena;
+	private JLabel lblValidarCorreo;
+	private JLabel lblValidarID;
 	private JLabel labelCorreo;
 	private JTextField textCorreo;
 
@@ -35,8 +38,15 @@ public class PanelRegistro extends JPanel {
 	private JTextField textContrasena;
 
 	private JButton btnCrear;
+	private String correo;
+	private String iD;
+	private String contrasena;
+	private String telefono;
+	private String usuario;
+	private Properties prop;
 
 	public PanelRegistro() {
+		prop = new Properties();
 		inicializarComponentes();
 		inicializarEventos();
 
@@ -47,7 +57,7 @@ public class PanelRegistro extends JPanel {
 		this.setLayout(null);
 		this.setOpaque(false);
 
-		labelCorreo = new JLabel("Correo");
+		labelCorreo = new JLabel();
 		labelCorreo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCorreo.setBounds(35, 78, 200, 40);
 		this.add(labelCorreo);
@@ -58,13 +68,13 @@ public class PanelRegistro extends JPanel {
 		textCorreo.setBorder(null);
 		this.add(textCorreo);
 
-		lblValidarEmail = new JLabel("");
-		lblValidarEmail.setForeground(Color.red);
-		lblValidarEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblValidarEmail.setBounds(196, 123, 260, 25);
-		this.add(lblValidarEmail);
+		lblValidarCorreo = new JLabel();
+		lblValidarCorreo.setForeground(Color.red);
+		lblValidarCorreo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarCorreo.setBounds(196, 123, 260, 25);
+		this.add(lblValidarCorreo);
 
-		labelUsuario = new JLabel("Usuario");
+		labelUsuario = new JLabel();
 		labelUsuario.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelUsuario.setBounds(35, 149, 200, 40);
 		this.add(labelUsuario);
@@ -75,7 +85,14 @@ public class PanelRegistro extends JPanel {
 		textUsuario.setBorder(null);
 		this.add(textUsuario);
 
-		labelTelefono = new JLabel("Telefono");
+		lblValidarUsuario = new JLabel();
+		lblValidarUsuario.setForeground(Color.red);
+		lblValidarUsuario.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarUsuario.setBounds(196, 191, 300, 25);
+		this.add(lblValidarUsuario);
+
+
+		labelTelefono = new JLabel();
 		labelTelefono.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTelefono.setBounds(35, 220, 200, 40);
 		this.add(labelTelefono);
@@ -86,7 +103,14 @@ public class PanelRegistro extends JPanel {
 		textTelefono.setBorder(null);
 		this.add(textTelefono);
 
-		labelID = new JLabel("ID");
+		lblValidarTelefono = new JLabel();
+		lblValidarTelefono.setForeground(Color.red);
+		lblValidarTelefono.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarTelefono.setBounds(196, 262, 300, 25);
+		this.add(lblValidarTelefono);
+
+
+		labelID = new JLabel();
 		labelID.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelID.setBounds(35, 289, 200, 40);
 		this.add(labelID);
@@ -97,7 +121,13 @@ public class PanelRegistro extends JPanel {
 		textID.setBorder(null);
 		this.add(textID);
 
-		labelContrasena = new JLabel("Contraseña");
+		lblValidarID = new JLabel();
+		lblValidarID.setForeground(Color.red);
+		lblValidarID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarID.setBounds(196, 330, 300, 25);
+		this.add(lblValidarID);
+
+		labelContrasena = new JLabel();
 		labelContrasena.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelContrasena.setBounds(35, 357, 200, 40);
 		this.add(labelContrasena);
@@ -108,7 +138,13 @@ public class PanelRegistro extends JPanel {
 		textContrasena.setBorder(null);
 		this.add(textContrasena);
 
-		btnCrear = new JButton("Crear");
+		lblValidarContrasena = new JLabel();
+		lblValidarContrasena.setForeground(Color.red);
+		lblValidarContrasena.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblValidarContrasena.setBounds(196, 402, 300, 25);
+		this.add(lblValidarContrasena);
+
+		btnCrear = new JButton();
 		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCrear.setBounds(153, 458, 350, 32);
 		btnCrear.setBackground(new Color(41, 47, 117));
@@ -118,24 +154,94 @@ public class PanelRegistro extends JPanel {
 		this.add(btnCrear);
 
 	}
+	
+
 
 	public void inicializarEventos() {
-		lblValidarEmail.setText("");
+		lblValidarCorreo.setText("");
+		lblValidarContrasena.setText("");
+		lblValidarID.setText("");
+		lblValidarTelefono.setText("");
+		lblValidarUsuario.setText("");
+
 		btnCrear.addActionListener(e -> {
-			String correo = textCorreo.getText().trim();
+			correo = textCorreo.getText().trim();
+			iD = textID.getText().trim();
+			contrasena = textContrasena.getText().trim();
+			telefono = textTelefono.getText().trim();
+			usuario = textUsuario.getText().trim();
 
+
+			// --- Validación correo ---
 			if (correo.isEmpty()) {
-				lblValidarEmail.setText("");
-				return;
+				lblValidarCorreo.setText(prop.getProperty("mercadolibre.panelregistro.textovacio"));
+
+			} else {
+				try {
+					LanzadorDeExcepcion.verificarEmail(correo);
+					lblValidarCorreo.setText(""); 
+				} catch (InvalidEmailException e1) {
+					lblValidarCorreo.setText(e1.getMessage());
+
+				}
 			}
 
-			try {
-				LanzadorDeExcepcion.verificarEmail(correo);
+			// --- Validación ID ---
+			if (iD.isEmpty()) {
+				lblValidarID.setText(prop.getProperty("mercadolibre.panelregistro.textovacio"));
 
-			} catch (InvalidEmailException e1) {
-				lblValidarEmail.setText(e1.getMessage());
+			} else {
+				try {
+					LanzadorDeExcepcion.verificarID(iD);
+					lblValidarID.setText("");
+				} catch (InvalidIDException e1) {
+					lblValidarID.setText(e1.getMessage());
+
+				}
 			}
+
+			// --- Validación contraseña ---
+			if (contrasena.isEmpty()) {
+				lblValidarContrasena.setText(prop.getProperty("mercadolibre.panelregistro.textovacio"));
+
+			} else {
+				try {
+					LanzadorDeExcepcion.verificarTamanoContrasena(contrasena);
+					lblValidarContrasena.setText("");
+				} catch (InvalidPasswordException e1) {
+					lblValidarContrasena.setText(e1.getMessage());
+
+				}
+			}
+			//--- Validación teléfono ---
+			if(telefono.isEmpty()) {
+				lblValidarTelefono.setText(prop.getProperty("mercadolibre.panelregistro.textovacio"));
+			}else {
+				try {
+					LanzadorDeExcepcion.verificarTelefono(telefono);
+					lblValidarTelefono.setText("");
+				} catch (InvalidPhoneException e1) {
+					lblValidarTelefono.setText(e1.getMessage());
+				}
+			}
+
+			// --- Validación usuario ---
+			if(usuario.isEmpty()) {
+				lblValidarUsuario.setText(prop.getProperty("mercadolibre.panelregistro.textovacio"));
+			}else {
+				lblValidarUsuario.setText("");
+			}
+			
 		});
+	}
+
+	public void aplicarTexto() {
+		labelCorreo.setText(prop.getProperty("mercadolibre.panelregistro.labelcorreo"));
+		labelUsuario.setText(prop.getProperty("mercadolibre.panelregistro.labelusuario"));
+		labelTelefono.setText(prop.getProperty("mercadolibre.panelregistro.labeltelefono"));
+		labelID.setText(prop.getProperty("mercadolibre.panelregistro.labelid"));
+		labelContrasena.setText(prop.getProperty("mercadolibre.panelregistro.labelcontrasena"));
+		btnCrear.setText(prop.getProperty("mercadolibre.panelregistro.btncrear"));
 
 	}
 
@@ -225,6 +331,95 @@ public class PanelRegistro extends JPanel {
 
 	public void setBtnCrear(JButton btnCrear) {
 		this.btnCrear = btnCrear;
+	}
+
+	public JLabel getLblValidarContrasena() {
+		return lblValidarContrasena;
+	}
+
+	public void setLblValidarContrasena(JLabel lblValidarContrasena) {
+		this.lblValidarContrasena = lblValidarContrasena;
+	}
+
+	public JLabel getLblValidarCorreo() {
+		return lblValidarCorreo;
+	}
+
+	public void setLblValidarCorreo(JLabel lblValidarCorreo) {
+		this.lblValidarCorreo = lblValidarCorreo;
+	}
+
+	public JLabel getLblValidarID() {
+		return lblValidarID;
+	}
+
+	public void setLblValidarID(JLabel lblValidarID) {
+		this.lblValidarID = lblValidarID;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getiD() {
+		return iD;
+	}
+
+	public void setiD(String iD) {
+		this.iD = iD;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	public JLabel getLblValidarUsuario() {
+		return lblValidarUsuario;
+	}
+
+	public void setLblValidarUsuario(JLabel lblValidarUsuario) {
+		this.lblValidarUsuario = lblValidarUsuario;
+	}
+
+	public JLabel getLblValidarTelefono() {
+		return lblValidarTelefono;
+	}
+
+	public void setLblValidarTelefono(JLabel lblValidarTelefono) {
+		this.lblValidarTelefono = lblValidarTelefono;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
 	}
 
 }

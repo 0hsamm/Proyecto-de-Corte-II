@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,8 +15,15 @@ public class VentanaRegistroComprador extends JFrame {
 	private PanelRegistro panelRegistro;
 	private JButton btnVolver;
 	private JButton btnMenu;
+	private JLabel texto0;
+	private JLabel texto;
+	private JLabel texto2;
+	private Properties prop;
+	private ImageIcon fondo;
+	private Image escalar;
 
 	public VentanaRegistroComprador() {
+		prop = new Properties();
 		inicializarComponentes();
 	}
 
@@ -26,24 +34,24 @@ public class VentanaRegistroComprador extends JFrame {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 
-		ImageIcon fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaRegistro.PNG");
-		Image escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaRegistro.PNG");
+		escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		fondoComprador = new JLabel(new ImageIcon(escalar));
 		fondoComprador.setBounds(0, 0, 1280, 720);
 		this.setContentPane(fondoComprador);
 		fondoComprador.setLayout(null);
-		
-		JLabel texto0 = new JLabel("Registro del comprador");
+
+		texto0 = new JLabel();
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoComprador.add(texto0);
-		
-		JLabel texto = new JLabel("Registrate");
+
+		texto = new JLabel();
 		texto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto.setBounds(40, 270, 1200, 70);
 		fondoComprador.add(texto);
-		
-		JLabel texto2 = new JLabel("Aquí!");
+
+		texto2 = new JLabel();
 		texto2.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto2.setBounds(40, 370, 1200, 70);
 		fondoComprador.add(texto2);
@@ -53,7 +61,7 @@ public class VentanaRegistroComprador extends JFrame {
 		panelRegistro.setOpaque(false);
 		fondoComprador.add(panelRegistro);
 
-		btnVolver = new JButton("Volver");
+		btnVolver = new JButton();
 		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnVolver.setBounds(30, 620, 170, 50);
 		btnVolver.setBackground(new Color(254, 230, 1));
@@ -62,7 +70,7 @@ public class VentanaRegistroComprador extends JFrame {
 		btnVolver.setBorderPainted(false);
 		fondoComprador.add(btnVolver);
 
-		btnMenu = new JButton("Menú");
+		btnMenu = new JButton();
 		btnMenu.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnMenu.setBounds(300, 620, 170, 50);
 		btnMenu.setBackground(new Color(254, 230, 1));
@@ -72,6 +80,15 @@ public class VentanaRegistroComprador extends JFrame {
 		fondoComprador.add(btnMenu);
 	}
 
+	public void aplicarTexto(){
+		texto0.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto0"));
+		texto.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto"));
+		texto2.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto2"));
+		btnVolver.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.btnvolver"));
+		btnMenu.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.btnmenu"));
+
+	}
+	
 	public JLabel getFondoComprador() {
 		return fondoComprador;
 	}
@@ -94,6 +111,47 @@ public class VentanaRegistroComprador extends JFrame {
 
 	public void setBtnMenu(JButton btnMenu) {
 		this.btnMenu = btnMenu;
+	}
+
+	public PanelRegistro getPanelRegistro() {
+		return panelRegistro;
+	}
+
+	public void setPanelRegistro(PanelRegistro panelRegistro) {
+		this.panelRegistro = panelRegistro;
+	}
+
+	public JLabel getTexto0() {
+		return texto0;
+	}
+
+	public void setTexto0(JLabel texto0) {
+		this.texto0 = texto0;
+	}
+
+	public JLabel getTexto() {
+		return texto;
+	}
+
+	public void setTexto(JLabel texto) {
+		this.texto = texto;
+	}
+
+	public JLabel getTexto2() {
+		return texto2;
+	}
+
+	public void setTexto2(JLabel texto2) {
+		this.texto2 = texto2;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
 	}
 
 }

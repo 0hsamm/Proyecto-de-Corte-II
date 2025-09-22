@@ -42,4 +42,5 @@ public class PanelCentralComprador extends JPanel {
 	public void mostrarPanel(String nombrePanel) {
 		cardLayout.show(this, nombrePanel);
 	}
+	
 }

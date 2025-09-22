@@ -24,10 +24,23 @@ public class LanzadorDeExcepcion{
 		  String idTrim = id.trim();
 
 	       
-	        if (!Pattern.matches("^[0-9]+$", idTrim)) {
+	        if (id.length()<10&&!id.matches("^[0-9]")) {
 	            throw new InvalidIDException();
 	        
 	    }
+	}
+	public static void verificarTamanoContrasena(String contrasena) throws InvalidPasswordException {
+		if(contrasena.length()<8) {
+			throw new InvalidPasswordException();
+		}
+	}
+	
+	
+	public static void verificarTelefono(String telefono) throws InvalidPhoneException {
+			String telTrim = telefono.trim();
+		if((telefono.length()<10)&&!telefono.matches("^[0-9]")) {
+			throw new InvalidPhoneException();
+		}
 	}
 }
 

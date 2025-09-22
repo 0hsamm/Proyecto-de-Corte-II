@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,8 +19,14 @@ public class VentanaCRUD extends JFrame {
 	private JButton btnMostrar;
 	private JButton btnActualizar;
 	private JButton btnEliminar;
+	private JLabel texto0;
+	private Properties prop;
+	private ImageIcon fondo;
+	private Image escalar;
+	
 
 	public VentanaCRUD() {
+		prop = new Properties();
 		inicializarComponentes();
 	}
 
@@ -30,14 +37,14 @@ public class VentanaCRUD extends JFrame {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 
-		ImageIcon fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaCRUD.PNG");
-		Image escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaCRUD.PNG");
+		escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		fondoCRUD = new JLabel(new ImageIcon(escalar));
 		fondoCRUD.setBounds(0, 0, 1280, 720);
 		this.setContentPane(fondoCRUD);
 		fondoCRUD.setLayout(null);
 
-		JLabel texto0 = new JLabel("Funciones del vendedor");
+		texto0 = new JLabel();
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoCRUD.add(texto0);
@@ -47,7 +54,7 @@ public class VentanaCRUD extends JFrame {
 		panelCRUD.setOpaque(false);
 		fondoCRUD.add(panelCRUD);
 
-		btnCrear = new JButton("Crear artículo");
+		btnCrear = new JButton();
 		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCrear.setBounds(80, 235, 300, 50);
 		btnCrear.setBackground(new Color(254, 230, 1));
@@ -56,7 +63,7 @@ public class VentanaCRUD extends JFrame {
 		btnCrear.setBorderPainted(false);
 		this.add(btnCrear);
 
-		btnMostrar = new JButton("Mostrar artículos");
+		btnMostrar = new JButton();
 		btnMostrar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnMostrar.setBounds(80, 335, 300, 50);
 		btnMostrar.setBackground(new Color(254, 230, 1));
@@ -65,7 +72,7 @@ public class VentanaCRUD extends JFrame {
 		btnMostrar.setBorderPainted(false);
 		this.add(btnMostrar);
 
-		btnActualizar = new JButton("Actualizar artículo");
+		btnActualizar = new JButton();
 		btnActualizar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnActualizar.setBounds(80, 440, 300, 50);
 		btnActualizar.setBackground(new Color(254, 230, 1));
@@ -74,7 +81,7 @@ public class VentanaCRUD extends JFrame {
 		btnActualizar.setBorderPainted(false);
 		this.add(btnActualizar);
 
-		btnEliminar = new JButton("Eliminar artículo");
+		btnEliminar = new JButton();
 		btnEliminar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnEliminar.setBounds(80, 542, 300, 50);
 		btnEliminar.setBackground(new Color(254, 230, 1));
@@ -83,7 +90,7 @@ public class VentanaCRUD extends JFrame {
 		btnEliminar.setBorderPainted(false);
 		this.add(btnEliminar);
 
-		btnVolver = new JButton("Volver");
+		btnVolver = new JButton();
 		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnVolver.setBounds(18, 643, 200, 50);
 		btnVolver.setBackground(new Color(254, 230, 1));
@@ -93,6 +100,16 @@ public class VentanaCRUD extends JFrame {
 		this.add(btnVolver);
 	}
 
+	public void aplicarTexto() {
+		texto0.setText(prop.getProperty("mercadolibre.ventanacrud.texto0"));
+		btnCrear.setText(prop.getProperty("mercadolibre.ventanacrud.btncrear"));
+		btnMostrar.setText(prop.getProperty("mercadolibre.ventanacrud.btnmostrar"));
+		btnActualizar.setText(prop.getProperty("mercadolibre.ventanacrud.btnactualizar"));
+		btnEliminar.setText(prop.getProperty("mercadolibre.ventanacrud.btneliminar"));
+		btnVolver.setText(prop.getProperty("mercadolibre.ventanacrud.btnvolver"));
+
+	}
+	
 	public JLabel getFondoCRUD() {
 		return fondoCRUD;
 	}
@@ -147,6 +164,23 @@ public class VentanaCRUD extends JFrame {
 
 	public void setBtnEliminar(JButton btnEliminar) {
 		this.btnEliminar = btnEliminar;
+	}
+
+	public JLabel getTexto0() {
+		return texto0;
+	}
+
+	public void setTexto0(JLabel texto0) {
+		this.texto0 = texto0;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
 	}
 
 }
