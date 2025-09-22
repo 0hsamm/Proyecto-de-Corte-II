@@ -61,5 +61,45 @@ public class PanelEliminar extends JPanel {
 		btnEliminar.setBorderPainted(false);
 		this.add(btnEliminar);
 	}
+
+	public JComboBox<String> getListaCategorias() {
+		return listaCategorias;
+	}
+
+	public void setListaCategorias(JComboBox<String> listaCategorias) {
+		this.listaCategorias = listaCategorias;
+	}
+
+	public JLabel getLabelEliminar() {
+		return labelEliminar;
+	}
+
+	public void setLabelEliminar(JLabel labelEliminar) {
+		this.labelEliminar = labelEliminar;
+	}
+
+	public JLabel getLabelNombre() {
+		return labelNombre;
+	}
+
+	public void setLabelNombre(JLabel labelNombre) {
+		this.labelNombre = labelNombre;
+	}
+
+	public TextField getTextoNombre() {
+		return textoNombre;
+	}
+
+	public void setTextoNombre(TextField textoNombre) {
+		this.textoNombre = textoNombre;
+	}
+
+	public JButton getBtnEliminar() {
+		return btnEliminar;
+	}
+
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
+	}
 	
 }
