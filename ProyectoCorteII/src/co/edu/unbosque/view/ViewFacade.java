@@ -45,6 +45,7 @@ public class ViewFacade {
         venComprar.setProp(prop);
         venCRUD.getPanelCRUD().getpMostrar().setProp(prop);
 		venComprar.getPanelMostrar().setProp(prop);
+		venComprar.getPanelCarrito().setProp(prop);
     }
 
 	
