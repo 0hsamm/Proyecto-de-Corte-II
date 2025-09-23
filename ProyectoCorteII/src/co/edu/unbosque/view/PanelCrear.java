@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class PanelCrear extends JPanel {
 	private Properties prop;
 
-	private JComboBox<String> listaCategorias;
+	private JComboBox<String> listaCategoria;
 	private JLabel labelNombre;
 	private TextField textNombre;
 	private JLabel labelCantidad;
@@ -93,24 +93,15 @@ public class PanelCrear extends JPanel {
 
 	public void inicializarComponentes() {
 
-this.setLayout(null);
-		
-		labelCrear = new JLabel();
-
 		this.setLayout(null);
 
-		labelCrear = new JLabel("Crear");
-
+		labelCrear = new JLabel();
 		labelCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		labelCrear.setBounds(30, 5, 340, 25);
 		this.add(labelCrear);
 
-		
+
 		labelNombre = new JLabel();
-
-
-		labelNombre = new JLabel("Ingrese el nombre del producto:");
-
 		labelNombre.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelNombre.setBounds(30, 35, 425, 25);
 		this.add(labelNombre);
@@ -119,12 +110,8 @@ this.setLayout(null);
 		textNombre.setBounds(460, 35, 200, 25);
 		this.add(textNombre);
 
-		
+
 		labelCantidad = new JLabel();
-
-
-		labelCantidad = new JLabel("Ingrese la cantidad del producto:");
-
 		labelCantidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCantidad.setBounds(30, 65, 380, 25);
 		this.add(labelCantidad);
@@ -133,12 +120,8 @@ this.setLayout(null);
 		textCantidad.setBounds(460, 65, 200, 25);
 		this.add(textCantidad);
 
-		
+
 		labelPrecio = new JLabel();
-
-
-		labelPrecio = new JLabel("Ingrese el precio del producto:");
-
 		labelPrecio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelPrecio.setBounds(30, 95, 380, 25);
 		this.add(labelPrecio);
@@ -147,29 +130,19 @@ this.setLayout(null);
 		textPrecio.setBounds(460, 95, 200, 25);
 		this.add(textPrecio);
 
-		
+
 		labelCategoria = new JLabel();
-
-
-		labelCategoria = new JLabel("Ingrese la categoría del producto");
-
 		labelCategoria.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCategoria.setBounds(30, 125, 380, 25);
 		this.add(labelCategoria);
 
-		listaCategorias = new JComboBox<>();
-		
-		listaCategorias.setBounds(460, 125, 250, 30);
-		this.add(listaCategorias);
+		listaCategoria = new JComboBox<>();	
+		listaCategoria.setBounds(460, 125, 250, 30);
+		this.add(listaCategoria);
 
-		
+
 		//Accesorio para vehiculo
 		labelMaterialAccesorio = new JLabel();	
-
-
-		// Accesorio para vehiculo
-		labelMaterialAccesorio = new JLabel("Ingrese el material del producto:");
-
 		labelMaterialAccesorio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialAccesorio.setBounds(30, 200, 380, 25);
 		this.add(labelMaterialAccesorio);
@@ -178,12 +151,8 @@ this.setLayout(null);
 		textMaterialAccesorio.setBounds(450, 200, 200, 25);
 		this.add(textMaterialAccesorio);
 
-		
+
 		labelCompatibilidad = new JLabel();
-
-
-		labelCompatibilidad = new JLabel("Ingrese la compatibilidad del producto:");
-
 		labelCompatibilidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCompatibilidad.setBounds(30, 230, 420, 25);
 		this.add(labelCompatibilidad);
@@ -192,14 +161,9 @@ this.setLayout(null);
 		textCompatibilidad.setBounds(450, 230, 200, 25);
 		this.add(textCompatibilidad);
 
-		
+
 		//Electrodomestico
 		labelConsumo = new JLabel();
-
-
-		// Electrodomestico
-		labelConsumo = new JLabel("Ingrese el gasto de energia del producto:");
-
 		labelConsumo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConsumo.setBounds(30, 200, 440, 25);
 		this.add(labelConsumo);
@@ -208,12 +172,8 @@ this.setLayout(null);
 		textConsumo.setBounds(470, 200, 200, 25);
 		this.add(textConsumo);
 
-		
+
 		labelCapacidad = new JLabel();
-
-
-		labelCapacidad = new JLabel("Ingrese la capacidad del producto");
-
 		labelCapacidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCapacidad.setBounds(30, 230, 420, 25);
 		this.add(labelCapacidad);
@@ -222,13 +182,9 @@ this.setLayout(null);
 		textCapacidad.setBounds(470, 230, 200, 25);
 		this.add(textCapacidad);
 
-		
+
 		//Equipo deportivo
 		labelDeporte = new JLabel();
-
-
-		// Equipo deportivo
-		labelDeporte = new JLabel("Ingrese el deporte del producto:");
 		labelDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelDeporte.setBounds(30, 200, 440, 25);
 		this.add(labelDeporte);
@@ -236,10 +192,8 @@ this.setLayout(null);
 		textDeporte = new TextField();
 		textDeporte.setBounds(470, 200, 200, 25);
 		this.add(textDeporte);
-		
-		labelMaterialDeporte = new JLabel();	
 
-		labelMaterialDeporte = new JLabel("Ingrese el material del producto:");
+		labelMaterialDeporte = new JLabel();	
 		labelMaterialDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialDeporte.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialDeporte);
@@ -247,12 +201,9 @@ this.setLayout(null);
 		textMaterialDeporte = new TextField();
 		textMaterialDeporte.setBounds(470, 230, 200, 25);
 		this.add(textMaterialDeporte);
-		
+
 		//Herramienta
 		labelAlimentacion = new JLabel();
-
-		// Herramienta
-		labelAlimentacion = new JLabel("Ingrese el tipo de alimentación del producto:");
 		labelAlimentacion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelAlimentacion.setBounds(30, 200, 460, 25);
 		this.add(labelAlimentacion);
@@ -260,10 +211,8 @@ this.setLayout(null);
 		textAlimentacion = new TextField();
 		textAlimentacion.setBounds(500, 200, 200, 25);
 		this.add(textAlimentacion);
-		
-		labelMaterialHerramienta = new JLabel();	
 
-		labelMaterialHerramienta = new JLabel("Ingrese el material del producto:");
+		labelMaterialHerramienta = new JLabel();	
 		labelMaterialHerramienta.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialHerramienta.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialHerramienta);
@@ -271,12 +220,9 @@ this.setLayout(null);
 		textMaterialHerramienta = new TextField();
 		textMaterialHerramienta.setBounds(500, 230, 200, 25);
 		this.add(textMaterialHerramienta);
-		
+
 		//Inmueble
 		labelArea = new JLabel();
-
-		// Inmueble
-		labelArea = new JLabel("Ingrese el área del inmueble:");
 		labelArea.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelArea.setBounds(30, 200, 440, 25);
 		this.add(labelArea);
@@ -285,12 +231,8 @@ this.setLayout(null);
 		textArea.setBounds(580, 200, 200, 25);
 		this.add(textArea);
 
-		
+
 		labelCantidadCuarto = new JLabel();
-
-
-		labelCantidadCuarto = new JLabel("Ingrese la cantidad de cuartos que tiene el inmueble:");
-
 		labelCantidadCuarto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCantidadCuarto.setBounds(30, 230, 540, 25);
 		this.add(labelCantidadCuarto);
@@ -299,14 +241,9 @@ this.setLayout(null);
 		textCantidadCuarto.setBounds(580, 230, 200, 25);
 		this.add(textCantidadCuarto);
 
-		
+
 		//juguete
 		labelEdad = new JLabel();
-
-
-		// juguete
-		labelEdad = new JLabel("Ingrese la edad recomendada del producto:");
-
 		labelEdad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelEdad.setBounds(30, 200, 460, 25);
 		this.add(labelEdad);
@@ -315,7 +252,7 @@ this.setLayout(null);
 		textEdad.setBounds(500, 200, 200, 25);
 		this.add(textEdad);
 
-		
+
 		labelMaterialJuguete = new JLabel();		
 		labelMaterialJuguete = new JLabel("Ingrese el material del producto:");
 		labelMaterialJuguete.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -326,14 +263,9 @@ this.setLayout(null);
 		textMaterialJuguete.setBounds(500, 230, 200, 25);
 		this.add(textMaterialJuguete);
 
-		
+
 		//Prenda de vestir
 		labelTalla = new JLabel();
-
-
-		// Prenda de vestir
-		labelTalla = new JLabel("Ingrese la talla del producto:");
-
 		labelTalla.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTalla.setBounds(30, 200, 460, 25);
 		this.add(labelTalla);
@@ -342,12 +274,8 @@ this.setLayout(null);
 		textTalla.setBounds(500, 200, 200, 25);
 		this.add(textTalla);
 
-		
+
 		labelTipoTela = new JLabel();	
-
-
-		labelTipoTela = new JLabel("Ingrese el tipo de tela del producto:");
-
 		labelTipoTela.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTipoTela.setBounds(30, 230, 420, 25);
 		this.add(labelTipoTela);
@@ -356,14 +284,9 @@ this.setLayout(null);
 		textTipoTela.setBounds(500, 230, 200, 25);
 		this.add(textTipoTela);
 
-		
+
 		//Producto farmaceutico
 		labelFormaFarmaceutica = new JLabel();
-
-
-		// Producto farmaceutico
-		labelFormaFarmaceutica = new JLabel("Ingrese la fórmula del producto:");
-
 		labelFormaFarmaceutica.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelFormaFarmaceutica.setBounds(30, 200, 460, 25);
 		this.add(labelFormaFarmaceutica);
@@ -372,12 +295,8 @@ this.setLayout(null);
 		textFormaFarmaceutica.setBounds(500, 200, 200, 25);
 		this.add(textFormaFarmaceutica);
 
-		
+
 		labelConcentracion = new JLabel();
-
-
-		labelConcentracion = new JLabel("Ingrese la concentración del producto:");
-
 		labelConcentracion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConcentracion.setBounds(30, 230, 420, 25);
 		this.add(labelConcentracion);
@@ -386,13 +305,9 @@ this.setLayout(null);
 		textConcentracion.setBounds(500, 230, 200, 25);
 		this.add(textConcentracion);
 
-		
+
 		//Producto sostenible
 		labelMaterialEcologico = new JLabel();
-
-
-		// Producto sostenible
-		labelMaterialEcologico = new JLabel("Ingrese el material del producto:");
 		labelMaterialEcologico.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialEcologico.setBounds(30, 200, 460, 25);
 		this.add(labelMaterialEcologico);
@@ -400,10 +315,8 @@ this.setLayout(null);
 		textMaterialEcologico = new TextField();
 		textMaterialEcologico.setBounds(500, 200, 200, 25);
 		this.add(textMaterialEcologico);
-		
-		labelCertificacion = new JLabel();
 
-		labelCertificacion = new JLabel("Ingrese la certificación del producto:");
+		labelCertificacion = new JLabel();
 		labelCertificacion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCertificacion.setBounds(30, 230, 420, 25);
 		this.add(labelCertificacion);
@@ -411,12 +324,9 @@ this.setLayout(null);
 		textCertificacion = new TextField();
 		textCertificacion.setBounds(500, 230, 200, 25);
 		this.add(textCertificacion);
-		
+
 		//tecnologia
 		labelSO = new JLabel();
-
-		// tecnologia
-		labelSO = new JLabel("Ingrese el sistema operativo del producto:");
 		labelSO.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelSO.setBounds(30, 200, 460, 25);
 		this.add(labelSO);
@@ -424,12 +334,8 @@ this.setLayout(null);
 		textSO = new TextField();
 		textSO.setBounds(500, 200, 200, 25);
 		this.add(textSO);
-		
+
 		labelConectividad = new JLabel();
-
-
-		labelConectividad = new JLabel("Ingrese el tipo de conectividad del producto:");
-
 		labelConectividad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConectividad.setBounds(30, 230, 470, 25);
 		this.add(labelConectividad);
@@ -438,12 +344,8 @@ this.setLayout(null);
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
 
-		
+
 		btnCrear = new JButton();
-
-
-		btnCrear = new JButton("Crear");
-
 		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCrear.setBounds(230, 350, 300, 50);
 		btnCrear.setBackground(new Color(254, 230, 1));
@@ -453,24 +355,24 @@ this.setLayout(null);
 		this.add(btnCrear);
 
 	}
-	
+
 	public void aplicarTexto() {
 		labelCrear.setText(prop.getProperty("mercadolibre.panelcrear.texto0"));
 		labelNombre.setText(prop.getProperty("mercadolibre.panelcrear.labelnombre"));
 		labelCantidad.setText(prop.getProperty("mercadolibre.panelcrear.labelcantidad"));
 		labelPrecio.setText(prop.getProperty("mercadolibre.panelcrear.labelprecio"));
 		labelCategoria.setText(prop.getProperty("mercadolibre.panelcrear.labelcategoria"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.seleccionar"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.accesoriovehiculo"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.electrodomestico"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.equipodeportivo"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.herramienta"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.inmueble"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.juguete"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.prendavestir"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.productofarmaceutico"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.productosostenible"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.tecnologia"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.seleccionar"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.accesoriovehiculo"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.electrodomestico"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.equipodeportivo"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.herramienta"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.inmueble"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.juguete"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.prendavestir"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.productofarmaceutico"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.productosostenible"));
+		listaCategoria.addItem(prop.getProperty("mercadolibre.panelcrear.combobox.tecnologia"));
 		labelMaterialAccesorio.setText(prop.getProperty("mercadolibre.panelcrear.labelmaterialaccesorio"));
 		labelCompatibilidad.setText(prop.getProperty("mercadolibre.panelcrear.labelcompatibilidad"));
 		labelConsumo.setText(prop.getProperty("mercadolibre.panelcrear.labelconsumo"));
@@ -493,9 +395,9 @@ this.setLayout(null);
 		labelConectividad.setText(prop.getProperty("mercadolibre.panelcrear.labelconectividad"));
 		btnCrear.setText(prop.getProperty("mercadolibre.panelcrear.btncrear"));
 
-		
+
 	}
-	
+
 
 	public void ocultarOpcionesEspecificas() {
 		labelMaterialAccesorio.setVisible(false);
@@ -634,7 +536,7 @@ this.setLayout(null);
 		textCertificacion.setText("");
 		textSO.setText("");
 		textConectividad.setText("");
-		listaCategorias.setSelectedIndex(0);
+		listaCategoria.setSelectedIndex(0);
 	}
 
 	public Properties getProp() {
@@ -647,11 +549,11 @@ this.setLayout(null);
 	}
 
 	public JComboBox<String> getListaCategorias() {
-		return listaCategorias;
+		return listaCategoria;
 	}
 
 	public void setListaCategorias(JComboBox<String> listaCategorias) {
-		this.listaCategorias = listaCategorias;
+		this.listaCategoria = listaCategorias;
 	}
 
 	public JLabel getLabelNombre() {
@@ -1037,7 +939,7 @@ this.setLayout(null);
 	public void setTextConectividad(TextField textConectividad) {
 		this.textConectividad = textConectividad;
 	}
-	
+
 
 	public JLabel getLabelCrear() {
 		return labelCrear;
@@ -1046,5 +948,5 @@ this.setLayout(null);
 	public void setLabelCrear(JLabel labelCrear) {
 		this.labelCrear = labelCrear;
 	}
-
+	
 }

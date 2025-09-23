@@ -37,35 +37,36 @@ public class Controller implements ActionListener {
 				JOptionPane.QUESTION_MESSAGE);
 		switch (opcion) {
 		case "1": {
-			prop = FileHandler.cargarArchivoDePropiedades("spa.properties");				
+			prop = FileHandler.cargarArchivoDePropiedades("spa.properties");
 			vf.setProp(prop);
-            vf.cargarIdioma();
+			vf.cargarIdioma();
 			break;
 		}
 		case "2": {
 			prop = FileHandler.cargarArchivoDePropiedades("eng.properties");
 			vf.setProp(prop);
-            vf.cargarIdioma();
+			vf.cargarIdioma();
 			break;
 		}
 		case "3": {
 			prop = FileHandler.cargarArchivoDePropiedades("por.properties");
 			vf.setProp(prop);
-            vf.cargarIdioma();
+			vf.cargarIdioma();
 			break;
 		}
 		case "4": {
 			prop = FileHandler.cargarArchivoDePropiedades("lat.properties");
 			vf.setProp(prop);
-            vf.cargarIdioma();
+			vf.cargarIdioma();
 			break;
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
 		vf.getVenMenu().setVisible(true);
+		System.out.println(vf.getVenComprar().getPanelMostrar().getListaCategoria().getItemAt(5));
 		asignarListeners();
-		
+
 	}
 
 	public void asignarListeners() {
@@ -112,6 +113,9 @@ public class Controller implements ActionListener {
 		vf.getVenRegistroComprador().getBtnMenu().addActionListener(this);
 		vf.getVenRegistroComprador().getBtnMenu().setActionCommand("VOLVER_MENU_REGISTRO_COMPRADOR");
 
+		vf.getVenComprar().getBtnVolver().addActionListener(this);
+		vf.getVenComprar().getBtnVolver().setActionCommand("VOLVER_COMPRA");
+
 		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnRegistro().addActionListener(this);
 		vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getBtnRegistro()
 				.setActionCommand("REGISTRO_VENDEDOR");
@@ -133,9 +137,10 @@ public class Controller implements ActionListener {
 
 		vf.getVenCRUD().getBtnActualizar().addActionListener(this);
 		vf.getVenCRUD().getBtnActualizar().setActionCommand("BOTON_ACTUALIZAR");
-		
+
 		vf.getVenComprar().getBtnMostrar().addActionListener(this);
-		vf.getVenComprar().getBtnMostrar().setActionCommand("BOTON_MOSTRAR_ARTICULO");;
+		vf.getVenComprar().getBtnMostrar().setActionCommand("BOTON_MOSTRAR_ARTICULO");
+		;
 
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getBtnActualizar().setActionCommand("ACTUALIZAR_ARTICULO");
@@ -149,8 +154,11 @@ public class Controller implements ActionListener {
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getListaCategorias().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpActualizar().getListaCategorias().setActionCommand("COMBOBOX_ACTUALIZAR");
 
-		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategorias().addActionListener(this);
-		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategorias().setActionCommand("COMBOBOX_MOSTRAR");
+		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria().addActionListener(this);
+		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria().setActionCommand("COMBOBOX_MOSTRAR");
+
+		vf.getVenComprar().getPanelMostrar().getListaCategoria().addActionListener(this);
+		vf.getVenComprar().getPanelMostrar().getListaCategoria().setActionCommand("COMBOBOX_MOSTRAR_PRODUCTO");
 
 	}
 
@@ -187,30 +195,59 @@ public class Controller implements ActionListener {
 
 		}
 		case "INICIAR_SESION_VENDEDOR": {
+
 		/*	String usuario = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
 			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
+
+			String usuario = vf.getVenInic2ioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
+
 					.getPassword();
 			String contrasena = new String(contrasenaChar);
 
 			if (mf.getVendedorDAO().getListaVendedores().contains(contrasena)
+
 					&& mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
-			*/	vf.getVenInicioVendedor().setVisible(false);
+				vf.getVenInicioVendedor().setVisible(false);
+			
+					&& mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
+				vf.getVenInicioVendedor().setVisible(false);*/
+
 				vf.getVenCRUD().setVisible(true);
-		/*	} else {
+				
+			} /*else {
+
 				JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),
 						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
 						JOptionPane.ERROR_MESSAGE);
 
 			}
+
 			break;
-*/
+
+		}*/
+
+		case "VOLVER_COMPRA": {
+			vf.getVenMenu().setVisible(true);
+			vf.getVenComprar().setVisible(false);
+			break;
 		}
 
 		case "INICIAR_SESION_COMPRADOR": {
+
 		/*	String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
 			char[] contrasenaChar = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
 					.getPassword();
 			String contrasena = new String(contrasenaChar);
+
+			// String usuario =
+			// vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			// char[] contrasenaChar =
+			// vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
+			// .getPassword();
+			// String contrasena = new String(contrasenaChar);
+
+
 
 			if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
 					&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {*/
@@ -220,57 +257,28 @@ public class Controller implements ActionListener {
 						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
 						JOptionPane.ERROR_MESSAGE);
 			}
+
+			// if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
+			// && mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+			vf.getVenInicioComprador().setVisible(false);
+			vf.getVenComprar().setVisible(true);
+			// JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
+			// "El usuario o la contraseña no existen en el sistema.", "Error de inicio de
+			// sesión",
+			// JOptionPane.ERROR_MESSAGE);
+			// }
+
 			break;
 */
 		}
-		
-		case "BOTON_MOSTRAR_ARTICULO":{
+
+		case "BOTON_MOSTRAR_ARTICULO": {
+
 			vf.getVenComprar().getPanelMostrar().setVisible(true);
-			
-			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
-
-			if (seleccionado.equals("-Seleccione-")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText("Por favor elija un tipo de producto");
-			} else if (seleccionado.equals("Accesorio para vehiculo")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getAccesorioVehiculoDAO().showAll());
-			} else if (seleccionado.equals("Electrodomestico")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getElectrodomesticoDAO().showAll());
-			} else if (seleccionado.equals("Equipo deportivo")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getEquipoDeportivoDAO().showAll());
-			} else if (seleccionado.equals("Herramientas")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getHerramientaDAO().showAll());
-			} else if (seleccionado.equals("Inmuebles")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getInmbuenleDAO().showAll());
-			} else if (seleccionado.equals("Juguetes")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getJugueteDAO().showAll());
-			} else if (seleccionado.equals("Prenda de vestir")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getPrendaDAO().showAll());
-			} else if (seleccionado.equals("Producto farmaceutico")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoFarmaceuticoDAO().showAll());
-			} else if (seleccionado.equals("Producto sostenible")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoSostenibleDAO().showAll());
-			} else if (seleccionado.equals("Tecnologia")) {
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getTecnologoiaDAO().showAll());
-			}  else if (seleccionado.equals("Mostrar todo")) {
-				StringBuilder texto = new StringBuilder();
-
-				texto.append(mf.getAccesorioVehiculoDAO().showAll()).append("\n");
-				texto.append(mf.getElectrodomesticoDAO().showAll()).append("\n");
-				texto.append(mf.getEquipoDeportivoDAO().showAll()).append("\n");
-				texto.append(mf.getHerramientaDAO().showAll()).append("\n");
-				texto.append(mf.getInmbuenleDAO().showAll()).append("\n");
-				texto.append(mf.getJugueteDAO().showAll()).append("\n");
-				texto.append(mf.getPrendaDAO().showAll()).append("\n");
-				texto.append(mf.getProductoFarmaceuticoDAO().showAll()).append("\n");
-				texto.append(mf.getProductoSostenibleDAO().showAll()).append("\n");
-				texto.append(mf.getTecnologoiaDAO().showAll()).append("\n");
-
-				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(texto.toString());
-			}
 			break;
 
 		}
-			
+
 		case "VOLVER_MENU_CRUD": {
 			vf.getVenMenu().setVisible(true);
 			vf.getVenCRUD().setVisible(false);
@@ -755,7 +763,7 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "COMBOBOX_MOSTRAR": {
-			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategorias()
+			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria()
 					.getSelectedItem();
 
 			if (seleccionado.equals("-Seleccione-")) {
@@ -809,37 +817,30 @@ public class Controller implements ActionListener {
 		}
 
 		case "MOSTRAR_ARTICULO": {
-			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategorias()
-					.getSelectedItem();
+			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategoria().getSelectedItem();
 
 			if (seleccionado.equals("-Seleccione-")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText("Por favor seleccione una categoría.");
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText("Por favor seleccione una categoría.");
 			} else if (seleccionado.equals("Accesorio para vehiculo")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText(mf.getAccesorioVehiculoDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getAccesorioVehiculoDAO().showAll());
 			} else if (seleccionado.equals("Electrodomestico")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText(mf.getElectrodomesticoDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getElectrodomesticoDAO().showAll());
 			} else if (seleccionado.equals("Equipo deportivo")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText(mf.getEquipoDeportivoDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getEquipoDeportivoDAO().showAll());
 			} else if (seleccionado.equals("Herramientas")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(mf.getHerramientaDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getHerramientaDAO().showAll());
 			} else if (seleccionado.equals("Inmuebles")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(mf.getInmbuenleDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getInmbuenleDAO().showAll());
 			} else if (seleccionado.equals("Juguetes")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(mf.getJugueteDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getJugueteDAO().showAll());
 			} else if (seleccionado.equals("Prenda de vestir")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(mf.getPrendaDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getPrendaDAO().showAll());
 			} else if (seleccionado.equals("Producto farmaceutico")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText(mf.getProductoFarmaceuticoDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoFarmaceuticoDAO().showAll());
 			} else if (seleccionado.equals("Producto sostenible")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto()
-						.setText(mf.getProductoSostenibleDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getProductoSostenibleDAO().showAll());
 			} else if (seleccionado.equals("Tecnologia")) {
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(mf.getTecnologoiaDAO().showAll());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(mf.getTecnologoiaDAO().showAll());
 			} else if (seleccionado.equals("Mostrar todo")) {
 				StringBuilder texto = new StringBuilder();
 
@@ -854,7 +855,7 @@ public class Controller implements ActionListener {
 				texto.append(mf.getProductoSostenibleDAO().showAll()).append("\n");
 				texto.append(mf.getTecnologoiaDAO().showAll()).append("\n");
 
-				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(texto.toString());
+				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText(texto.toString());
 			}
 			break;
 		}

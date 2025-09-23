@@ -21,6 +21,7 @@ public class PanelEliminar extends JPanel {
 	public PanelEliminar() {
 		prop = new Properties();
 		inicializarComponentes();
+		aplicarTexto();
 	}
 	
 	public void inicializarComponentes() {

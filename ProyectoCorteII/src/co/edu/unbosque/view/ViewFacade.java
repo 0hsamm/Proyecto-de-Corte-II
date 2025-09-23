@@ -3,50 +3,51 @@ package co.edu.unbosque.view;
 import java.util.Properties;
 
 public class ViewFacade {
-	private VentanaMenu venMenu;
-	private VentanaOpcionInicioSesion venInicioSesion;
-	private VentanaInicioComprador venInicioComprador;
-	private VentanaInicioVendedor venInicioVendedor;
-	private VentanaRegistroComprador venRegistroComprador;
-	private VentanaRegistroVendedor venRegistroVendedor;
-	private VentanaCRUD venCRUD;
-	private Properties prop;
-	private VentanaComprar venComprar;
+    private VentanaMenu venMenu;
+    private VentanaOpcionInicioSesion venInicioSesion;
+    private VentanaInicioComprador venInicioComprador;
+    private VentanaInicioVendedor venInicioVendedor;
+    private VentanaRegistroComprador venRegistroComprador;
+    private VentanaRegistroVendedor venRegistroVendedor;
+    private VentanaCRUD venCRUD;
+    private Properties prop;
+    private VentanaComprar venComprar;
 
-	
-	public ViewFacade() {
-		prop = new Properties();
-		venInicioSesion = new VentanaOpcionInicioSesion();
-		venMenu = new VentanaMenu();
-		venInicioComprador = new VentanaInicioComprador();
-		venInicioVendedor = new VentanaInicioVendedor();
-		venRegistroComprador = new VentanaRegistroComprador();
-		venRegistroVendedor = new VentanaRegistroVendedor();
-		venCRUD = new VentanaCRUD();
-		venComprar = new VentanaComprar();
+    public ViewFacade() {
+        prop = new Properties();
+        venInicioSesion = new VentanaOpcionInicioSesion();
+        venMenu = new VentanaMenu();
+        venInicioComprador = new VentanaInicioComprador();
+        venInicioVendedor = new VentanaInicioVendedor();
+        venRegistroComprador = new VentanaRegistroComprador();
+        venRegistroVendedor = new VentanaRegistroVendedor();
+        venCRUD = new VentanaCRUD();
+        venComprar = new VentanaComprar();
+  
+    }
 
-		
-	}
-
-	public void cargarIdioma() {
-		venMenu.setProp(prop);
-		venInicioSesion.setProp(prop);
-		venInicioComprador.setProp(prop);
-		venInicioVendedor.setProp(prop);
-		venRegistroComprador.setProp(prop);
-		venRegistroVendedor.setProp(prop);
-		venCRUD.setProp(prop);
-		venInicioComprador.getPanelCentral().getpInicioSesion().setProp(prop);
+    public void cargarIdioma() {
+        venMenu.setProp(prop);
+        venInicioSesion.setProp(prop);
+        venInicioComprador.setProp(prop);
+        venInicioVendedor.setProp(prop);
+        venRegistroComprador.setProp(prop);
+        venRegistroVendedor.setProp(prop);
+        venCRUD.setProp(prop);
+        venInicioComprador.getPanelCentral().getpInicioSesion().setProp(prop);
         venInicioVendedor.getPanelCentral().getpInicioSesion().setProp(prop);
         venRegistroComprador.getPanelRegistro().setProp(prop);
         venRegistroVendedor.getPanelRegistro().setProp(prop);
         venCRUD.getPanelCRUD().getpCrear().setProp(prop);
         venCRUD.getPanelCRUD().getpActualizar().setProp(prop);
         venCRUD.getPanelCRUD().getpEliminar().setProp(prop);
-        venCRUD.getPanelCRUD().getpMostrar().setProp(prop);
-		
-		
-	}
+        venCRUD.getPanelCRUD().getpMostrar().setProp(prop); 
+        venComprar.setProp(prop);
+    }
+
+
+
+
 	
 	public VentanaMenu getVenMenu() {
 		return venMenu;

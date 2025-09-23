@@ -32,7 +32,6 @@ public class VentanaMenu extends JFrame {
 	
 	public VentanaMenu() {
 		prop = new Properties();
-		
 		inicializarComponentes();
 	}
 

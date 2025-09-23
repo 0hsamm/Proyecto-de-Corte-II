@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,14 +14,23 @@ public class VentanaComprar extends JFrame {
 
 	private JLabel fondoComprar;
 	private PanelMostrar panelMostrar;
+	private PanelCarrito panelCarrito;
 	private JButton btnVolver;
 
 	private JButton btnMostrar;
 	private JButton btnCarrito;
 	private JButton btnComprar;
 
+	private Properties prop;
+	
+	private ImageIcon fondo;
+	private Image escalar;
+	private JLabel texto0;
+	
 	public VentanaComprar() {
+		prop = new Properties();
 		inicializarComponentes();
+		aplicarTexto();
 	}
 
 	public void inicializarComponentes() {
@@ -30,24 +40,27 @@ public class VentanaComprar extends JFrame {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 
-		ImageIcon fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaComprar.PNG");
-		Image escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaComprar.PNG");
+		escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		fondoComprar = new JLabel(new ImageIcon(escalar));
 		fondoComprar.setBounds(0, 0, 1280, 720);
 		this.setContentPane(fondoComprar);
 		fondoComprar.setLayout(null);
-
-		JLabel texto0 = new JLabel("Funciones del comprador");
+		
+		texto0 = new JLabel();
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 60));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoComprar.add(texto0);
-
+		
+		panelCarrito = new PanelCarrito();
+		
+		
 		panelMostrar = new PanelMostrar();
 		panelMostrar.setBounds(450, 200, 800, 500);
 		panelMostrar.setOpaque(false);
 		fondoComprar.add(panelMostrar);
 
-		btnMostrar = new JButton("Artículos");
+		btnMostrar = new JButton();
 		btnMostrar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnMostrar.setBounds(80, 235, 300, 50);
 		btnMostrar.setBackground(new Color(254, 230, 1));
@@ -56,7 +69,7 @@ public class VentanaComprar extends JFrame {
 		btnMostrar.setBorderPainted(false);
 		this.add(btnMostrar);
 
-		btnCarrito = new JButton("Carrito");
+		btnCarrito = new JButton();
 		btnCarrito.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCarrito.setBounds(80, 380, 300, 50);
 		btnCarrito.setBackground(new Color(254, 230, 1));
@@ -65,7 +78,7 @@ public class VentanaComprar extends JFrame {
 		btnCarrito.setBorderPainted(false);
 		this.add(btnCarrito);
 
-		btnComprar = new JButton("Comprar artículo");
+		btnComprar = new JButton();
 		btnComprar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnComprar.setBounds(80, 542, 300, 50);
 		btnComprar.setBackground(new Color(254, 230, 1));
@@ -74,7 +87,7 @@ public class VentanaComprar extends JFrame {
 		btnComprar.setBorderPainted(false);
 		this.add(btnComprar);
 
-		btnVolver = new JButton("Volver");
+		btnVolver = new JButton();
 		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnVolver.setBounds(18, 643, 200, 50);
 		btnVolver.setBackground(new Color(254, 230, 1));
@@ -82,6 +95,15 @@ public class VentanaComprar extends JFrame {
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		this.add(btnVolver);
+	}
+	
+	public void aplicarTexto() {
+		texto0.setText(prop.getProperty("mercadolibre.ventanacomprar.texto0"));
+		btnMostrar.setText(prop.getProperty("mercadolibre.ventanacomprar.btnmostrar"));
+		btnCarrito.setText(prop.getProperty("mercadolibre.ventanacomprar.btncarrito"));
+		btnComprar.setText(prop.getProperty("mercadolibre.ventanacomprar.btncomprar"));
+		btnVolver.setText(prop.getProperty("mercadolibre.ventanacomprar.btnvolver"));
+		
 	}
 
 	public JLabel getFondoComprar() {
@@ -130,6 +152,51 @@ public class VentanaComprar extends JFrame {
 
 	public void setBtnComprar(JButton btnComprar) {
 		this.btnComprar = btnComprar;
+	}
+
+	public PanelCarrito getPanelCarrito() {
+		return panelCarrito;
+	}
+
+	public void setPanelCarrito(PanelCarrito panelCarrito) {
+		this.panelCarrito = panelCarrito;
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+		aplicarTexto();
+		
+		
+		    
+		
+	}
+
+	public ImageIcon getFondo() {
+		return fondo;
+	}
+
+	public void setFondo(ImageIcon fondo) {
+		this.fondo = fondo;
+	}
+
+	public Image getEscalar() {
+		return escalar;
+	}
+
+	public void setEscalar(Image escalar) {
+		this.escalar = escalar;
+	}
+
+	public JLabel getTexto0() {
+		return texto0;
+	}
+
+	public void setTexto0(JLabel texto0) {
+		this.texto0 = texto0;
 	}
 
 }
