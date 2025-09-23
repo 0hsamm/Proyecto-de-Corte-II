@@ -64,7 +64,7 @@ public class Controller implements ActionListener {
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
 		vf.getVenMenu().setVisible(true);
-		System.out.println(vf.getVenComprar().getPanelMostrar().getListaCategoria().getItemAt(5));
+		System.out.println(vf.getVenComprar().getPanelMostrar().getListaCategorias().getItemAt(5));
 		asignarListeners();
 
 	}
@@ -157,8 +157,8 @@ public class Controller implements ActionListener {
 		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria().setActionCommand("COMBOBOX_MOSTRAR");
 
-		vf.getVenComprar().getPanelMostrar().getListaCategoria().addActionListener(this);
-		vf.getVenComprar().getPanelMostrar().getListaCategoria().setActionCommand("COMBOBOX_MOSTRAR_PRODUCTO");
+		vf.getVenComprar().getPanelMostrar().getListaCategorias().addActionListener(this);
+		vf.getVenComprar().getPanelMostrar().getListaCategorias().setActionCommand("COMBOBOX_MOSTRAR_PRODUCTO");
 
 	}
 
@@ -817,7 +817,7 @@ public class Controller implements ActionListener {
 		}
 
 		case "MOSTRAR_ARTICULO": {
-			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategoria().getSelectedItem();
+			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
 
 			if (seleccionado.equals("-Seleccione-")) {
 				vf.getVenComprar().getPanelMostrar().getVerObjeto().setText("Por favor seleccione una categoría.");

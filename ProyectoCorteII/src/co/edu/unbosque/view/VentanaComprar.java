@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 public class VentanaComprar extends JFrame {
 
 	private JLabel fondoComprar;
-	private PanelMostrar panelMostrar;
+	private PanelMostrarComprador panelMostrar;
 	private PanelCarrito panelCarrito;
 	private JButton btnVolver;
 
@@ -55,7 +55,7 @@ public class VentanaComprar extends JFrame {
 		panelCarrito = new PanelCarrito();
 		
 		
-		panelMostrar = new PanelMostrar();
+		panelMostrar = new PanelMostrarComprador();
 		panelMostrar.setBounds(450, 200, 800, 500);
 		panelMostrar.setOpaque(false);
 		fondoComprar.add(panelMostrar);
@@ -114,12 +114,22 @@ public class VentanaComprar extends JFrame {
 		this.fondoComprar = fondoComprar;
 	}
 
-	public PanelMostrar getPanelMostrar() {
+	
+
+	public PanelMostrarComprador getPanelMostrar() {
 		return panelMostrar;
 	}
 
-	public void setPanelMostrar(PanelMostrar panelMostrar) {
+	public void setPanelMostrar(PanelMostrarComprador panelMostrar) {
 		this.panelMostrar = panelMostrar;
+	}
+
+	public PanelCarrito getPanelCarrito() {
+		return panelCarrito;
+	}
+
+	public void setPanelCarrito(PanelCarrito panelCarrito) {
+		this.panelCarrito = panelCarrito;
 	}
 
 	public JButton getBtnVolver() {
@@ -154,13 +164,7 @@ public class VentanaComprar extends JFrame {
 		this.btnComprar = btnComprar;
 	}
 
-	public PanelCarrito getPanelCarrito() {
-		return panelCarrito;
-	}
 
-	public void setPanelCarrito(PanelCarrito panelCarrito) {
-		this.panelCarrito = panelCarrito;
-	}
 
 	public Properties getProp() {
 		return prop;
