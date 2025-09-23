@@ -44,7 +44,7 @@ public class ViewFacade {
         venCRUD.getPanelCRUD().getpActualizar().setProp(prop);
         venCRUD.getPanelCRUD().getpEliminar().setProp(prop);
         venCRUD.getPanelCRUD().getpMostrar().setProp(prop);
-		
+		venComprar.getPanelMostrar().setProp(prop);
 		
 	}
 	
