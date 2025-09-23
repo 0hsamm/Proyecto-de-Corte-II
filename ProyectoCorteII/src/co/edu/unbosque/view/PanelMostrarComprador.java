@@ -1,104 +1,140 @@
 package co.edu.unbosque.view;
 
-
 import java.util.Properties;
 import java.awt.CardLayout;
-import java.awt.event.ActionListener;
 
-
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class PanelMostrarComprador extends JPanel {
-	private JComboBox<String> listaCategorias;
-	private JTextArea verObjeto;
-	private JScrollPane zonaMostrar;
-	private Properties prop;
-	private CardLayout cardLayout;
+    private JComboBox<String> listaCategorias;
+    private JTextArea verObjeto;
+    private JScrollPane zonaMostrar;
+    private Properties prop;
+    private CardLayout cardLayout;
+    private JLabel lblIndice;
+    private JTextField txtIndice;
+    private JButton btnAgregarCarrito;
+    private JLabel lblCarrito;
+    private JTextField txtCarrito;
+    private JButton btnCrearCarrito;
 
-	public PanelMostrarComprador() {
-		prop = new Properties();
-		inicializarComponentes();
-	}
+    public PanelMostrarComprador() {
+        prop = new Properties();
+        inicializarComponentes();
+    }
 
-	public void inicializarComponentes() {
-		cardLayout = new CardLayout();
-		this.setLayout(null);
+    public void inicializarComponentes() {
+        cardLayout = new CardLayout();
+        this.setLayout(null);
 
-		listaCategorias = new JComboBox<>();
-		
-		listaCategorias.setBounds(10, 10, 250, 30);
+        listaCategorias = new JComboBox<>();
+        listaCategorias.setBounds(20, 20, 300, 30);
+        this.add(listaCategorias);
 
-		this.add(listaCategorias);
+        verObjeto = new JTextArea();
+        verObjeto.setEditable(false);
 
-		verObjeto = new JTextArea();
-		verObjeto.setEditable(false);
+        zonaMostrar = new JScrollPane(verObjeto);
+        zonaMostrar.setBounds(20, 60, 820, 300);
+        this.add(zonaMostrar);
 
-		zonaMostrar = new JScrollPane(verObjeto);
-		zonaMostrar.setBounds(10, 60, 800, 1000);
-		this.add(zonaMostrar);
+        lblCarrito = new JLabel("Carrito:");
+        lblCarrito.setBounds(20, 380, 100, 30);
+        this.add(lblCarrito);
 
-	}
-	public void aplicarTexto() {
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"));
-		listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.mostrartodo"));
-	}
+        txtCarrito = new JTextField();
+        txtCarrito.setBounds(130, 380, 100, 30);
+        this.add(txtCarrito);
 
-	public JComboBox<String> getListaCategorias() {
-		return listaCategorias;
-	}
+        btnCrearCarrito = new JButton("Crear carrito");
+        btnCrearCarrito.setBounds(250, 380, 150, 30);
+        this.add(btnCrearCarrito);
 
-	public void setListaCategorias(JComboBox<String> listaCategorias) {
-		this.listaCategorias = listaCategorias;
-	}
+        lblIndice = new JLabel("Índice del producto:");
+        lblIndice.setBounds(20, 430, 140, 30);
+        this.add(lblIndice);
 
-	public JTextArea getVerObjeto() {
-		return verObjeto;
-	}
+        txtIndice = new JTextField();
+        txtIndice.setBounds(170, 430, 100, 30);
+        this.add(txtIndice);
 
-	public void setVerObjeto(JTextArea verObjeto) {
-		this.verObjeto = verObjeto;
-	}
+        btnAgregarCarrito = new JButton("Agregar al carrito");
+        btnAgregarCarrito.setBounds(300, 430, 200, 30);
+        this.add(btnAgregarCarrito);
+    }
 
-	public JScrollPane getZonaMostrar() {
-		return zonaMostrar;
-	}
+    public void aplicarTexto() {
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"));
+        listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.mostrartodo"));
+    }
 
-	public void setZonaMostrar(JScrollPane zonaMostrar) {
-		this.zonaMostrar = zonaMostrar;
-	}
+    public JButton getBtnCrearCarrito() {
+        return btnCrearCarrito;
+    }
 
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
 
-	public Properties getProp() {
-		return prop;
-	}
+    public JLabel getLblCarrito() {
+        return lblCarrito;
+    }
 
-	public void setProp(Properties prop) {
-		this.prop = prop;
-		aplicarTexto();
-		
-}
-	public void mostrarPanel(String nombrePanel) {
-		
-		cardLayout.show(this, nombrePanel);
-	}
-	
-	
-	
-	
+    public JTextField getTxtCarrito() {
+        return txtCarrito;
+    }
 
+    public JLabel getLblIndice() {
+        return lblIndice;
+    }
 
+    public JTextField getTxtIndice() {
+        return txtIndice;
+    }
+
+    public JButton getBtnAgregarCarrito() {
+        return btnAgregarCarrito;
+    }
+
+    public JComboBox<String> getListaCategorias() {
+        return listaCategorias;
+    }
+
+    public JTextArea getVerObjeto() {
+        return verObjeto;
+    }
+
+    public JScrollPane getZonaMostrar() {
+        return zonaMostrar;
+    }
+
+    public Properties getProp() {
+        return prop;
+    }
+
+    public void setProp(Properties prop) {
+        this.prop = prop;
+        aplicarTexto();
+    }
+
+    public void mostrarPanel(String nombrePanel) {
+        cardLayout.show(this, nombrePanel);
+    }
 }
 
