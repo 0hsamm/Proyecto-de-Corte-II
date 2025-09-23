@@ -7,6 +7,7 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.AccesorioVehiculo;
+import co.edu.unbosque.model.Carrito;
 import co.edu.unbosque.model.Electrodomestico;
 import co.edu.unbosque.model.EquipoDeportivo;
 import co.edu.unbosque.model.Herramienta;
@@ -14,6 +15,7 @@ import co.edu.unbosque.model.Inmueble;
 import co.edu.unbosque.model.Juguete;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.PrendaDeVestir;
+import co.edu.unbosque.model.Producto;
 import co.edu.unbosque.model.ProductoFarmaceutico;
 import co.edu.unbosque.model.ProductoSostenible;
 import co.edu.unbosque.model.Tecnologia;
@@ -160,6 +162,18 @@ public class Controller implements ActionListener {
 		vf.getVenComprar().getPanelMostrar().getListaCategorias().addActionListener(this);
 		vf.getVenComprar().getPanelMostrar().getListaCategorias().setActionCommand("COMBOBOX_MOSTRAR_PRODUCTO");
 
+		vf.getVenComprar().getPanelMostrar().getBtnAgregarCarrito().addActionListener(this);
+		vf.getVenComprar().getPanelMostrar().getBtnAgregarCarrito().setActionCommand("BOTON_AGREGAR_A_CARRITO");
+
+		vf.getVenComprar().getPanelMostrar().getBtnCrearCarrito().addActionListener(this);
+		vf.getVenComprar().getPanelMostrar().getBtnCrearCarrito().setActionCommand("BOTON_CREAR_CARRITO");
+		
+		vf.getVenComprar().getBtnCarrito().addActionListener(this);
+		vf.getVenComprar().getBtnCarrito().setActionCommand("BOTON_PANEL_CARRITO");
+		
+		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().addActionListener(this);
+		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().setActionCommand("BOTON_MOSTRAR_CARRITOS");
+
 	}
 
 
@@ -196,6 +210,7 @@ public class Controller implements ActionListener {
 		}
 		case "INICIAR_SESION_VENDEDOR": {
 
+
 		/*	String usuario = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
 			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
 
@@ -222,6 +237,27 @@ public class Controller implements ActionListener {
 						JOptionPane.ERROR_MESSAGE);
 
 			}
+=======
+			/**
+			 * String usuario =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
+			 * /char[] contrasenaChar =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
+			 * .getPassword(); String contrasena = new String(contrasenaChar);
+			 * 
+			 * if (mf.getVendedorDAO().getListaVendedores().contains(contrasena) &&
+			 * mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
+			 */
+			vf.getVenInicioVendedor().setVisible(false);
+			vf.getVenCRUD().setVisible(true);
+			/*
+			 * } else { JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),
+			 * "El usuario o la contraseña no existen en el sistema.",
+			 * "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+			 * 
+			 * }
+			 
+
 
 			break;
 
@@ -271,9 +307,15 @@ public class Controller implements ActionListener {
 			break;
 */
 		}
+		case "BOTON_PANEL_CARRITO":{
+			vf.getVenComprar().getPanelMostrar().setVisible(false);
+			vf.getVenComprar().getPanelCarrito().setVisible(true);
+			break;
+		}
 
 		case "BOTON_MOSTRAR_ARTICULO": {
 
+			vf.getVenComprar().getPanelCarrito().setVisible(false);
 			vf.getVenComprar().getPanelMostrar().setVisible(true);
 			break;
 
@@ -816,7 +858,7 @@ public class Controller implements ActionListener {
 			break;
 		}
 
-		case "MOSTRAR_ARTICULO": {
+		case "COMBOBOX_MOSTRAR_PRODUCTO": {
 			String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
 
 			if (seleccionado.equals("-Seleccione-")) {
@@ -859,6 +901,79 @@ public class Controller implements ActionListener {
 			}
 			break;
 		}
+		case "BOTON_CREAR_CARRITO": {
+			int id = mf.getCarritoDAO().getListaCarritos().size() + 1;
+			Carrito carrito = new Carrito(id);
+			mf.getCarritoDAO().create(carrito);
+			JOptionPane.showMessageDialog(null, "Carrito creado existosamente", "Carrito creado exitosamente",
+			        JOptionPane.INFORMATION_MESSAGE);
+			break;
+
+		}
+
+		case "BOTON_AGREGAR_A_CARRITO": {
+		    try {
+		        String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
+		        int indiceAñadir = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtIndice().getText());
+		        int indiceRelativo = indiceAñadir - 1;
+
+		        int idCarrito = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtCarrito().getText());
+		        int indexCarrito = idCarrito - 1;
+
+		        Producto productoSeleccionado = null;
+
+		        if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"))) {
+		            productoSeleccionado = mf.getAccesorioVehiculoDAO().getListaAccesorioVehiculo().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"))) {
+		            productoSeleccionado = mf.getElectrodomesticoDAO().getListaElectrodomestico().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"))) {
+		            productoSeleccionado = mf.getEquipoDeportivoDAO().getListaEquipoDeportivo().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"))) {
+		            productoSeleccionado = mf.getHerramientaDAO().getListaHerramienta().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"))) {
+		            productoSeleccionado = mf.getInmbuenleDAO().getListaInmueble().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"))) {
+		            productoSeleccionado = mf.getJugueteDAO().getListaJuguete().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"))) {
+		            productoSeleccionado = mf.getPrendaDAO().getListaPrendaDeVestir().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"))) {
+		            productoSeleccionado = mf.getProductoFarmaceuticoDAO().getListaProductoFarmaceutico().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"))) {
+		            productoSeleccionado = mf.getProductoSostenibleDAO().getListaProductoSostenible().get(indiceRelativo);
+		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"))) {
+		            productoSeleccionado = mf.getTecnologoiaDAO().getListaTecnologia().get(indiceRelativo);
+		        }
+
+		        if (productoSeleccionado != null) {
+		            boolean exito = mf.getCarritoDAO().añadirProductoAlCarrito(indexCarrito, productoSeleccionado);
+		            if (exito) {
+		                JOptionPane.showMessageDialog(null, "Producto añadido al carrito #" + idCarrito,
+		                        "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		            } else {
+		                JOptionPane.showMessageDialog(null, "No se pudo añadir el producto al carrito",
+		                        "Error", JOptionPane.ERROR_MESSAGE);
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(null, "Seleccione una categoría válida",
+		                    "Error", JOptionPane.ERROR_MESSAGE);
+		        }
+		    } catch (Exception e1) {
+		        JOptionPane.showMessageDialog(null, "Error al añadir producto: " + e1.getMessage(),
+		                "Error", JOptionPane.ERROR_MESSAGE);
+		    }
+		    break;
+		}
+
+		
+		
+		case "BOTON_MOSTRAR_CARRITOS": {
+		    String contenido = mf.getCarritoDAO().showAll(); 
+		    vf.getVenComprar().getPanelCarrito().getTextCarritos().setText(contenido);
+		    break;
+		}
+		
+		
+
 
 		}
 

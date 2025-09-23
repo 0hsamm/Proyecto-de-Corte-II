@@ -1,6 +1,7 @@
 package co.edu.unbosque.model;
 
 import co.edu.unbosque.model.persistence.AccesorioVehiculoDAO;
+import co.edu.unbosque.model.persistence.CarritoDAO;
 import co.edu.unbosque.model.persistence.CompradorDAO;
 import co.edu.unbosque.model.persistence.ElectrodomesticoDAO;
 import co.edu.unbosque.model.persistence.EquipoDeportivoDAO;
@@ -27,6 +28,7 @@ public class ModelFacade {
 	private ProductoFarmaceuticoDAO productoFarmaceuticoDAO;
 	private ProductoSostenibleDAO productoSostenibleDAO;
 	private TecnologiaDAO tecnologoiaDAO;
+	private CarritoDAO carritoDAO;
 	
 	public ModelFacade() {
 		compradorDAO = new CompradorDAO();
@@ -41,7 +43,16 @@ public class ModelFacade {
 		productoFarmaceuticoDAO = new ProductoFarmaceuticoDAO();
 		productoSostenibleDAO = new ProductoSostenibleDAO();
 		tecnologoiaDAO = new TecnologiaDAO();
+		carritoDAO = new CarritoDAO();
 		
+	}
+
+	public CarritoDAO getCarritoDAO() {
+		return carritoDAO;
+	}
+
+	public void setCarritoDAO(CarritoDAO carritoDAO) {
+		this.carritoDAO = carritoDAO;
 	}
 
 	public CompradorDAO getCompradorDAO() {

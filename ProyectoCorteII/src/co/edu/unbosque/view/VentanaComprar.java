@@ -53,7 +53,10 @@ public class VentanaComprar extends JFrame {
 		fondoComprar.add(texto0);
 		
 		panelCarrito = new PanelCarrito();
-		
+		panelCarrito.setBounds(450, 200, 820, 400);
+		panelCarrito.setOpaque(false);
+		panelCarrito.setVisible(false); 
+		fondoComprar.add(panelCarrito);
 		
 		panelMostrar = new PanelMostrarComprador();
 		panelMostrar.setBounds(450, 200, 800, 500);

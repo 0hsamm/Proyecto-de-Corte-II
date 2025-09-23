@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import co.edu.unbosque.model.ProductoFarmaceutico;
 
@@ -139,6 +140,9 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
+
+	
+	
 	
 	
 }
