@@ -22,17 +22,26 @@ import co.edu.unbosque.model.Tecnologia;
 import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.ViewFacade;
 
+/**
+ * 
+ */
 public class Controller implements ActionListener {
 	private ViewFacade vf;
 	private ModelFacade mf;
 	private Properties prop;
 
+	/**
+	 * 
+	 */
 	public Controller() {
 		vf = new ViewFacade();
 		mf = new ModelFacade();
 		prop = new Properties();
 	}
-
+	
+	/**
+	 * 
+	 */
 	public void runGUI() {
 		String opcion = JOptionPane.showInputDialog(null,
 				"Seleccione el idioma a ejecutar:\n1.Español\n2.English\n3.Português\n4.Latinus", "Seleccion idioma",
@@ -177,10 +186,6 @@ public class Controller implements ActionListener {
 	}
 
 
-		
-	
-	
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "INICIAR": {
