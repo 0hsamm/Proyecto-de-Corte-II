@@ -84,10 +84,9 @@ public class VendedorDAO implements DAO<Vendedor> {
 				temp.setNombre(columna[1]);
 				temp.setTelefono(columna[2]);
 				temp.setId(columna[3]);
-				temp.setSexo(columna[4].charAt(0));
-				temp.setCantidadObjetosVendidos(Integer.parseInt(columna[5]));
-				temp.setObjetosEnVenta(Integer.parseInt(columna[6]));
-				temp.setPuntuacionDeVenta(Float.parseFloat(columna[7]));
+				temp.setCantidadObjetosVendidos(Integer.parseInt(columna[4]));
+				temp.setObjetosEnVenta(Integer.parseInt(columna[5]));
+				temp.setPuntuacionDeVenta(Float.parseFloat(columna[6]));
 
 				listaVendedores.add(temp);
 

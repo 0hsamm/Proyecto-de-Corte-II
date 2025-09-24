@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.AccesorioVehiculo;
 import co.edu.unbosque.model.Carrito;
+import co.edu.unbosque.model.Comprador;
 import co.edu.unbosque.model.Electrodomestico;
 import co.edu.unbosque.model.EquipoDeportivo;
 import co.edu.unbosque.model.Herramienta;
@@ -20,6 +21,7 @@ import co.edu.unbosque.model.Producto;
 import co.edu.unbosque.model.ProductoFarmaceutico;
 import co.edu.unbosque.model.ProductoSostenible;
 import co.edu.unbosque.model.Tecnologia;
+import co.edu.unbosque.model.Vendedor;
 import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -193,6 +195,11 @@ public class Controller implements ActionListener {
 		vf.getVenComprar().getPanelCarrito().getBtnComprar().addActionListener(this);
 		vf.getVenComprar().getPanelCarrito().getBtnComprar().setActionCommand("COMPRAR_CARRITO");
 
+		vf.getVenRegistroComprador().getPanelRegistro().getBtnCrear().addActionListener(this);
+		vf.getVenRegistroComprador().getPanelRegistro().getBtnCrear().setActionCommand("CREAR_COMPRADOR");
+
+		vf.getVenRegistroVendedor().getPanelRegistro().getBtnCrear().addActionListener(this);
+		vf.getVenRegistroVendedor().getPanelRegistro().getBtnCrear().setActionCommand("CREAR_VENDEDOR");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -282,7 +289,7 @@ public class Controller implements ActionListener {
 			 * 
 			 * }
 			 */
-			 break;
+			break;
 
 		case "VOLVER_COMPRA": {
 			vf.getVenMenu().setVisible(true);
@@ -360,11 +367,6 @@ public class Controller implements ActionListener {
 			vf.getVenInicioSesion().setVisible(true);
 			break;
 		}
-		case "REGISTRO_COMPRADOR": {
-			vf.getVenInicioComprador().setVisible(false);
-			vf.getVenRegistroComprador().setVisible(true);
-			break;
-		}
 		case "VOLVER_REGISTRO_COMPRADOR": {
 			vf.getVenInicioComprador().setVisible(true);
 			vf.getVenRegistroComprador().setVisible(false);
@@ -373,6 +375,11 @@ public class Controller implements ActionListener {
 		case "VOLVER_MENU_REGISTRO_COMPRADOR": {
 			vf.getVenRegistroComprador().setVisible(false);
 			vf.getVenMenu().setVisible(true);
+			break;
+		}
+		case "REGISTRO_COMPRADOR": {
+			vf.getVenInicioComprador().setVisible(false);
+			vf.getVenRegistroComprador().setVisible(true);
 			break;
 		}
 		case "REGISTRO_VENDEDOR": {
@@ -390,6 +397,49 @@ public class Controller implements ActionListener {
 			vf.getVenMenu().setVisible(true);
 			break;
 		}
+
+		case "CREAR_COMPRADOR": {
+		    try {
+		        String correo = vf.getVenRegistroComprador().getPanelRegistro().getTextCorreo().getText();
+		        String nombre = vf.getVenRegistroComprador().getPanelRegistro().getTextUsuario().getText();
+		        String telefono = vf.getVenRegistroComprador().getPanelRegistro().getTextTelefono().getText();
+		        String id = vf.getVenRegistroComprador().getPanelRegistro().getTextID().getText();
+		        String contrasena = vf.getVenRegistroComprador().getPanelRegistro().getTextContrasena().getText();
+
+		        Comprador comprador = new Comprador(correo, nombre, telefono, id, contrasena, false, 0, 0);
+		        mf.getCompradorDAO().create(comprador);
+
+		        JOptionPane.showMessageDialog(null, "Comprador Creado", "Crear comprador", JOptionPane.INFORMATION_MESSAGE, null);
+
+		        vf.getVenRegistroComprador().getPanelRegistro().limpiarCampos();
+		        
+		    } catch (Exception e1) {
+		        JOptionPane.showMessageDialog(null, "Error al crear comprador", "Error", JOptionPane.ERROR_MESSAGE);
+		    }
+		    break;
+		}
+
+		case "CREAR_VENDEDOR": {
+		    try {
+		        String correo = (String)vf.getVenRegistroVendedor().getPanelRegistro().getTextCorreo().getText();
+		        String nombre = vf.getVenRegistroVendedor().getPanelRegistro().getTextUsuario().getText();
+		        String telefono = vf.getVenRegistroVendedor().getPanelRegistro().getTextTelefono().getText();
+		        String id = vf.getVenRegistroVendedor().getPanelRegistro().getTextID().getText();
+		        String contrasena = vf.getVenRegistroVendedor().getPanelRegistro().getTextContrasena().getText();
+
+		        Vendedor vendedor = new Vendedor(correo, nombre, telefono, id, contrasena, 0, 0, 0.0f);
+		        mf.getVendedorDAO().create(vendedor);
+
+		        JOptionPane.showMessageDialog(null, "Vendedor Creado", "Crear vendedor", JOptionPane.INFORMATION_MESSAGE, null);
+
+		        vf.getVenRegistroVendedor().getPanelRegistro().limpiarCampos();
+		        
+		    } catch (Exception e1) {
+		        JOptionPane.showMessageDialog(null, "Error al crear vendedor", "Error", JOptionPane.ERROR_MESSAGE);
+		    }
+		    break;
+		}
+		
 		case "BOTON_CREAR": {
 			vf.getVenCRUD().getPanelCRUD().mostrarPanel("panelCrear");
 			break;

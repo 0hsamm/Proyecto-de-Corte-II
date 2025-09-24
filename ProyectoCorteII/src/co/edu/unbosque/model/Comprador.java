@@ -23,9 +23,9 @@ public class Comprador extends Persona{
 
 	
 
-	public Comprador(String correo, String nombre, String telefono, String id, char sexo, String contrasena,
+	public Comprador(String correo, String nombre, String telefono, String id, String contrasena,
 			boolean esMiembroVIP, int carroCompras, int listacomprasRealizadas) {
-		super(correo, nombre, telefono, id, sexo, contrasena);
+		super(correo, nombre, telefono, id, contrasena);
 		EsMiembroVIP = esMiembroVIP;
 		this.carroCompras = carroCompras;
 		this.listacomprasRealizadas = listacomprasRealizadas;
@@ -33,8 +33,8 @@ public class Comprador extends Persona{
 
 	
 	
-	public Comprador(String correo, String nombre, String telefono, String id, char sexo, String contrasena) {
-		super(correo, nombre, telefono, id, sexo, contrasena);
+	public Comprador(String correo, String nombre, String telefono, String id, String contrasena) {
+		super(correo, nombre, telefono, id, contrasena);
 		// TODO Auto-generated constructor stub
 	}
 

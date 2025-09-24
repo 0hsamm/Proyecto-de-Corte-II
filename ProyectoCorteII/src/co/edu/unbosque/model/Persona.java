@@ -14,7 +14,6 @@ public abstract class Persona implements Serializable {
 	private String nombre;
 	private String telefono;
 	private String id;
-	private char sexo;
 	private String contrasena;
 	
 	/**
@@ -32,13 +31,12 @@ public abstract class Persona implements Serializable {
 	 * @param sexo sexo de la persona
 	 * @param contrasena contraseña de acceso
 	 */
-	public Persona(String correo, String nombre, String telefono, String id, char sexo, String contrasena) {
+	public Persona(String correo, String nombre, String telefono, String id, String contrasena) {
 		super();
 		this.correo = correo;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.id = id;
-		this.sexo = sexo;
 		this.contrasena = contrasena;
 	}
 
@@ -107,22 +105,6 @@ public abstract class Persona implements Serializable {
 	}
 
 	/**
-	 * Devuelve el sexo de la persona.
-	 * @return sexo
-	 */
-	public char getSexo() {
-		return sexo;
-	}
-
-	/**
-	 * Asigna el sexo de la persona.
-	 * @param sexo nuevo sexo
-	 */
-	public void setSexo(char sexo) {
-		this.sexo = sexo;
-	}
-
-	/**
 	 * Devuelve la contraseña.
 	 * @return contraseña
 	 */
@@ -145,7 +127,7 @@ public abstract class Persona implements Serializable {
 	@Override
 	public String toString() {
 		return "Persona [correo=" + correo + ", nombre=" + nombre + ", telefono=" + telefono +
-			   ", id=" + id + ", sexo=" + sexo + ", contrasena=" + contrasena + "]";
+			   ", id=" + id + ", contrasena=" + contrasena + "]";
 	}
 
 }

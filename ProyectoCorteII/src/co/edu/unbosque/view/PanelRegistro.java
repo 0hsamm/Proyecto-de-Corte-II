@@ -265,7 +265,14 @@ public class PanelRegistro extends JPanel {
 		btnCrear.setText(prop.getProperty("mercadolibre.panelregistro.btncrear"));
 
 	}
-
+	public void limpiarCampos() {
+		labelCorreo.setText("");
+		labelUsuario.setText("");
+		labelTelefono.setText("");
+		labelID.setText("");
+		labelContrasena.setText("");
+		btnCrear.setText("");
+	}
 	
 	
 	public JLabel getLabelCorreo() {

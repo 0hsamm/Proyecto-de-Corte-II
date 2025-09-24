@@ -85,10 +85,9 @@ public class CompradorDAO implements DAO<Comprador> {
 				temp.setNombre(columna[1]);
 				temp.setTelefono(columna[2]);
 				temp.setId(columna[3]);
-				temp.setSexo(columna[4].charAt(0));
-				temp.setEsMiembroVIP(Boolean.valueOf(columna[5]));
-				temp.setCarroCompras(Integer.parseInt(columna[6]));
-				temp.setListacomprasRealizadas(Integer.parseInt(columna[7]));
+				temp.setEsMiembroVIP(Boolean.valueOf(columna[4]));
+				temp.setCarroCompras(Integer.parseInt(columna[5]));
+				temp.setListacomprasRealizadas(Integer.parseInt(columna[6]));
 
 				listaCompradores.add(temp);
 
@@ -105,7 +104,6 @@ public class CompradorDAO implements DAO<Comprador> {
 			sb.append(comprador.getNombre() + ";");
 			sb.append(comprador.getTelefono() + ";");
 			sb.append(comprador.getId() + ";");
-			sb.append(comprador.getSexo() + ";");
 			sb.append(comprador.isEsMiembroVIP() + ";");
 			sb.append(comprador.getCarroCompras() + ";");
 			sb.append(comprador.getListacomprasRealizadas() + ";");
