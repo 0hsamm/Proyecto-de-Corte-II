@@ -1,9 +1,14 @@
 package co.edu.unbosque.util.exception;
 
-public class InvalidUserException extends Exception{
+/**
+ * Excepción que se lanza cuando el usuario ingresado no es válido.
+ */
+public class InvalidUserException extends Exception {
 
-	public InvalidUserException() {
-		super("Ingrese un usuario válido");
-	}
-	
+    /**
+     * Constructor que muestra un mensaje indicando que se debe ingresar un usuario válido.
+     */
+    public InvalidUserException() {
+        super("Ingrese un usuario válido");
+    }
 }

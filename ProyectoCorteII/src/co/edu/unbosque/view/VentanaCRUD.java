@@ -10,11 +10,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Clase que representa la ventana principal para las operaciones CRUD 
+ * (Crear, Mostrar, Actualizar, Eliminar) sobre los artículos del sistema.
+ * Proporciona botones de navegación y un panel para visualizar las operaciones.
+ */
 public class VentanaCRUD extends JFrame {
 	private JLabel fondoCRUD;
 	private PanelCRUD panelCRUD;
 	private JButton btnVolver;
-
 	private JButton btnCrear;
 	private JButton btnMostrar;
 	private JButton btnActualizar;
@@ -23,13 +27,19 @@ public class VentanaCRUD extends JFrame {
 	private Properties prop;
 	private ImageIcon fondo;
 	private Image escalar;
-	
 
+	/**
+	 * Constructor de la clase. Inicializa las propiedades y componentes gráficos.
+	 */
 	public VentanaCRUD() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
 
+	/**
+	 * Inicializa y configura todos los componentes gráficos de la ventana,
+	 * incluyendo botones, paneles, etiquetas e imágenes de fondo.
+	 */
 	public void inicializarComponentes() {
 		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("Funciones Artículos");
@@ -100,6 +110,10 @@ public class VentanaCRUD extends JFrame {
 		this.add(btnVolver);
 	}
 
+	/**
+	 * Aplica los textos de los componentes utilizando las propiedades cargadas
+	 * desde el archivo de configuración.
+	 */
 	public void aplicarTexto() {
 		texto0.setText(prop.getProperty("mercadolibre.ventanacrud.texto0"));
 		btnCrear.setText(prop.getProperty("mercadolibre.ventanacrud.btncrear"));
@@ -107,8 +121,9 @@ public class VentanaCRUD extends JFrame {
 		btnActualizar.setText(prop.getProperty("mercadolibre.ventanacrud.btnactualizar"));
 		btnEliminar.setText(prop.getProperty("mercadolibre.ventanacrud.btneliminar"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanacrud.btnvolver"));
-
 	}
+
+	// Getters y setters (sin documentación JavaDoc por petición)
 	
 	public JLabel getFondoCRUD() {
 		return fondoCRUD;
@@ -182,5 +197,5 @@ public class VentanaCRUD extends JFrame {
 		this.prop = prop;
 		aplicarTexto();
 	}
-
 }
+

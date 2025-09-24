@@ -11,6 +11,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/**
+ * Panel que permite al comprador visualizar productos según categorías,
+ * crear un carrito de compras e ingresar productos a dicho carrito
+ * mediante su índice.
+ */
 public class PanelMostrarComprador extends JPanel {
     private JComboBox<String> listaCategorias;
     private JTextArea verObjeto;
@@ -24,11 +29,17 @@ public class PanelMostrarComprador extends JPanel {
     private JTextField txtCarrito;
     private JButton btnCrearCarrito;
 
+    /**
+     * Constructor por defecto. Inicializa las propiedades y los componentes gráficos.
+     */
     public PanelMostrarComprador() {
         prop = new Properties();
         inicializarComponentes();
     }
 
+    /**
+     * Inicializa y organiza los componentes del panel en su respectiva posición.
+     */
     public void inicializarComponentes() {
         cardLayout = new CardLayout();
         this.setLayout(null);
@@ -69,6 +80,9 @@ public class PanelMostrarComprador extends JPanel {
         this.add(btnAgregarCarrito);
     }
 
+    /**
+     * Aplica los textos a los componentes según los valores definidos en el archivo de propiedades.
+     */
     public void aplicarTexto() {
         listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
         listaCategorias.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"));
@@ -138,8 +152,11 @@ public class PanelMostrarComprador extends JPanel {
         aplicarTexto();
     }
 
+    /**
+     * Muestra un panel específico dentro del CardLayout.
+     * @param nombrePanel nombre del panel a mostrar
+     */
     public void mostrarPanel(String nombrePanel) {
         cardLayout.show(this, nombrePanel);
     }
 }
-

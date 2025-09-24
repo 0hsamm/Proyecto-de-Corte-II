@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -11,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Representa la ventana principal para el inicio de sesión del comprador.
+ * Contiene etiquetas de texto, un panel central con opciones y un botón de volver.
+ */
 public class VentanaInicioComprador extends JFrame {
 	private JLabel fondoComprador;
 	private PanelCentralComprador panelCentral;
@@ -22,11 +25,19 @@ public class VentanaInicioComprador extends JFrame {
 	private ImageIcon fondo;
 	private Image escalar;
 
+	/**
+	 * Crea una nueva instancia de la ventana de inicio de comprador
+	 * e inicializa sus componentes.
+	 */
 	public VentanaInicioComprador() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
 
+	/**
+	 * Inicializa los componentes gráficos de la ventana, incluyendo el fondo,
+	 * las etiquetas de texto, el panel central y el botón de volver.
+	 */
 	public void inicializarComponentes() {
 		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("Inicio de sesion comprador");
@@ -69,16 +80,17 @@ public class VentanaInicioComprador extends JFrame {
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		fondoComprador.add(btnVolver);
-
-
 	}
 
+	/**
+	 * Aplica los textos a los componentes de la ventana utilizando
+	 * los valores definidos en el archivo de propiedades.
+	 */
 	public void aplicarTexto() {
 		texto0.setText(prop.getProperty("mercadolibre.ventanainiciocomprador.texto0"));
 		texto1.setText(prop.getProperty("mercadolibre.ventanainiciocomprador.texto1"));
 		texto2.setText(prop.getProperty("mercadolibre.ventanainiciocomprador.texto2"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanainiciocomprador.btnvolver"));
-
 	}
 
 	public JLabel getFondoComprador() {
@@ -137,5 +149,4 @@ public class VentanaInicioComprador extends JFrame {
 	public void setTexto2(JLabel texto2) {
 		this.texto2 = texto2;
 	}
-
 }

@@ -1,9 +1,14 @@
 package co.edu.unbosque.util.exception;
 
-public class InvalidPasswordException extends Exception{
+/**
+ * Excepción que se lanza cuando la contraseña ingresada no es válida.
+ */
+public class InvalidPasswordException extends Exception {
 
-	public InvalidPasswordException() {
-		super("");
-	}
-	
+    /**
+     * Constructor que muestra un mensaje indicando que la contraseña no es válida.
+     */
+    public InvalidPasswordException() {
+        super("");
+    }
 }

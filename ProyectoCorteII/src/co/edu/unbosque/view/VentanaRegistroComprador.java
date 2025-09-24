@@ -10,7 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Ventana destinada al registro de un comprador en la aplicación.
+ * Contiene un formulario de registro y botones de navegación,
+ * con textos configurables mediante un archivo de propiedades.
+ */
 public class VentanaRegistroComprador extends JFrame {
+	
 	private JLabel fondoComprador;
 	private PanelRegistro panelRegistro;
 	private JButton btnVolver;
@@ -22,11 +28,19 @@ public class VentanaRegistroComprador extends JFrame {
 	private ImageIcon fondo;
 	private Image escalar;
 
+	/**
+	 * Construye la ventana de registro del comprador e inicializa
+	 * los componentes gráficos de la interfaz.
+	 */
 	public VentanaRegistroComprador() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
 
+	/**
+	 * Inicializa y configura los elementos gráficos de la ventana,
+	 * incluyendo el fondo, etiquetas, formulario de registro y botones.
+	 */
 	public void inicializarComponentes() {
 		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("Registro Comprador");
@@ -80,13 +94,16 @@ public class VentanaRegistroComprador extends JFrame {
 		fondoComprador.add(btnMenu);
 	}
 
+	/**
+	 * Aplica los textos a los componentes de la interfaz
+	 * obteniéndolos desde el archivo de propiedades cargado.
+	 */
 	public void aplicarTexto(){
 		texto0.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto0"));
 		texto.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto"));
 		texto2.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.texto2"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.btnvolver"));
 		btnMenu.setText(prop.getProperty("mercadolibre.ventanaregistrocomprador.btnmenu"));
-
 	}
 	
 	public JLabel getFondoComprador() {
@@ -153,5 +170,4 @@ public class VentanaRegistroComprador extends JFrame {
 		this.prop = prop;
 		aplicarTexto();
 	}
-
 }

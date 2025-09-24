@@ -2,6 +2,11 @@ package co.edu.unbosque.view;
 
 import java.util.Properties;
 
+/**
+ * Clase que actúa como fachada para la gestión de las ventanas de la aplicación.
+ * Se encarga de inicializar, centralizar y cargar los textos en diferentes
+ * interfaces gráficas mediante un objeto {@link Properties}.
+ */
 public class ViewFacade {
     private VentanaMenu venMenu;
     private VentanaOpcionInicioSesion venInicioSesion;
@@ -13,6 +18,9 @@ public class ViewFacade {
     private Properties prop;
     private VentanaComprar venComprar;
 
+    /**
+     * Construye la fachada inicializando todas las ventanas de la aplicación.
+     */
     public ViewFacade() {
         prop = new Properties();
         venInicioSesion = new VentanaOpcionInicioSesion();
@@ -23,9 +31,12 @@ public class ViewFacade {
         venRegistroVendedor = new VentanaRegistroVendedor();
         venCRUD = new VentanaCRUD();
         venComprar = new VentanaComprar();
-  
     }
 
+    /**
+     * Carga los textos de idioma en las diferentes ventanas utilizando el objeto
+     * {@link Properties}.
+     */
     public void cargarIdioma() {
         venMenu.setProp(prop);
         venInicioSesion.setProp(prop);
@@ -44,84 +55,79 @@ public class ViewFacade {
         venCRUD.getPanelCRUD().getpMostrar().setProp(prop); 
         venComprar.setProp(prop);
         venCRUD.getPanelCRUD().getpMostrar().setProp(prop);
-		venComprar.getPanelMostrar().setProp(prop);
-		venComprar.getPanelCarrito().setProp(prop);
+        venComprar.getPanelMostrar().setProp(prop);
+        venComprar.getPanelCarrito().setProp(prop);
     }
 
-	
-	public VentanaMenu getVenMenu() {
-		return venMenu;
-	}
+    public VentanaMenu getVenMenu() {
+        return venMenu;
+    }
 
-	public void setVenMenu(VentanaMenu venMenu) {
-		this.venMenu = venMenu;
-	}
+    public void setVenMenu(VentanaMenu venMenu) {
+        this.venMenu = venMenu;
+    }
 
-	public VentanaOpcionInicioSesion getVenInicioSesion() {
-		return venInicioSesion;
-	}
+    public VentanaOpcionInicioSesion getVenInicioSesion() {
+        return venInicioSesion;
+    }
 
-	public void setVenInicioSesion(VentanaOpcionInicioSesion venInicioSesion) {
-		this.venInicioSesion = venInicioSesion;
-	}
+    public void setVenInicioSesion(VentanaOpcionInicioSesion venInicioSesion) {
+        this.venInicioSesion = venInicioSesion;
+    }
 
-	public VentanaInicioComprador getVenInicioComprador() {
-		return venInicioComprador;
-	}
+    public VentanaInicioComprador getVenInicioComprador() {
+        return venInicioComprador;
+    }
 
-	public void setVenInicioComprador(VentanaInicioComprador venInicioComprador) {
-		this.venInicioComprador = venInicioComprador;
-	}
+    public void setVenInicioComprador(VentanaInicioComprador venInicioComprador) {
+        this.venInicioComprador = venInicioComprador;
+    }
 
-	public VentanaInicioVendedor getVenInicioVendedor() {
-		return venInicioVendedor;
-	}
+    public VentanaInicioVendedor getVenInicioVendedor() {
+        return venInicioVendedor;
+    }
 
-	public void setVenInicioVendedor(VentanaInicioVendedor venInicioVendedor) {
-		this.venInicioVendedor = venInicioVendedor;
-	}
+    public void setVenInicioVendedor(VentanaInicioVendedor venInicioVendedor) {
+        this.venInicioVendedor = venInicioVendedor;
+    }
 
-	public VentanaRegistroComprador getVenRegistroComprador() {
-		return venRegistroComprador;
-	}
+    public VentanaRegistroComprador getVenRegistroComprador() {
+        return venRegistroComprador;
+    }
 
-	public void setVenRegistroComprador(VentanaRegistroComprador venRegistroComprador) {
-		this.venRegistroComprador = venRegistroComprador;
-	}
+    public void setVenRegistroComprador(VentanaRegistroComprador venRegistroComprador) {
+        this.venRegistroComprador = venRegistroComprador;
+    }
 
-	public VentanaRegistroVendedor getVenRegistroVendedor() {
-		return venRegistroVendedor;
-	}
+    public VentanaRegistroVendedor getVenRegistroVendedor() {
+        return venRegistroVendedor;
+    }
 
-	public void setVenRegistroVendedor(VentanaRegistroVendedor venRegistroVendedor) {
-		this.venRegistroVendedor = venRegistroVendedor;
-	}
+    public void setVenRegistroVendedor(VentanaRegistroVendedor venRegistroVendedor) {
+        this.venRegistroVendedor = venRegistroVendedor;
+    }
 
-	public VentanaCRUD getVenCRUD() {
-		return venCRUD;
-	}
+    public VentanaCRUD getVenCRUD() {
+        return venCRUD;
+    }
 
-	public void setVenCRUD(VentanaCRUD venCRUD) {
-		this.venCRUD = venCRUD;
-	}
+    public void setVenCRUD(VentanaCRUD venCRUD) {
+        this.venCRUD = venCRUD;
+    }
 
+    public Properties getProp() {
+        return prop;
+    }
 
-	public Properties getProp() {
-		return prop;
-	}
+    public void setProp(Properties prop) {
+        this.prop = prop;
+    }
 
-	public void setProp(Properties prop) {
-		this.prop = prop;
-	}
+    public VentanaComprar getVenComprar() {
+        return venComprar;
+    }
 
-
-	public VentanaComprar getVenComprar() {
-		return venComprar;
-	}
-
-	public void setVenComprar(VentanaComprar venComprar) {
-		this.venComprar = venComprar;
-	}
-
-	
+    public void setVenComprar(VentanaComprar venComprar) {
+        this.venComprar = venComprar;
+    }
 }

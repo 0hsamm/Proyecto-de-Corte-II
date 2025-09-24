@@ -1,9 +1,14 @@
 package co.edu.unbosque.util.exception;
 
-public class InvalidIDException extends Exception{
+/**
+ * Excepción que se lanza cuando el ID ingresado no es válido.
+ */
+public class InvalidIDException extends Exception {
 
-	public InvalidIDException() {
-		super("Ingrese un ID válido");
-	}
-	
+    /**
+     * Constructor que muestra un mensaje indicando que se debe ingresar un ID válido.
+     */
+    public InvalidIDException() {
+        super("Ingrese un ID válido");
+    }
 }

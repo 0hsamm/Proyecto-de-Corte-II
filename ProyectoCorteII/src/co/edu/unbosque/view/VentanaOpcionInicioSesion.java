@@ -3,8 +3,6 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 import javax.swing.ImageIcon;
@@ -12,8 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import co.edu.unbosque.model.persistence.FileHandler;
-
+/**
+ * Ventana que permite al usuario elegir si desea iniciar sesión como comprador
+ * o como vendedor. Incluye botones de selección y un botón para volver al menú
+ * anterior, con textos configurables mediante propiedades.
+ */
 public class VentanaOpcionInicioSesion extends JFrame{
 	
 	private JLabel fondoCV;
@@ -26,12 +27,19 @@ public class VentanaOpcionInicioSesion extends JFrame{
 	private ImageIcon fondo;
 	private Image escalar;
 	
+	/**
+	 * Construye una nueva ventana de opción de inicio de sesión e inicializa
+	 * sus componentes gráficos.
+	 */
 	public VentanaOpcionInicioSesion() {
 		prop = new Properties();
 		inicializarComponentes();
-		
 	}
 	
+	/**
+	 * Inicializa los componentes de la interfaz gráfica, incluyendo el fondo,
+	 * las etiquetas y los botones de interacción.
+	 */
 	public void inicializarComponentes() {
 		
 		this.setBounds(10, 10, 1280, 755);
@@ -48,13 +56,11 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		this.add(fondoCV);
 		
 		texto0 = new JLabel();
-	
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 70));
 		texto0.setBounds(260, 80, 1200, 70);
 		fondoCV.add(texto0);
 		
 		texto1 = new JLabel();
-
 		texto1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
 		texto1.setBounds(320, 250, 1200, 70);
 		fondoCV.add(texto1);
@@ -85,19 +91,18 @@ public class VentanaOpcionInicioSesion extends JFrame{
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		fondoCV.add(btnVolver);
-		
-		
 	}
 
+	/**
+	 * Aplica los textos a las etiquetas y botones de la ventana utilizando los
+	 * valores cargados desde el archivo de propiedades.
+	 */
 	public void aplicarTexto() {
 		texto0.setText(prop.getProperty("mercadolibre.ventanainiciosesion.texto0"));
 		texto1.setText(prop.getProperty("mercadolibre.ventanainiciosesion.texto1"));
 		btnEsComprador.setText(prop.getProperty("mercadolibre.ventanainiciosesion.btnescomprador"));
 		btnEsVendedor.setText(prop.getProperty("mercadolibre.ventanainiciosesion.btnesvendedor"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanainiciosesion.btnvolver"));
-
-
-
 	}
 	
 	public JLabel getFondoCV() {
@@ -156,9 +161,4 @@ public class VentanaOpcionInicioSesion extends JFrame{
 	public void setTexto1(JLabel texto1) {
 		this.texto1 = texto1;
 	}
-
-
-	
-	
 }
-

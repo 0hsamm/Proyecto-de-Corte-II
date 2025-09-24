@@ -245,10 +245,10 @@ public class Controller implements ActionListener {
 			 * vf.getVenInicioVendedor().setVisible(false);
 			 * 
 			 * && mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
-			 * vf.getVenInicioVendedor().setVisible(false);
 			 */
 
 			vf.getVenCRUD().setVisible(true);
+			vf.getVenInicioVendedor().setVisible(false);
 
 		} /*
 			 * else {
@@ -282,6 +282,7 @@ public class Controller implements ActionListener {
 			 * 
 			 * }
 			 */
+			 break;
 
 		case "VOLVER_COMPRA": {
 			vf.getVenMenu().setVisible(true);

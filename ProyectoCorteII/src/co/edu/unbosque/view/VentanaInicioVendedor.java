@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -11,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Representa la ventana principal para el inicio de sesión del vendedor.
+ * Contiene etiquetas de texto, un panel central con opciones y un botón de volver.
+ */
 public class VentanaInicioVendedor extends JFrame {
 	private JLabel fondoVendedor;
 	private PanelCentralVendedor panelCentral;
@@ -22,11 +25,19 @@ public class VentanaInicioVendedor extends JFrame {
 	private ImageIcon fondo;
 	private Image escalar;
 	
+	/**
+	 * Crea una nueva instancia de la ventana de inicio de vendedor
+	 * e inicializa sus componentes.
+	 */
 	public VentanaInicioVendedor() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
 
+	/**
+	 * Inicializa los componentes gráficos de la ventana, incluyendo el fondo,
+	 * las etiquetas de texto, el panel central y el botón de volver.
+	 */
 	public void inicializarComponentes() {
 		this.setBounds(10, 10, 1280, 755);
 		this.setTitle("Inicio de sesion vendedor");
@@ -69,15 +80,17 @@ public class VentanaInicioVendedor extends JFrame {
 		btnVolver.setFocusPainted(false);
 		btnVolver.setBorderPainted(false);
 		fondoVendedor.add(btnVolver);
-
 	}
 	
+	/**
+	 * Aplica los textos a los componentes de la ventana utilizando
+	 * los valores definidos en el archivo de propiedades.
+	 */
 	public void aplicarTexto() {
 		texto0.setText(prop.getProperty("mercadolibre.ventanainiciovendedor.texto0"));
 		texto1.setText(prop.getProperty("mercadolibre.ventanainiciovendedor.texto1"));
 		texto2.setText(prop.getProperty("mercadolibre.ventanainiciovendedor.texto2"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanainiciovendedor.btnvolver"));
-
 	}
 
 	public JLabel getFondoVendedor() {
@@ -136,7 +149,4 @@ public class VentanaInicioVendedor extends JFrame {
 	public void setTexto2(JLabel texto2) {
 		this.texto2 = texto2;
 	}
-
-
-
 }

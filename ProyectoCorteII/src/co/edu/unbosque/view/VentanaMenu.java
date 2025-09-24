@@ -10,8 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import co.edu.unbosque.model.persistence.FileHandler;
-
+/**
+ * Representa la ventana principal del menú de la aplicación.
+ * Contiene los botones para iniciar sesión, cambiar el lenguaje y salir,
+ * además de etiquetas de texto configurables mediante propiedades.
+ */
 public class VentanaMenu extends JFrame {
 
 	private JLabel fondoMenu;
@@ -30,11 +33,19 @@ public class VentanaMenu extends JFrame {
 	private ImageIcon fondo;
 	private Image escalar;
 	
+	/**
+	 * Crea una nueva instancia de la ventana de menú
+	 * e inicializa sus componentes.
+	 */
 	public VentanaMenu() {
 		prop = new Properties();
 		inicializarComponentes();
 	}
 
+	/**
+	 * Inicializa los componentes gráficos de la ventana, incluyendo
+	 * el fondo, las etiquetas de texto y los botones principales.
+	 */
 	public void inicializarComponentes() {
 
 		this.setBounds(10, 10, 1300, 755);
@@ -56,43 +67,36 @@ public class VentanaMenu extends JFrame {
 		fondoMenu.add(texto);
 
 		texto1 = new JLabel();
-		
 		texto1.setFont(new Font("SansSerif", Font.BOLD, 60));
 		texto1.setBounds(600, 263, 1000, 70);
 		fondoMenu.add(texto1);
 
 		texto2 = new JLabel();
-
 		texto2.setFont(new Font("SansSerif", Font.ITALIC, 45));
 		texto2.setBounds(600, 320, 1000, 70);
 		fondoMenu.add(texto2);
 
 		texto3 = new JLabel();
-
 		texto3.setFont(new Font("SansSerif", Font.ITALIC, 45));
 		texto3.setBounds(600, 373, 1000, 70);
 		fondoMenu.add(texto3);
 
 		texto4 = new JLabel();
-
 		texto4.setFont(new Font("SansSerif", Font.ITALIC, 45));
 		texto4.setBounds(600, 430, 1000, 70);
 		fondoMenu.add(texto4);
 
 		texto5 = new JLabel();
-
 		texto5.setFont(new Font("SansSerif", Font.ITALIC, 45));
 		texto5.setBounds(600, 483, 1000, 70);
 		fondoMenu.add(texto5);
 
 		texto6 = new JLabel();
-
 		texto6.setFont(new Font("SansSerif", Font.ITALIC, 45));
 		texto6.setBounds(600, 540, 1000, 70);
 		fondoMenu.add(texto6);
 
 		btnIniciar = new JButton();
-
 		btnIniciar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
 		btnIniciar.setBounds(120, 263, 280, 60);
 		btnIniciar.setBackground(new Color(254, 230, 1));
@@ -102,7 +106,6 @@ public class VentanaMenu extends JFrame {
 		fondoMenu.add(btnIniciar);
 
 		btnLenguaje = new JButton();
-
 		btnLenguaje.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
 		btnLenguaje.setBounds(120, 263, 280, 60);
 		btnLenguaje.setBackground(new Color(254, 230, 1));
@@ -112,7 +115,6 @@ public class VentanaMenu extends JFrame {
 		fondoMenu.add(btnLenguaje);
 
 		btnSalir = new JButton();
-
 		btnSalir.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 40));
 		btnSalir.setBounds(100, 580, 150, 50);
 		btnSalir.setBackground(new Color(254, 230, 1));
@@ -122,6 +124,10 @@ public class VentanaMenu extends JFrame {
 		fondoMenu.add(btnSalir);
 	}
 	
+	/**
+	 * Aplica los textos a los componentes de la ventana utilizando
+	 * los valores definidos en el archivo de propiedades.
+	 */
 	public void aplicarTexto() {
 		texto.setText(prop.getProperty("mercadolibre.ventanamenu.texto0"));
 		texto1.setText(prop.getProperty("mercadolibre.ventanamenu.texto1"));

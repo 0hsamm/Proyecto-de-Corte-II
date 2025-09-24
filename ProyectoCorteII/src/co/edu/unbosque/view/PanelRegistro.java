@@ -17,6 +17,11 @@ import co.edu.unbosque.util.exception.InvalidPasswordException;
 import co.edu.unbosque.util.exception.InvalidPhoneException;
 import co.edu.unbosque.util.exception.LanzadorDeExcepcion;
 
+/**
+ * Panel que permite registrar un nuevo usuario en el sistema.
+ * Incluye campos de texto para correo, usuario, teléfono, ID y contraseña,
+ * además de validaciones básicas con mensajes de error en caso de datos inválidos.
+ */
 public class PanelRegistro extends JPanel {
 
 	private JLabel lblValidarUsuario;
@@ -47,6 +52,10 @@ public class PanelRegistro extends JPanel {
 	private String usuario;
 	private Properties prop;
 
+
+	/**
+	 * Constructor por defecto. Inicializa las propiedades, los componentes y los eventos.
+	 */
 	public PanelRegistro() {
 		prop = new Properties();
 		inicializarComponentes();
@@ -54,6 +63,10 @@ public class PanelRegistro extends JPanel {
 
 	}
 
+	/**
+	 * Inicializa y organiza los componentes gráficos en el panel,
+	 * asignando fuentes, tamaños y posiciones.
+	 */
 	public void inicializarComponentes() {
 		this.setBounds(0, 0, 1280, 720);
 		this.setLayout(null);
@@ -240,6 +253,9 @@ public class PanelRegistro extends JPanel {
 		});
 	}
 
+	/**
+	 * Asigna los textos de los componentes utilizando las propiedades cargadas.
+	 */
 	public void aplicarTexto() {
 		labelCorreo.setText(prop.getProperty("mercadolibre.panelregistro.labelcorreo"));
 		labelUsuario.setText(prop.getProperty("mercadolibre.panelregistro.labelusuario"));
