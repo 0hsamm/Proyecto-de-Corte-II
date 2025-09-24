@@ -10,6 +10,11 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * PanelCrear permite al vendedor crear productos de diferentes categorías.
+ * Contiene campos generales como nombre, cantidad, precio y categoría, así como
+ * campos específicos según el tipo de producto seleccionado.
+ */
 public class PanelCrear extends JPanel {
 	private Properties prop;
 
@@ -85,12 +90,18 @@ public class PanelCrear extends JPanel {
 	private JLabel labelCrear;
 	private JButton btnCrear;
 
+	/**
+	 * Constructor del panel. Inicializa componentes y oculta campos específicos.
+	 */
 	public PanelCrear() {
 		prop = new Properties();
 		inicializarComponentes();
 		ocultarOpcionesEspecificas();
 	}
 
+	/**
+	 * Inicializa todos los componentes gráficos del panel.
+	 */
 	public void inicializarComponentes() {
 
 		this.setLayout(null);
@@ -99,7 +110,6 @@ public class PanelCrear extends JPanel {
 		labelCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		labelCrear.setBounds(30, 5, 340, 25);
 		this.add(labelCrear);
-
 
 		labelNombre = new JLabel();
 		labelNombre.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -110,7 +120,6 @@ public class PanelCrear extends JPanel {
 		textNombre.setBounds(460, 35, 200, 25);
 		this.add(textNombre);
 
-
 		labelCantidad = new JLabel();
 		labelCantidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCantidad.setBounds(30, 65, 380, 25);
@@ -119,7 +128,6 @@ public class PanelCrear extends JPanel {
 		textCantidad = new TextField();
 		textCantidad.setBounds(460, 65, 200, 25);
 		this.add(textCantidad);
-
 
 		labelPrecio = new JLabel();
 		labelPrecio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -130,19 +138,17 @@ public class PanelCrear extends JPanel {
 		textPrecio.setBounds(460, 95, 200, 25);
 		this.add(textPrecio);
 
-
 		labelCategoria = new JLabel();
 		labelCategoria.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCategoria.setBounds(30, 125, 380, 25);
 		this.add(labelCategoria);
 
-		listaCategoria = new JComboBox<>();	
+		listaCategoria = new JComboBox<>();
 		listaCategoria.setBounds(460, 125, 250, 30);
 		this.add(listaCategoria);
 
-
-		//Accesorio para vehiculo
-		labelMaterialAccesorio = new JLabel();	
+		// Accesorio para vehiculo
+		labelMaterialAccesorio = new JLabel();
 		labelMaterialAccesorio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialAccesorio.setBounds(30, 200, 380, 25);
 		this.add(labelMaterialAccesorio);
@@ -150,7 +156,6 @@ public class PanelCrear extends JPanel {
 		textMaterialAccesorio = new TextField();
 		textMaterialAccesorio.setBounds(450, 200, 200, 25);
 		this.add(textMaterialAccesorio);
-
 
 		labelCompatibilidad = new JLabel();
 		labelCompatibilidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -161,8 +166,7 @@ public class PanelCrear extends JPanel {
 		textCompatibilidad.setBounds(450, 230, 200, 25);
 		this.add(textCompatibilidad);
 
-
-		//Electrodomestico
+		// Electrodomestico
 		labelConsumo = new JLabel();
 		labelConsumo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConsumo.setBounds(30, 200, 440, 25);
@@ -171,7 +175,6 @@ public class PanelCrear extends JPanel {
 		textConsumo = new TextField();
 		textConsumo.setBounds(470, 200, 200, 25);
 		this.add(textConsumo);
-
 
 		labelCapacidad = new JLabel();
 		labelCapacidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -182,8 +185,7 @@ public class PanelCrear extends JPanel {
 		textCapacidad.setBounds(470, 230, 200, 25);
 		this.add(textCapacidad);
 
-
-		//Equipo deportivo
+		// Equipo deportivo
 		labelDeporte = new JLabel();
 		labelDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelDeporte.setBounds(30, 200, 440, 25);
@@ -193,7 +195,7 @@ public class PanelCrear extends JPanel {
 		textDeporte.setBounds(470, 200, 200, 25);
 		this.add(textDeporte);
 
-		labelMaterialDeporte = new JLabel();	
+		labelMaterialDeporte = new JLabel();
 		labelMaterialDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialDeporte.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialDeporte);
@@ -202,7 +204,7 @@ public class PanelCrear extends JPanel {
 		textMaterialDeporte.setBounds(470, 230, 200, 25);
 		this.add(textMaterialDeporte);
 
-		//Herramienta
+		// Herramienta
 		labelAlimentacion = new JLabel();
 		labelAlimentacion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelAlimentacion.setBounds(30, 200, 460, 25);
@@ -212,7 +214,7 @@ public class PanelCrear extends JPanel {
 		textAlimentacion.setBounds(500, 200, 200, 25);
 		this.add(textAlimentacion);
 
-		labelMaterialHerramienta = new JLabel();	
+		labelMaterialHerramienta = new JLabel();
 		labelMaterialHerramienta.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialHerramienta.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialHerramienta);
@@ -221,7 +223,7 @@ public class PanelCrear extends JPanel {
 		textMaterialHerramienta.setBounds(500, 230, 200, 25);
 		this.add(textMaterialHerramienta);
 
-		//Inmueble
+		// Inmueble
 		labelArea = new JLabel();
 		labelArea.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelArea.setBounds(30, 200, 440, 25);
@@ -230,7 +232,6 @@ public class PanelCrear extends JPanel {
 		textArea = new TextField();
 		textArea.setBounds(580, 200, 200, 25);
 		this.add(textArea);
-
 
 		labelCantidadCuarto = new JLabel();
 		labelCantidadCuarto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -241,8 +242,7 @@ public class PanelCrear extends JPanel {
 		textCantidadCuarto.setBounds(580, 230, 200, 25);
 		this.add(textCantidadCuarto);
 
-
-		//juguete
+		// juguete
 		labelEdad = new JLabel();
 		labelEdad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelEdad.setBounds(30, 200, 460, 25);
@@ -252,8 +252,7 @@ public class PanelCrear extends JPanel {
 		textEdad.setBounds(500, 200, 200, 25);
 		this.add(textEdad);
 
-
-		labelMaterialJuguete = new JLabel();		
+		labelMaterialJuguete = new JLabel();
 		labelMaterialJuguete = new JLabel("Ingrese el material del producto:");
 		labelMaterialJuguete.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialJuguete.setBounds(30, 230, 420, 25);
@@ -263,8 +262,7 @@ public class PanelCrear extends JPanel {
 		textMaterialJuguete.setBounds(500, 230, 200, 25);
 		this.add(textMaterialJuguete);
 
-
-		//Prenda de vestir
+		// Prenda de vestir
 		labelTalla = new JLabel();
 		labelTalla.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTalla.setBounds(30, 200, 460, 25);
@@ -274,8 +272,7 @@ public class PanelCrear extends JPanel {
 		textTalla.setBounds(500, 200, 200, 25);
 		this.add(textTalla);
 
-
-		labelTipoTela = new JLabel();	
+		labelTipoTela = new JLabel();
 		labelTipoTela.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTipoTela.setBounds(30, 230, 420, 25);
 		this.add(labelTipoTela);
@@ -284,8 +281,7 @@ public class PanelCrear extends JPanel {
 		textTipoTela.setBounds(500, 230, 200, 25);
 		this.add(textTipoTela);
 
-
-		//Producto farmaceutico
+		// Producto farmaceutico
 		labelFormaFarmaceutica = new JLabel();
 		labelFormaFarmaceutica.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelFormaFarmaceutica.setBounds(30, 200, 460, 25);
@@ -294,7 +290,6 @@ public class PanelCrear extends JPanel {
 		textFormaFarmaceutica = new TextField();
 		textFormaFarmaceutica.setBounds(500, 200, 200, 25);
 		this.add(textFormaFarmaceutica);
-
 
 		labelConcentracion = new JLabel();
 		labelConcentracion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
@@ -305,8 +300,7 @@ public class PanelCrear extends JPanel {
 		textConcentracion.setBounds(500, 230, 200, 25);
 		this.add(textConcentracion);
 
-
-		//Producto sostenible
+		// Producto sostenible
 		labelMaterialEcologico = new JLabel();
 		labelMaterialEcologico.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialEcologico.setBounds(30, 200, 460, 25);
@@ -325,7 +319,7 @@ public class PanelCrear extends JPanel {
 		textCertificacion.setBounds(500, 230, 200, 25);
 		this.add(textCertificacion);
 
-		//tecnologia
+		// tecnologia
 		labelSO = new JLabel();
 		labelSO.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelSO.setBounds(30, 200, 460, 25);
@@ -344,7 +338,6 @@ public class PanelCrear extends JPanel {
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
 
-
 		btnCrear = new JButton();
 		btnCrear.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnCrear.setBounds(230, 350, 300, 50);
@@ -356,6 +349,9 @@ public class PanelCrear extends JPanel {
 
 	}
 
+	/**
+	 * Aplica los textos desde el archivo de propiedades a los componentes.
+	 */
 	public void aplicarTexto() {
 		labelCrear.setText(prop.getProperty("mercadolibre.panelcrear.texto0"));
 		labelNombre.setText(prop.getProperty("mercadolibre.panelcrear.labelnombre"));
@@ -395,9 +391,11 @@ public class PanelCrear extends JPanel {
 		labelConectividad.setText(prop.getProperty("mercadolibre.panelcrear.labelconectividad"));
 		btnCrear.setText(prop.getProperty("mercadolibre.panelcrear.btncrear"));
 
-
 	}
 
+	/**
+	 * Oculta todos los campos específicos de categoría.
+	 */
 
 	public void ocultarOpcionesEspecificas() {
 		labelMaterialAccesorio.setVisible(false);
@@ -940,7 +938,6 @@ public class PanelCrear extends JPanel {
 		this.textConectividad = textConectividad;
 	}
 
-
 	public JLabel getLabelCrear() {
 		return labelCrear;
 	}
@@ -948,5 +945,5 @@ public class PanelCrear extends JPanel {
 	public void setLabelCrear(JLabel labelCrear) {
 		this.labelCrear = labelCrear;
 	}
-	
+
 }

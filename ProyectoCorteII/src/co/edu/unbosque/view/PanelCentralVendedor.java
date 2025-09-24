@@ -5,23 +5,35 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-public class PanelCentralVendedor extends JPanel{
+/**
+ * Panel central del vendedor que maneja diferentes subpaneles. Utiliza un
+ * CardLayout para mostrar el panel de inicio de sesión o registro según la
+ * interacción del usuario.
+ */
+public class PanelCentralVendedor extends JPanel {
 	private PanelInicioSesion pInicioSesion;
 	private PanelRegistro pRegistro;
 	private CardLayout cardLayout;
-	
+
+	/**
+	 * Constructor que inicializa los componentes y muestra el panel de inicio de
+	 * sesión.
+	 */
 	public PanelCentralVendedor() {
 		inicializarComponentes();
 		mostrarPanel("panelInicioSesion");
 	}
-	
+
+	/**
+	 * Inicializa los subpaneles y configura el CardLayout.
+	 */
 	public void inicializarComponentes() {
 		cardLayout = new CardLayout();
 		this.setLayout(cardLayout);
-		
+
 		pInicioSesion = new PanelInicioSesion();
 		pRegistro = new PanelRegistro();
-		
+
 		this.add(pInicioSesion, "panelInicioSesion");
 		this.add(pRegistro, "panelRegistro");
 	}
@@ -49,9 +61,14 @@ public class PanelCentralVendedor extends JPanel{
 	public void setCardLayout(CardLayout cardLayout) {
 		this.cardLayout = cardLayout;
 	}
-	
+
+	/**
+	 * Muestra el panel correspondiente según el nombre proporcionado.
+	 * 
+	 * @param nombrePanel nombre del panel a mostrar
+	 */
 	public void mostrarPanel(String nombrePanel) {
 		cardLayout.show(this, nombrePanel);
 	}
-	
+
 }

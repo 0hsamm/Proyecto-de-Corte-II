@@ -10,7 +10,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PanelActualizar extends JPanel{
+/**
+ * Panel para actualizar productos. Contiene campos y etiquetas según el tipo de
+ * producto y un botón para aplicar la actualización. Gestiona la visibilidad de
+ * campos específicos según la categoría seleccionada.
+ */
+
+public class PanelActualizar extends JPanel {
 
 	private JComboBox<String> listaCategorias;
 	private JLabel labelNombre;
@@ -22,322 +28,330 @@ public class PanelActualizar extends JPanel{
 	private JLabel labelCategoria;
 	private JLabel indice;
 	private TextField indiceText;
-	
+
 	private JButton btnActualizar;
-	
-	//Accesorio para vehiculo
+
+	// Accesorio para vehiculo
 	private JLabel labelMaterialAccesorio;
 	private TextField textMaterialAccesorio;
 	private JLabel labelCompatibilidad;
 	private TextField textCompatibilidad;
-	
-	//Electrodomestico
+
+	// Electrodomestico
 	private JLabel labelConsumo;
 	private TextField textConsumo;
 	private JLabel labelCapacidad;
 	private TextField textCapacidad;
-	
-	//Equipo deportivo
+
+	// Equipo deportivo
 	private JLabel labelDeporte;
 	private TextField textDeporte;
 	private JLabel labelMaterialDeporte;
 	private TextField textMaterialDeporte;
-	
-	//Herramienta
+
+	// Herramienta
 	private JLabel labelAlimentacion;
 	private TextField textAlimentacion;
 	private JLabel labelMaterialHerramienta;
 	private TextField textMaterialHerramienta;
-	
-	//Inmueble
+
+	// Inmueble
 	private JLabel labelArea;
 	private TextField textArea;
 	private JLabel labelCantidadCuarto;
 	private TextField textCantidadCuarto;
-	
-	//juguete
+
+	// juguete
 	private JLabel labelEdad;
 	private TextField textEdad;
 	private JLabel labelMaterialJuguete;
 	private TextField textMaterialJuguete;
-	
-	//Prenda de vestir
+
+	// Prenda de vestir
 	private JLabel labelTalla;
 	private TextField textTalla;
 	private JLabel labelTipoTela;
 	private TextField textTipoTela;
-	
-	//Producto farmaceutico
+
+	// Producto farmaceutico
 	private JLabel labelFormaFarmaceutica;
 	private TextField textFormaFarmaceutica;
 	private JLabel labelConcentracion;
 	private TextField textConcentracion;
-	
-	//Producto sostenible
+
+	// Producto sostenible
 	private JLabel labelMaterialEcologico;
 	private TextField textMaterialEcologico;
 	private JLabel labelCertificacion;
 	private TextField textCertificacion;
-	
-	//tecnologia
+
+	// tecnologia
 	private JLabel labelSO;
 	private TextField textSO;
 	private JLabel labelConectividad;
 	private TextField textConectividad;
 	private JLabel texto0;
-	
+
 	private Properties prop;
-	
+
+	/**
+	 * Constructor que inicializa componentes y oculta campos específicos.
+	 */
+
 	public PanelActualizar() {
 		prop = new Properties();
 		inicializarComponentes();
 		ocultarOpcionesEspecificas();
 	}
-	
+
+	/**
+	 * Inicializa todos los componentes gráficos del panel.
+	 */
 	public void inicializarComponentes() {
-this.setLayout(null);
-		
+		this.setLayout(null);
+
 		texto0 = new JLabel();
 		texto0.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		texto0.setBounds(30, 5, 340, 25);
 		this.add(texto0);
-		
+
 		labelNombre = new JLabel();
 		labelNombre.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelNombre.setBounds(30, 35, 425, 25);
 		this.add(labelNombre);
-		
+
 		textNombre = new TextField();
 		textNombre.setBounds(460, 35, 200, 25);
 		this.add(textNombre);
-		
+
 		labelCantidad = new JLabel();
 		labelCantidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCantidad.setBounds(30, 65, 380, 25);
 		this.add(labelCantidad);
-		
+
 		textCantidad = new TextField();
-		textCantidad.setBounds(460, 65, 200 , 25);
+		textCantidad.setBounds(460, 65, 200, 25);
 		this.add(textCantidad);
-		
+
 		labelPrecio = new JLabel();
 		labelPrecio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelPrecio.setBounds(30, 95, 380, 25);
 		this.add(labelPrecio);
-		
+
 		textPrecio = new TextField();
-		textPrecio.setBounds(460, 95, 200 , 25);
+		textPrecio.setBounds(460, 95, 200, 25);
 		this.add(textPrecio);
-		
+
 		labelCategoria = new JLabel();
 		labelCategoria.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCategoria.setBounds(30, 125, 380, 25);
 		this.add(labelCategoria);
-		
+
 		listaCategorias = new JComboBox<>();
-		
+
 		listaCategorias.setBounds(460, 125, 250, 30);
 		this.add(listaCategorias);
-		
-		//Accesorio para vehiculo
-		labelMaterialAccesorio = new JLabel();	
+
+		// Accesorio para vehiculo
+		labelMaterialAccesorio = new JLabel();
 		labelMaterialAccesorio.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialAccesorio.setBounds(30, 200, 380, 25);
 		this.add(labelMaterialAccesorio);
-		
+
 		textMaterialAccesorio = new TextField();
-		textMaterialAccesorio.setBounds(450, 200, 200 , 25);
+		textMaterialAccesorio.setBounds(450, 200, 200, 25);
 		this.add(textMaterialAccesorio);
-		
+
 		labelCompatibilidad = new JLabel();
 		labelCompatibilidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCompatibilidad.setBounds(30, 230, 420, 25);
 		this.add(labelCompatibilidad);
-		
+
 		textCompatibilidad = new TextField();
 		textCompatibilidad.setBounds(450, 230, 200, 25);
 		this.add(textCompatibilidad);
-		
-		//Electrodomestico
+
+		// Electrodomestico
 		labelConsumo = new JLabel();
 		labelConsumo.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConsumo.setBounds(30, 200, 440, 25);
 		this.add(labelConsumo);
-		
+
 		textConsumo = new TextField();
-		textConsumo.setBounds(470, 200, 200 , 25);
+		textConsumo.setBounds(470, 200, 200, 25);
 		this.add(textConsumo);
-		
+
 		labelCapacidad = new JLabel();
 		labelCapacidad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCapacidad.setBounds(30, 230, 420, 25);
 		this.add(labelCapacidad);
-		
+
 		textCapacidad = new TextField();
 		textCapacidad.setBounds(470, 230, 200, 25);
 		this.add(textCapacidad);
-		
-		//Equipo deportivo
+
+		// Equipo deportivo
 		labelDeporte = new JLabel();
 		labelDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelDeporte.setBounds(30, 200, 440, 25);
 		this.add(labelDeporte);
-		
+
 		textDeporte = new TextField();
-		textDeporte.setBounds(470, 200, 200 , 25);
+		textDeporte.setBounds(470, 200, 200, 25);
 		this.add(textDeporte);
-		
-		labelMaterialDeporte = new JLabel();	
+
+		labelMaterialDeporte = new JLabel();
 		labelMaterialDeporte.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialDeporte.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialDeporte);
-		
+
 		textMaterialDeporte = new TextField();
 		textMaterialDeporte.setBounds(470, 230, 200, 25);
 		this.add(textMaterialDeporte);
-		
-		//Herramienta
+
+		// Herramienta
 		labelAlimentacion = new JLabel();
 		labelAlimentacion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelAlimentacion.setBounds(30, 200, 460, 25);
 		this.add(labelAlimentacion);
-		
+
 		textAlimentacion = new TextField();
-		textAlimentacion.setBounds(500, 200, 200 , 25);
+		textAlimentacion.setBounds(500, 200, 200, 25);
 		this.add(textAlimentacion);
-		
-		labelMaterialHerramienta = new JLabel();	
+
+		labelMaterialHerramienta = new JLabel();
 		labelMaterialHerramienta.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialHerramienta.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialHerramienta);
-		
+
 		textMaterialHerramienta = new TextField();
 		textMaterialHerramienta.setBounds(500, 230, 200, 25);
 		this.add(textMaterialHerramienta);
-		
-		//Inmueble
+
+		// Inmueble
 		labelArea = new JLabel();
 		labelArea.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelArea.setBounds(30, 200, 440, 25);
 		this.add(labelArea);
-		
+
 		textArea = new TextField();
-		textArea.setBounds(580, 200, 200 , 25);
+		textArea.setBounds(580, 200, 200, 25);
 		this.add(textArea);
-		
+
 		labelCantidadCuarto = new JLabel();
 		labelCantidadCuarto.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCantidadCuarto.setBounds(30, 230, 540, 25);
 		this.add(labelCantidadCuarto);
-		
+
 		textCantidadCuarto = new TextField();
 		textCantidadCuarto.setBounds(580, 230, 200, 25);
 		this.add(textCantidadCuarto);
-		
-		//juguete
+
+		// juguete
 		labelEdad = new JLabel();
 		labelEdad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelEdad.setBounds(30, 200, 460, 25);
 		this.add(labelEdad);
-		
+
 		textEdad = new TextField();
-		textEdad.setBounds(500, 200, 200 , 25);
+		textEdad.setBounds(500, 200, 200, 25);
 		this.add(textEdad);
-		
-		labelMaterialJuguete = new JLabel();		
+
+		labelMaterialJuguete = new JLabel();
 		labelMaterialJuguete.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialJuguete.setBounds(30, 230, 420, 25);
 		this.add(labelMaterialJuguete);
-		
+
 		textMaterialJuguete = new TextField();
 		textMaterialJuguete.setBounds(500, 230, 200, 25);
 		this.add(textMaterialJuguete);
-		
-		//Prenda de vestir
-		labelTalla = new JLabel();	
+
+		// Prenda de vestir
+		labelTalla = new JLabel();
 		labelTalla.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTalla.setBounds(30, 200, 460, 25);
 		this.add(labelTalla);
-		
+
 		textTalla = new TextField();
-		textTalla.setBounds(500, 200, 200 , 25);
+		textTalla.setBounds(500, 200, 200, 25);
 		this.add(textTalla);
-		
-		labelTipoTela = new JLabel();	
+
+		labelTipoTela = new JLabel();
 		labelTipoTela.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelTipoTela.setBounds(30, 230, 420, 25);
 		this.add(labelTipoTela);
-		
+
 		textTipoTela = new TextField();
 		textTipoTela.setBounds(500, 230, 200, 25);
 		this.add(textTipoTela);
-		
-		//Producto farmaceutico
+
+		// Producto farmaceutico
 		labelFormaFarmaceutica = new JLabel();
 		labelFormaFarmaceutica.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelFormaFarmaceutica.setBounds(30, 200, 460, 25);
 		this.add(labelFormaFarmaceutica);
-		
-		textFormaFarmaceutica = new TextField(); 
-		textFormaFarmaceutica.setBounds(500, 200, 200 , 25);
+
+		textFormaFarmaceutica = new TextField();
+		textFormaFarmaceutica.setBounds(500, 200, 200, 25);
 		this.add(textFormaFarmaceutica);
-		
+
 		labelConcentracion = new JLabel();
 		labelConcentracion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConcentracion.setBounds(30, 230, 420, 25);
 		this.add(labelConcentracion);
-		
+
 		textConcentracion = new TextField();
 		textConcentracion.setBounds(500, 230, 200, 25);
 		this.add(textConcentracion);
-		
-		//Producto sostenible
+
+		// Producto sostenible
 		labelMaterialEcologico = new JLabel();
 		labelMaterialEcologico.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelMaterialEcologico.setBounds(30, 200, 460, 25);
 		this.add(labelMaterialEcologico);
-		
+
 		textMaterialEcologico = new TextField();
-		textMaterialEcologico.setBounds(500, 200, 200 , 25);
+		textMaterialEcologico.setBounds(500, 200, 200, 25);
 		this.add(textMaterialEcologico);
-		
+
 		labelCertificacion = new JLabel();
 		labelCertificacion.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelCertificacion.setBounds(30, 230, 420, 25);
 		this.add(labelCertificacion);
-		
+
 		textCertificacion = new TextField();
 		textCertificacion.setBounds(500, 230, 200, 25);
 		this.add(textCertificacion);
-		
-		//tecnologia
+
+		// tecnologia
 		labelSO = new JLabel();
 		labelSO.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelSO.setBounds(30, 200, 460, 25);
 		this.add(labelSO);
-		
+
 		textSO = new TextField();
-		textSO.setBounds(500, 200, 200 , 25);
+		textSO.setBounds(500, 200, 200, 25);
 		this.add(textSO);
-		
+
 		labelConectividad = new JLabel();
 		labelConectividad.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
 		labelConectividad.setBounds(30, 230, 470, 25);
 		this.add(labelConectividad);
-		
+
 		textConectividad = new TextField();
 		textConectividad.setBounds(500, 230, 200, 25);
 		this.add(textConectividad);
-		
+
 		indice = new JLabel();
 		indice.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		indice.setBounds(30, 280, 200, 25);;
+		indice.setBounds(30, 280, 200, 25);
+		;
 		this.add(indice);
-		
+
 		indiceText = new TextField();
 		indiceText.setBounds(450, 280, 200, 25);
 		this.add(indiceText);
-		
+
 		btnActualizar = new JButton();
 		btnActualizar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		btnActualizar.setBounds(230, 350, 300, 50);
@@ -346,9 +360,13 @@ this.setLayout(null);
 		btnActualizar.setFocusPainted(false);
 		btnActualizar.setBorderPainted(false);
 		this.add(btnActualizar);
-		
+
 	}
-	
+
+	/**
+	 * Aplica los textos desde las propiedades al panel.
+	 */
+
 	public void aplicarTexto() {
 		texto0.setText(prop.getProperty("mercadolibre.panelactualizar.texto0"));
 		labelNombre.setText(prop.getProperty("mercadolibre.panelactualizar.labelnombre"));
@@ -389,9 +407,12 @@ this.setLayout(null);
 		indice.setText(prop.getProperty("mercadolibre.panelactualizar.indice"));
 		btnActualizar.setText(prop.getProperty("mercadolibre.panelactualizar.btncrear"));
 
-		
 	}
-	
+
+	/**
+	 * Oculta todos los campos específicos de productos.
+	 */
+
 	public void ocultarOpcionesEspecificas() {
 		labelMaterialAccesorio.setVisible(false);
 		textMaterialAccesorio.setVisible(false);
@@ -435,8 +456,11 @@ this.setLayout(null);
 		textConectividad.setVisible(false);
 		indice.setVisible(false);
 		indiceText.setVisible(false);
-		}
-	
+	}
+
+	/**
+	 * Muestra los campos específicos de un accesorio de vehículo.
+	 */
 	public void mostrarAccesorioCarro() {
 		labelMaterialAccesorio.setVisible(true);
 		textMaterialAccesorio.setVisible(true);
@@ -445,7 +469,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un electrodoméstico.
+	 */
 	public void mostrarElectrodomestico() {
 		labelConsumo.setVisible(true);
 		textConsumo.setVisible(true);
@@ -454,7 +481,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un equipo deportivo.
+	 */
 	public void mostrarEquipoDeporte() {
 		labelDeporte.setVisible(true);
 		textDeporte.setVisible(true);
@@ -463,7 +493,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de una herramienta.
+	 */
 	public void mostrarHerramienta() {
 		labelAlimentacion.setVisible(true);
 		textAlimentacion.setVisible(true);
@@ -472,7 +505,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un inmueble.
+	 */
 	public void mostrarInmueble() {
 		labelArea.setVisible(true);
 		textArea.setVisible(true);
@@ -481,7 +517,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un juguete.
+	 */
 	public void mostrarJuguete() {
 		labelEdad.setVisible(true);
 		textEdad.setVisible(true);
@@ -490,7 +529,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de una prenda de vestir.
+	 */
 	public void mostrarPrendaVestir() {
 		labelTalla.setVisible(true);
 		textTalla.setVisible(true);
@@ -499,7 +541,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un producto farmacéutico.
+	 */
 	public void mostrarFarmaceutico() {
 		labelFormaFarmaceutica.setVisible(true);
 		textFormaFarmaceutica.setVisible(true);
@@ -508,7 +553,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un producto sostenible.
+	 */
 	public void mostrarSostenible() {
 		labelMaterialEcologico.setVisible(true);
 		textMaterialEcologico.setVisible(true);
@@ -517,7 +565,10 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Muestra los campos específicos de un producto tecnológico.
+	 */
 	public void mostrarTecnologia() {
 		labelSO.setVisible(true);
 		textSO.setVisible(true);
@@ -526,34 +577,41 @@ this.setLayout(null);
 		indice.setVisible(true);
 		indiceText.setVisible(true);
 	}
-	
+
+	/**
+	 * Limpia todos los campos de entrada del panel.
+	 */
 	public void limpiarCampos() {
-        textNombre.setText("");
-        textCantidad.setText("");
-        textPrecio.setText("");
-        textMaterialAccesorio.setText("");
-        textCompatibilidad.setText("");
-        textConsumo.setText("");
-        textCapacidad.setText("");
-        textDeporte.setText("");
-        textMaterialDeporte.setText("");
-        textAlimentacion.setText("");
-        textMaterialHerramienta.setText("");
-        textArea.setText("");
-        textCantidadCuarto.setText("");
-        textEdad.setText("");
-        textMaterialJuguete.setText("");
-        textTalla.setText("");
-        textTipoTela.setText("");
-        textFormaFarmaceutica.setText("");
-        textConcentracion.setText("");
-        textMaterialEcologico.setText("");
-        textCertificacion.setText("");
-        textSO.setText("");
-        textConectividad.setText("");
-        listaCategorias.setSelectedIndex(0);
-    }
-	
+		textNombre.setText("");
+		textCantidad.setText("");
+		textPrecio.setText("");
+		textMaterialAccesorio.setText("");
+		textCompatibilidad.setText("");
+		textConsumo.setText("");
+		textCapacidad.setText("");
+		textDeporte.setText("");
+		textMaterialDeporte.setText("");
+		textAlimentacion.setText("");
+		textMaterialHerramienta.setText("");
+		textArea.setText("");
+		textCantidadCuarto.setText("");
+		textEdad.setText("");
+		textMaterialJuguete.setText("");
+		textTalla.setText("");
+		textTipoTela.setText("");
+		textFormaFarmaceutica.setText("");
+		textConcentracion.setText("");
+		textMaterialEcologico.setText("");
+		textCertificacion.setText("");
+		textSO.setText("");
+		textConectividad.setText("");
+		listaCategorias.setSelectedIndex(0);
+	}
+
+	/**
+	 * getters y setters
+	 */
+
 	public JLabel getLabelCategoria() {
 		return labelCategoria;
 	}
@@ -994,10 +1052,5 @@ this.setLayout(null);
 		this.prop = prop;
 		aplicarTexto();
 	}
-	
-	
-	
-	
-	
-	
+
 }

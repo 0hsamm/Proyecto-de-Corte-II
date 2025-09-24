@@ -7,44 +7,57 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Panel que muestra el carrito de compras. Contiene un botón para mostrar el
+ * contenido y un área de texto con scroll.
+ */
 public class PanelCarrito extends JPanel {
 
-    private JButton btnMostrarCarrito;
-    private JTextArea textCarrito;
-    private JScrollPane scrollCarrito;
-    private Properties prop;
-    
-    public PanelCarrito() {
-    	prop = new Properties();
-        inicializarComponentes();
-    }
+	private JButton btnMostrarCarrito;
+	private JTextArea textCarrito;
+	private JScrollPane scrollCarrito;
+	private Properties prop;
 
-    private void inicializarComponentes() {
-        this.setLayout(null);
+	/**
+	 * Constructor que inicializa los componentes del panel.
+	 */
+	public PanelCarrito() {
+		prop = new Properties();
+		inicializarComponentes();
+	}
 
-        btnMostrarCarrito = new JButton();
-        btnMostrarCarrito.setBounds(10, 10, 200, 30);
-        this.add(btnMostrarCarrito);
+	/**
+	 * Inicializa los elementos gráficos del panel.
+	 */
+	private void inicializarComponentes() {
+		this.setLayout(null);
 
-        textCarrito = new JTextArea();
-        textCarrito.setEditable(false);
+		btnMostrarCarrito = new JButton();
+		btnMostrarCarrito.setBounds(10, 10, 200, 30);
+		this.add(btnMostrarCarrito);
 
-        scrollCarrito = new JScrollPane(textCarrito);
-        scrollCarrito.setBounds(10, 50, 500, 300);
-        this.add(scrollCarrito);
-    }
+		textCarrito = new JTextArea();
+		textCarrito.setEditable(false);
 
-    public void aplicarTexto() {
-    	btnMostrarCarrito.setText(prop.getProperty("mercadolibre.panelcarrito.btnmostrarcarrito"));
-    }
-    
-    public JButton getBtnMostrarCarritos() {
-        return btnMostrarCarrito;
-    }
+		scrollCarrito = new JScrollPane(textCarrito);
+		scrollCarrito.setBounds(10, 50, 500, 300);
+		this.add(scrollCarrito);
+	}
 
-    public JTextArea getTextCarritos() {
-        return textCarrito;
-    }
+	/**
+	 * Aplica los textos desde las propiedades al panel.
+	 */
+	public void aplicarTexto() {
+		btnMostrarCarrito.setText(prop.getProperty("mercadolibre.panelcarrito.btnmostrarcarrito"));
+	}
+
+	public JButton getBtnMostrarCarritos() {
+		return btnMostrarCarrito;
+	}
+
+	public JTextArea getTextCarritos() {
+		return textCarrito;
+	}
 
 	public JScrollPane getScrollCarritos() {
 		return scrollCarrito;
@@ -70,5 +83,5 @@ public class PanelCarrito extends JPanel {
 		this.prop = prop;
 		aplicarTexto();
 	}
-    
+
 }
