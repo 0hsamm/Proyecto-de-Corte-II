@@ -19,7 +19,6 @@ public class VentanaComprar extends JFrame {
 
 	private JButton btnMostrar;
 	private JButton btnCarrito;
-	private JButton btnComprar;
 
 	private Properties prop;
 	
@@ -40,7 +39,7 @@ public class VentanaComprar extends JFrame {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 
-		fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaComprar.PNG");
+		fondo = new ImageIcon("src/co/edu/unbosque/view/VentanaComprar.JPEG");
 		escalar = fondo.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		fondoComprar = new JLabel(new ImageIcon(escalar));
 		fondoComprar.setBounds(0, 0, 1280, 720);
@@ -53,7 +52,7 @@ public class VentanaComprar extends JFrame {
 		fondoComprar.add(texto0);
 		
 		panelCarrito = new PanelCarrito();
-		panelCarrito.setBounds(450, 200, 820, 400);
+		panelCarrito.setBounds(450, 200, 850, 500);
 		panelCarrito.setOpaque(false);
 		panelCarrito.setVisible(false); 
 		fondoComprar.add(panelCarrito);
@@ -61,6 +60,7 @@ public class VentanaComprar extends JFrame {
 		panelMostrar = new PanelMostrarComprador();
 		panelMostrar.setBounds(450, 200, 800, 500);
 		panelMostrar.setOpaque(false);
+		panelMostrar.setVisible(false);
 		fondoComprar.add(panelMostrar);
 
 		btnMostrar = new JButton();
@@ -81,14 +81,6 @@ public class VentanaComprar extends JFrame {
 		btnCarrito.setBorderPainted(false);
 		this.add(btnCarrito);
 
-		btnComprar = new JButton();
-		btnComprar.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
-		btnComprar.setBounds(80, 542, 300, 50);
-		btnComprar.setBackground(new Color(254, 230, 1));
-		btnComprar.setForeground(Color.WHITE);
-		btnComprar.setFocusPainted(false);
-		btnComprar.setBorderPainted(false);
-		this.add(btnComprar);
 
 		btnVolver = new JButton();
 		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
@@ -104,7 +96,6 @@ public class VentanaComprar extends JFrame {
 		texto0.setText(prop.getProperty("mercadolibre.ventanacomprar.texto0"));
 		btnMostrar.setText(prop.getProperty("mercadolibre.ventanacomprar.btnmostrar"));
 		btnCarrito.setText(prop.getProperty("mercadolibre.ventanacomprar.btncarrito"));
-		btnComprar.setText(prop.getProperty("mercadolibre.ventanacomprar.btncomprar"));
 		btnVolver.setText(prop.getProperty("mercadolibre.ventanacomprar.btnvolver"));
 		
 	}
@@ -157,14 +148,6 @@ public class VentanaComprar extends JFrame {
 
 	public void setBtnCarrito(JButton btnCarrito) {
 		this.btnCarrito = btnCarrito;
-	}
-
-	public JButton getBtnComprar() {
-		return btnComprar;
-	}
-
-	public void setBtnComprar(JButton btnComprar) {
-		this.btnComprar = btnComprar;
 	}
 
 

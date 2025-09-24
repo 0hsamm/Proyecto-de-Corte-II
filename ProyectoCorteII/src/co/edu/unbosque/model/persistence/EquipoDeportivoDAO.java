@@ -99,9 +99,8 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 				EquipoDeportivo temp = new EquipoDeportivo();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setDeporte(columna[3]);
-				temp.setMaterial(columna[4]);
+				temp.setDeporte(columna[2]);
+				temp.setMaterial(columna[3]);
 				listaEquipoDeportivo.add(temp);
 			}
 		}
@@ -115,8 +114,8 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		StringBuilder sb = new StringBuilder();
 		for (EquipoDeportivo equipoDeportivo : listaEquipoDeportivo) {
 			sb.append(equipoDeportivo.getNombre()).append(";").append(equipoDeportivo.getPrecio()).append(";")
-					.append(equipoDeportivo.getCantidad()).append(";").append(equipoDeportivo.getDeporte()).append(";")
-					.append(equipoDeportivo.getMaterial()).append(";\n");
+					.append(equipoDeportivo.getDeporte()).append(";").append(equipoDeportivo.getMaterial())
+					.append(";\n");
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}

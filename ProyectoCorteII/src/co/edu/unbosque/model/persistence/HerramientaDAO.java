@@ -84,9 +84,8 @@ public class HerramientaDAO implements DAO<Herramienta> {
 				Herramienta temp = new Herramienta();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setTipoAlimentacion(columna[3]);
-				temp.setMaterial(columna[4]);
+				temp.setTipoAlimentacion(columna[2]);
+				temp.setMaterial(columna[3]);
 				listaHerramienta.add(temp);
 			}
 		}
@@ -97,8 +96,8 @@ public class HerramientaDAO implements DAO<Herramienta> {
 		StringBuilder sb = new StringBuilder();
 		for (Herramienta herramienta : listaHerramienta) {
 			sb.append(herramienta.getNombre()).append(";").append(herramienta.getPrecio()).append(";")
-					.append(herramienta.getCantidad()).append(";").append(herramienta.getTipoAlimentacion()).append(";")
-					.append(herramienta.getMaterial()).append(";\n");
+					.append(herramienta.getTipoAlimentacion()).append(";").append(herramienta.getMaterial())
+					.append(";\n");
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}

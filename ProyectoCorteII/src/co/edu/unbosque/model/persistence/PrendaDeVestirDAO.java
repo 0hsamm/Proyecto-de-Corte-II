@@ -81,9 +81,8 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 				PrendaDeVestir temp = new PrendaDeVestir();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setTalla(columna[3]);
-				temp.setTipoTela(columna[4]);
+				temp.setTalla(columna[2]);
+				temp.setTipoTela(columna[3]);
 				listaPrendaDeVestir.add(temp);
 			}
 		}
@@ -95,7 +94,6 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 		for (PrendaDeVestir prenda : listaPrendaDeVestir) {
 			sb.append(prenda.getNombre()).append(";");
 			sb.append(prenda.getPrecio()).append(";");
-			sb.append(prenda.getCantidad()).append(";");
 			sb.append(prenda.getTalla()).append(";");
 			sb.append(prenda.getTipoTela()).append(";\n");
 		}

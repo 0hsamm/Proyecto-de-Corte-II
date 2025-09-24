@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.swing.JOptionPane;
@@ -182,9 +183,15 @@ public class Controller implements ActionListener {
 
 		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().addActionListener(this);
 		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().setActionCommand("BOTON_MOSTRAR_CARRITOS");
-		
+
 		vf.getVenCRUD().getPanelCRUD().getpEliminar().getBtnEliminar().addActionListener(this);
 		vf.getVenCRUD().getPanelCRUD().getpEliminar().getBtnEliminar().setActionCommand("ELIMINAR");
+
+		vf.getVenComprar().getPanelCarrito().getBtnCalcularTotal().addActionListener(this);
+		vf.getVenComprar().getPanelCarrito().getBtnCalcularTotal().setActionCommand("CALCULAR_TOTAL");
+
+		vf.getVenComprar().getPanelCarrito().getBtnComprar().addActionListener(this);
+		vf.getVenComprar().getPanelCarrito().getBtnComprar().setActionCommand("COMPRAR_CARRITO");
 
 	}
 
@@ -486,152 +493,104 @@ public class Controller implements ActionListener {
 
 			if (artSeleccionado.equals("Accesorio para vehiculo")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialAccesorio().getText();
 				String compatibilidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCompatibilidad().getText();
 
-				AccesorioVehiculo accesorioVehiculo = new AccesorioVehiculo(nombre, cantidad, precio, material,
-						compatibilidad);
+				AccesorioVehiculo accesorioVehiculo = new AccesorioVehiculo(nombre, precio, material, compatibilidad);
 				mf.getAccesorioVehiculoDAO().create(accesorioVehiculo);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Electrodomestico")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String consumoEnergia = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConsumo().getText();
 				String capacidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCapacidad().getText();
-				Electrodomestico electrodomestico = new Electrodomestico(nombre, cantidad, precio, consumoEnergia,
-						capacidad);
+
+				Electrodomestico electrodomestico = new Electrodomestico(nombre, precio, consumoEnergia, capacidad);
 				mf.getElectrodomesticoDAO().create(electrodomestico);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Equipo deportivo")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String deporte = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextDeporte().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialDeporte().getText();
-				EquipoDeportivo equipoDeportivo = new EquipoDeportivo(nombre, cantidad, precio, deporte, material);
+
+				EquipoDeportivo equipoDeportivo = new EquipoDeportivo(nombre, precio, deporte, material);
 				mf.getEquipoDeportivoDAO().create(equipoDeportivo);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Herramientas")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String tipoAlimentacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextAlimentacion().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialHerramienta().getText();
-				Herramienta herramienta = new Herramienta(nombre, cantidad, precio, tipoAlimentacion, material);
+
+				Herramienta herramienta = new Herramienta(nombre, precio, tipoAlimentacion, material);
 				mf.getHerramientaDAO().create(herramienta);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Inmuebles")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String area = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextArea().getText();
 				String cantidadCuarto = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidadCuarto().getText();
-				Inmueble inmueble = new Inmueble(nombre, cantidad, precio, area, cantidadCuarto);
+
+				Inmueble inmueble = new Inmueble(nombre, precio, area, cantidadCuarto);
 				mf.getInmbuenleDAO().create(inmueble);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Juguetes")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String edadRecomendada = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextEdad().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialJuguete().getText();
-				Juguete juguete = new Juguete(nombre, cantidad, precio, edadRecomendada, material);
+
+				Juguete juguete = new Juguete(nombre, precio, edadRecomendada, material);
 				mf.getJugueteDAO().create(juguete);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Prenda de vestir")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String talla = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTalla().getText();
 				String tipoTela = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTipoTela().getText();
-				PrendaDeVestir prendaDeVestir = new PrendaDeVestir(nombre, cantidad, precio, talla, tipoTela);
+
+				PrendaDeVestir prendaDeVestir = new PrendaDeVestir(nombre, precio, talla, tipoTela);
 				mf.getPrendaDAO().create(prendaDeVestir);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Producto farmaceutico")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String formaFarmaceutico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextFormaFarmaceutica()
 						.getText();
 				String concentracion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConcentracion().getText();
-				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, cantidad, precio,
-						formaFarmaceutico, concentracion);
+
+				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, precio, formaFarmaceutico,
+						concentracion);
 				mf.getProductoFarmaceuticoDAO().create(productoFarmaceutico);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Producto sostenible")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String materialEcologico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialEcologico()
 						.getText();
 				String certificacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCertificacion().getText();
-				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, cantidad, precio,
-						materialEcologico, certificacion);
+
+				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, precio, materialEcologico,
+						certificacion);
 				mf.getProductoSostenibleDAO().create(productoSostenible);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Tecnologia")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String sistemaOperativo = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextSO().getText();
 				String conectividad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConectividad().getText();
-				Tecnologia tecnologia = new Tecnologia(nombre, cantidad, precio, sistemaOperativo, conectividad);
+
+				Tecnologia tecnologia = new Tecnologia(nombre, precio, sistemaOperativo, conectividad);
 				mf.getTecnologoiaDAO().create(tecnologia);
-
-				JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
-
 			}
+
+			JOptionPane.showMessageDialog(null, "Artículo Creado", "Crear artículo", JOptionPane.INFORMATION_MESSAGE,
+					null);
+
+			vf.getVenCRUD().getPanelCRUD().getpCrear().limpiarCampos();
+
 			break;
 		}
 
@@ -639,186 +598,110 @@ public class Controller implements ActionListener {
 			String artSeleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpCrear().getListaCategorias()
 					.getSelectedItem();
 
+			int indice = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
+
 			if (artSeleccionado.equals("Accesorio para vehiculo")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialAccesorio().getText();
 				String compatibilidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCompatibilidad().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				AccesorioVehiculo accesorioVehiculo = new AccesorioVehiculo(nombre, cantidad, precio, material,
-						compatibilidad);
+				AccesorioVehiculo accesorioVehiculo = new AccesorioVehiculo(nombre, precio, material, compatibilidad);
 				mf.getAccesorioVehiculoDAO().update(indice, accesorioVehiculo);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Electrodomestico")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String consumoEnergia = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConsumo().getText();
 				String capacidad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCapacidad().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				Electrodomestico electrodomestico = new Electrodomestico(nombre, cantidad, precio, consumoEnergia,
-						capacidad);
+				Electrodomestico electrodomestico = new Electrodomestico(nombre, precio, consumoEnergia, capacidad);
 				mf.getElectrodomesticoDAO().update(indice, electrodomestico);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
-				;
 
 			} else if (artSeleccionado.equals("Equipo deportivo")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String deporte = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextDeporte().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialDeporte().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				EquipoDeportivo equipoDeportivo = new EquipoDeportivo(nombre, cantidad, precio, deporte, material);
+				EquipoDeportivo equipoDeportivo = new EquipoDeportivo(nombre, precio, deporte, material);
 				mf.getEquipoDeportivoDAO().update(indice, equipoDeportivo);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Herramientas")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String tipoAlimentacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextAlimentacion().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialHerramienta().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				Herramienta herramienta = new Herramienta(nombre, cantidad, precio, tipoAlimentacion, material);
+				Herramienta herramienta = new Herramienta(nombre, precio, tipoAlimentacion, material);
 				mf.getHerramientaDAO().update(indice, herramienta);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Inmuebles")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String area = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextArea().getText();
 				String cantidadCuarto = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidadCuarto().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				Inmueble inmueble = new Inmueble(nombre, cantidad, precio, area, cantidadCuarto);
+				Inmueble inmueble = new Inmueble(nombre, precio, area, cantidadCuarto);
 				mf.getInmbuenleDAO().update(indice, inmueble);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Juguetes")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String edadRecomendada = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextEdad().getText();
 				String material = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialJuguete().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				Juguete juguete = new Juguete(nombre, cantidad, precio, edadRecomendada, material);
+				Juguete juguete = new Juguete(nombre, precio, edadRecomendada, material);
 				mf.getJugueteDAO().update(indice, juguete);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Prenda de vestir")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String talla = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTalla().getText();
 				String tipoTela = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextTipoTela().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				PrendaDeVestir prendaDeVestir = new PrendaDeVestir(nombre, cantidad, precio, talla, tipoTela);
+				PrendaDeVestir prendaDeVestir = new PrendaDeVestir(nombre, precio, talla, tipoTela);
 				mf.getPrendaDAO().update(indice, prendaDeVestir);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Producto farmaceutico")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String formaFarmaceutico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextFormaFarmaceutica()
 						.getText();
 				String concentracion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConcentracion().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, cantidad, precio,
-						formaFarmaceutico, concentracion);
+				ProductoFarmaceutico productoFarmaceutico = new ProductoFarmaceutico(nombre, precio, formaFarmaceutico,
+						concentracion);
 				mf.getProductoFarmaceuticoDAO().update(indice, productoFarmaceutico);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Producto sostenible")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String materialEcologico = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextMaterialEcologico()
 						.getText();
 				String certificacion = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCertificacion().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, cantidad, precio,
-						materialEcologico, certificacion);
+				ProductoSostenible productoSostenible = new ProductoSostenible(nombre, precio, materialEcologico,
+						certificacion);
 				mf.getProductoSostenibleDAO().update(indice, productoSostenible);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 
 			} else if (artSeleccionado.equals("Tecnologia")) {
 				String nombre = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextNombre().getText();
-				int cantidad = Integer.parseInt(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextCantidad().getText());
 				float precio = Float.parseFloat(vf.getVenCRUD().getPanelCRUD().getpCrear().getTextPrecio().getText());
 				String sistemaOperativo = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextSO().getText();
 				String conectividad = vf.getVenCRUD().getPanelCRUD().getpCrear().getTextConectividad().getText();
 
-				int indice = Integer
-						.parseInt(vf.getVenCRUD().getPanelCRUD().getpActualizar().getIndiceText().getText());
-				Tecnologia tecnologia = new Tecnologia(nombre, cantidad, precio, sistemaOperativo, conectividad);
+				Tecnologia tecnologia = new Tecnologia(nombre, precio, sistemaOperativo, conectividad);
 				mf.getTecnologoiaDAO().update(indice, tecnologia);
-
-				JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
-						JOptionPane.INFORMATION_MESSAGE, null);
-
-				vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
-
 			}
+
+			JOptionPane.showMessageDialog(null, "Artículo Actualizado", "Actualizar artículo",
+					JOptionPane.INFORMATION_MESSAGE, null);
+
+			vf.getVenCRUD().getPanelCRUD().getpActualizar().limpiarCampos();
 			break;
 		}
+
 		case "COMBOBOX_MOSTRAR": {
 			String seleccionado = (String) vf.getVenCRUD().getPanelCRUD().getpMostrar().getListaCategoria()
 					.getSelectedItem();
@@ -917,52 +800,53 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "ELIMINAR": {
-		    String categoria = (String) vf.getVenCRUD().getPanelCRUD().getpEliminar().getListaCategoria().getSelectedItem();
-		    String input = vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().getText();
-		    int indice = Integer.parseInt(input) - 1;
-		    boolean eliminado = false;
-		    String listaActualizada = "";
+			String categoria = (String) vf.getVenCRUD().getPanelCRUD().getpEliminar().getListaCategoria()
+					.getSelectedItem();
+			String input = vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().getText();
+			int indice = Integer.parseInt(input) - 1;
+			boolean eliminado = false;
+			String listaActualizada = "";
 
-		    if (categoria.equals("Accesorio para vehiculo")) {
-		        eliminado = mf.getAccesorioVehiculoDAO().delete(indice);
-		        listaActualizada = mf.getAccesorioVehiculoDAO().showAll();
-		    } else if (categoria.equals("Electrodomestico")) {
-		        eliminado = mf.getElectrodomesticoDAO().delete(indice);
-		        listaActualizada = mf.getElectrodomesticoDAO().showAll();
-		    } else if (categoria.equals("Equipo deportivo")) {
-		        eliminado = mf.getEquipoDeportivoDAO().delete(indice);
-		        listaActualizada = mf.getEquipoDeportivoDAO().showAll();
-		    } else if (categoria.equals("Herramientas")) {
-		        eliminado = mf.getHerramientaDAO().delete(indice);
-		        listaActualizada = mf.getHerramientaDAO().showAll();
-		    } else if (categoria.equals("Inmuebles")) {
-		        eliminado = mf.getInmbuenleDAO().delete(indice);
-		        listaActualizada = mf.getInmbuenleDAO().showAll();
-		    } else if (categoria.equals("Juguetes")) {
-		        eliminado = mf.getJugueteDAO().delete(indice);
-		        listaActualizada = mf.getJugueteDAO().showAll();
-		    } else if (categoria.equals("Prenda de vestir")) {
-		        eliminado = mf.getPrendaDAO().delete(indice);
-		        listaActualizada = mf.getPrendaDAO().showAll();
-		    } else if (categoria.equals("Producto farmaceutico")) {
-		        eliminado = mf.getProductoFarmaceuticoDAO().delete(indice);
-		        listaActualizada = mf.getProductoFarmaceuticoDAO().showAll();
-		    } else if (categoria.equals("Producto sostenible")) {
-		        eliminado = mf.getProductoSostenibleDAO().delete(indice);
-		        listaActualizada = mf.getProductoSostenibleDAO().showAll();
-		    } else if (categoria.equals("Tecnologia")) {
-		        eliminado = mf.getTecnologoiaDAO().delete(indice);
-		        listaActualizada = mf.getTecnologoiaDAO().showAll();
-		    }
+			if (categoria.equals("Accesorio para vehiculo")) {
+				eliminado = mf.getAccesorioVehiculoDAO().delete(indice);
+				listaActualizada = mf.getAccesorioVehiculoDAO().showAll();
+			} else if (categoria.equals("Electrodomestico")) {
+				eliminado = mf.getElectrodomesticoDAO().delete(indice);
+				listaActualizada = mf.getElectrodomesticoDAO().showAll();
+			} else if (categoria.equals("Equipo deportivo")) {
+				eliminado = mf.getEquipoDeportivoDAO().delete(indice);
+				listaActualizada = mf.getEquipoDeportivoDAO().showAll();
+			} else if (categoria.equals("Herramientas")) {
+				eliminado = mf.getHerramientaDAO().delete(indice);
+				listaActualizada = mf.getHerramientaDAO().showAll();
+			} else if (categoria.equals("Inmuebles")) {
+				eliminado = mf.getInmbuenleDAO().delete(indice);
+				listaActualizada = mf.getInmbuenleDAO().showAll();
+			} else if (categoria.equals("Juguetes")) {
+				eliminado = mf.getJugueteDAO().delete(indice);
+				listaActualizada = mf.getJugueteDAO().showAll();
+			} else if (categoria.equals("Prenda de vestir")) {
+				eliminado = mf.getPrendaDAO().delete(indice);
+				listaActualizada = mf.getPrendaDAO().showAll();
+			} else if (categoria.equals("Producto farmaceutico")) {
+				eliminado = mf.getProductoFarmaceuticoDAO().delete(indice);
+				listaActualizada = mf.getProductoFarmaceuticoDAO().showAll();
+			} else if (categoria.equals("Producto sostenible")) {
+				eliminado = mf.getProductoSostenibleDAO().delete(indice);
+				listaActualizada = mf.getProductoSostenibleDAO().showAll();
+			} else if (categoria.equals("Tecnologia")) {
+				eliminado = mf.getTecnologoiaDAO().delete(indice);
+				listaActualizada = mf.getTecnologoiaDAO().showAll();
+			}
 
-		    if (eliminado) {
-		        JOptionPane.showMessageDialog(null, "Artículo eliminado correctamente");
-		        vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(listaActualizada);
-		        vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().setText("");
-		    } else {
-		        JOptionPane.showMessageDialog(null, "No se pudo eliminar, índice inválido");
-		    }
-		    break;
+			if (eliminado) {
+				JOptionPane.showMessageDialog(null, "Artículo eliminado correctamente");
+				vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(listaActualizada);
+				vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().setText("");
+			} else {
+				JOptionPane.showMessageDialog(null, "No se pudo eliminar, índice inválido");
+			}
+			break;
 		}
 
 		case "BOTON_CREAR_CARRITO": {
@@ -1040,9 +924,103 @@ public class Controller implements ActionListener {
 			vf.getVenComprar().getPanelCarrito().getTextCarritos().setText(contenido);
 			break;
 		}
+		case "CALCULAR_TOTAL": {
+			try {
+				int idCarrito = Integer.parseInt(vf.getVenComprar().getPanelCarrito().getTxtCarritoId().getText());
 
+				Carrito carrito = null;
+				for (Carrito c : mf.getCarritoDAO().getListaCarritos()) {
+					if (c.getIdCarrito() == idCarrito) {
+						carrito = c;
+						break; // Encontrado, salimos del ciclo
+					}
+				}
+
+				if (carrito != null) {
+					float total = carrito.calcularTotal();
+					vf.getVenComprar().getPanelCarrito().getTxtTotal().setText("$ " + total);
+				} else {
+					vf.getVenComprar().getPanelCarrito().getTxtTotal().setText("Carrito no encontrado");
+				}
+			} catch (NumberFormatException e1) {
+				vf.getVenComprar().getPanelCarrito().getTxtTotal().setText("ID inválido");
+			}
+			break;
 		}
+		case "COMPRAR_CARRITO": {
+			try {
+				int idCarrito = Integer.parseInt(vf.getVenComprar().getPanelCarrito().getTxtCarritoId().getText());
 
+				Carrito carrito = null;
+				int indiceCarrito = -1;
+
+				ArrayList<Carrito> lista = mf.getCarritoDAO().getListaCarritos();
+				for (int i = 0; i < lista.size(); i++) {
+					if (lista.get(i).getIdCarrito() == idCarrito) {
+						carrito = lista.get(i);
+						indiceCarrito = i;
+						break;
+					}
+				}
+
+				StringBuilder recibo = new StringBuilder();
+				recibo.append("=== RECIBO DE COMPRA ===\n");
+				recibo.append("Carrito #").append(idCarrito).append("\n\n");
+				recibo.append("Productos comprados:\n");
+
+				float total = 0;
+				for (Producto producto : carrito.getListaProductos()) {
+					recibo.append("- ").append(producto.getNombre()).append(" - $").append(producto.getPrecio())
+							.append("\n");
+					total += producto.getPrecio();
+
+					eliminarProductoSimple(producto);
+				}
+
+				recibo.append("\nTOTAL: $").append(total);
+
+				mf.getCarritoDAO().delete(indiceCarrito);
+
+				vf.getVenComprar().getPanelCarrito().getTxtTotal().setText("Compra: $ " + total);
+				vf.getVenComprar().getPanelCarrito().getTxtCarritoId().setText("");
+				vf.getVenComprar().getPanelCarrito().getTextCarritos().setText("");
+
+				JOptionPane.showMessageDialog(vf.getVenComprar(), recibo.toString(), "Compra Exitosa",
+						JOptionPane.INFORMATION_MESSAGE);
+
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(vf.getVenComprar(), "No se pudo efectuar la compra", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			break;
+		}
+		}
+	}
+
+	private void eliminarProductoSimple(Producto producto) {
+		try {
+			eliminarDeLista(mf.getAccesorioVehiculoDAO().getListaAccesorioVehiculo(), producto);
+			eliminarDeLista(mf.getElectrodomesticoDAO().getListaElectrodomestico(), producto);
+			eliminarDeLista(mf.getEquipoDeportivoDAO().getListaEquipoDeportivo(), producto);
+			eliminarDeLista(mf.getHerramientaDAO().getListaHerramienta(), producto);
+			eliminarDeLista(mf.getInmbuenleDAO().getListaInmueble(), producto);
+			eliminarDeLista(mf.getJugueteDAO().getListaJuguete(), producto);
+			eliminarDeLista(mf.getPrendaDAO().getListaPrendaDeVestir(), producto);
+			eliminarDeLista(mf.getProductoFarmaceuticoDAO().getListaProductoFarmaceutico(), producto);
+			eliminarDeLista(mf.getProductoSostenibleDAO().getListaProductoSostenible(), producto);
+			eliminarDeLista(mf.getTecnologoiaDAO().getListaTecnologia(), producto);
+		} catch (Exception e) {
+		}
+	}
+
+	private void eliminarDeLista(ArrayList lista, Producto producto) {
+		for (int i = 0; i < lista.size(); i++) {
+			Producto p = (Producto) lista.get(i);
+			if (p.getNombre().equals(producto.getNombre()) && p.getPrecio() == producto.getPrecio()) {
+				lista.remove(i);
+				break;
+			}
+		}
 	}
 
 }

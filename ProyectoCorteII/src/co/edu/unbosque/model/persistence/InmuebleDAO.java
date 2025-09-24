@@ -87,9 +87,8 @@ public class InmuebleDAO implements DAO<Inmueble> {
 				Inmueble temp = new Inmueble();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setArea(columna[3]);
-				temp.setCantidadCuarto(columna[4]);
+				temp.setArea(columna[2]);
+				temp.setCantidadCuarto(columna[3]);
 				listaInmueble.add(temp);
 			}
 		}
@@ -101,7 +100,6 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		for (Inmueble inmueble : listaInmueble) {
 			sb.append(inmueble.getNombre()).append(";");
 			sb.append(inmueble.getPrecio()).append(";");
-			sb.append(inmueble.getCantidad()).append(";");
 			sb.append(inmueble.getArea()).append(";");
 			sb.append(inmueble.getCantidadCuarto()).append(";\n");
 		}

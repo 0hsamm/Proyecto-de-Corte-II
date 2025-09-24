@@ -100,4 +100,12 @@ public class Carrito implements Serializable {
     public void añadirProducto(Producto p) {
         listaProductos.add(p);
     }
+    
+    public float calcularTotal() {
+        float total = 0f;
+        for (Producto p : listaProductos) {
+            total += p.getPrecio();
+        }
+        return total;
+    }
 }

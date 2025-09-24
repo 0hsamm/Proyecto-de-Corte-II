@@ -85,9 +85,8 @@ public class JugueteDAO implements DAO<Juguete> {
 				Juguete temp = new Juguete();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setEdadRecomendada(columna[3]);
-				temp.setMaterial(columna[4]);
+				temp.setEdadRecomendada(columna[2]);
+				temp.setMaterial(columna[3]);
 				listaJuguete.add(temp);
 			}
 		}
@@ -99,7 +98,6 @@ public class JugueteDAO implements DAO<Juguete> {
 		for (Juguete juguete : listaJuguete) {
 			sb.append(juguete.getNombre()).append(";");
 			sb.append(juguete.getPrecio()).append(";");
-			sb.append(juguete.getCantidad()).append(";");
 			sb.append(juguete.getEdadRecomendada()).append(";");
 			sb.append(juguete.getMaterial()).append(";\n");
 		}

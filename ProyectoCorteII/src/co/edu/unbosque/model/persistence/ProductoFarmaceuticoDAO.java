@@ -115,9 +115,8 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 				ProductoFarmaceutico temp = new ProductoFarmaceutico();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setFormaFarmaceutica(columna[3]);
-				temp.setConcentracion(columna[4]);
+				temp.setFormaFarmaceutica(columna[2]);
+				temp.setConcentracion(columna[3]);
 				listaProductoFarmaceutico.add(temp);
 			}
 		}
@@ -132,7 +131,6 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		for (ProductoFarmaceutico productoFarmaceutico : listaProductoFarmaceutico) {
 			sb.append(productoFarmaceutico.getNombre()).append(";");
 			sb.append(productoFarmaceutico.getPrecio()).append(";");
-			sb.append(productoFarmaceutico.getCantidad()).append(";");
 			sb.append(productoFarmaceutico.getFormaFarmaceutica()).append(";");
 			sb.append(productoFarmaceutico.getConcentracion()).append(";\n");
 		}

@@ -113,9 +113,8 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 				AccesorioVehiculo temp = new AccesorioVehiculo();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setMaterial(columna[3]);
-				temp.setCompatibilidad(columna[4]);
+				temp.setMaterial(columna[2]);
+				temp.setCompatibilidad(columna[3]);
 				listaAccesorioVehiculo.add(temp);
 			}
 		}
@@ -129,8 +128,8 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		StringBuilder sb = new StringBuilder();
 		for (AccesorioVehiculo accesorioVehiculo : listaAccesorioVehiculo) {
 			sb.append(accesorioVehiculo.getNombre()).append(";").append(accesorioVehiculo.getPrecio()).append(";")
-					.append(accesorioVehiculo.getCantidad()).append(";").append(accesorioVehiculo.getMaterial())
-					.append(";").append(accesorioVehiculo.getCompatibilidad()).append(";").append("\n");
+					.append(";").append(accesorioVehiculo.getMaterial()).append(";")
+					.append(accesorioVehiculo.getCompatibilidad()).append(";").append("\n");
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}

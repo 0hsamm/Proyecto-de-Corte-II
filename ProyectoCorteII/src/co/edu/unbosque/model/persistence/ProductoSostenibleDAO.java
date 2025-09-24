@@ -83,9 +83,8 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 			ProductoSostenible temp = new ProductoSostenible();
 			temp.setNombre(columna[0]);
 			temp.setPrecio(Float.parseFloat(columna[1]));
-			temp.setCantidad(Integer.parseInt(columna[2]));
-			temp.setCertificacion(columna[3]);
-			temp.setMaterialEcologico(columna[4]);
+			temp.setCertificacion(columna[2]);
+			temp.setMaterialEcologico(columna[3]);
 			listaProductoSostenible.add(temp);
 		}
 	}
@@ -95,7 +94,7 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		StringBuilder sb = new StringBuilder();
 		for (ProductoSostenible productoSostenible : listaProductoSostenible) {
 			sb.append(productoSostenible.getNombre()).append(";").append(productoSostenible.getPrecio()).append(";")
-					.append(productoSostenible.getCantidad()).append(";").append(productoSostenible.getCertificacion())
+					.append(productoSostenible.getCertificacion())
 					.append(";").append(productoSostenible.getMaterialEcologico()).append(";\n");
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());

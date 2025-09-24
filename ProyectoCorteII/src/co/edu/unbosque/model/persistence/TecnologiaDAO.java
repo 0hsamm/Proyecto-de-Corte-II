@@ -84,9 +84,8 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 				Tecnologia temp = new Tecnologia();
 				temp.setNombre(columna[0]);
 				temp.setPrecio(Float.parseFloat(columna[1]));
-				temp.setCantidad(Integer.parseInt(columna[2]));
-				temp.setSistemaOperativo(columna[3]);
-				temp.setConectividad(columna[4]);
+				temp.setSistemaOperativo(columna[2]);
+				temp.setConectividad(columna[3]);
 				listaTecnologia.add(temp);
 			}
 		}
@@ -98,7 +97,6 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		for (Tecnologia tecnologia : listaTecnologia) {
 			sb.append(tecnologia.getNombre()).append(";");
 			sb.append(tecnologia.getPrecio()).append(";");
-			sb.append(tecnologia.getCantidad()).append(";");
 			sb.append(tecnologia.getSistemaOperativo()).append(";");
 			sb.append(tecnologia.getConectividad()).append(";\n");
 		}

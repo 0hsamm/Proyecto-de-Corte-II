@@ -1,87 +1,103 @@
 package co.edu.unbosque.view;
 
 import java.util.Properties;
+import javax.swing.*;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
-/**
- * Panel que muestra el carrito de compras. Contiene un botón para mostrar el
- * contenido y un área de texto con scroll.
- */
 public class PanelCarrito extends JPanel {
 
-	private JButton btnMostrarCarrito;
-	private JTextArea textCarrito;
-	private JScrollPane scrollCarrito;
-	private Properties prop;
+    private JButton btnMostrarCarrito;
+    private JButton btnCalcularTotal;
+    private JButton btnComprar;
+    private JTextArea textCarrito;
+    private JScrollPane scrollCarrito;
+    private JTextField txtTotal;
+    private JTextField txtCarritoId;
+    private Properties prop;
 
-	/**
-	 * Constructor que inicializa los componentes del panel.
-	 */
-	public PanelCarrito() {
-		prop = new Properties();
-		inicializarComponentes();
-	}
+    public PanelCarrito() {
+        prop = new Properties();
+        inicializarComponentes();
+    }
 
-	/**
-	 * Inicializa los elementos gráficos del panel.
-	 */
-	private void inicializarComponentes() {
-		this.setLayout(null);
+    private void inicializarComponentes() {
+        this.setLayout(null);
 
-		btnMostrarCarrito = new JButton();
-		btnMostrarCarrito.setBounds(10, 10, 200, 30);
-		this.add(btnMostrarCarrito);
+        btnMostrarCarrito = new JButton("Mostrar Carrito");
+        btnMostrarCarrito.setBounds(20, 20, 180, 30);
+        this.add(btnMostrarCarrito);
 
-		textCarrito = new JTextArea();
-		textCarrito.setEditable(false);
+        scrollCarrito = new JScrollPane();
+        scrollCarrito.setBounds(20, 70, 500, 250);
+        this.add(scrollCarrito);
 
-		scrollCarrito = new JScrollPane(textCarrito);
-		scrollCarrito.setBounds(10, 50, 500, 300);
-		this.add(scrollCarrito);
-	}
+        textCarrito = new JTextArea();
+        textCarrito.setEditable(false);
+        textCarrito.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        scrollCarrito.setViewportView(textCarrito);
 
-	/**
-	 * Aplica los textos desde las propiedades al panel.
-	 */
-	public void aplicarTexto() {
-		btnMostrarCarrito.setText(prop.getProperty("mercadolibre.panelcarrito.btnmostrarcarrito"));
-	}
+        JLabel lblCarritoId = new JLabel("ID Carrito:");
+        lblCarritoId.setBounds(20, 340, 80, 30);
+        this.add(lblCarritoId);
 
-	public JButton getBtnMostrarCarritos() {
-		return btnMostrarCarrito;
-	}
+        txtCarritoId = new JTextField();
+        txtCarritoId.setBounds(100, 340, 100, 30);
+        this.add(txtCarritoId);
 
-	public JTextArea getTextCarritos() {
-		return textCarrito;
-	}
+        btnCalcularTotal = new JButton("Calcular Total");
+        btnCalcularTotal.setBounds(220, 340, 150, 30);
+        this.add(btnCalcularTotal);
 
-	public JScrollPane getScrollCarritos() {
-		return scrollCarrito;
-	}
+        txtTotal = new JTextField();
+        txtTotal.setBounds(20, 390, 180, 30);
+        txtTotal.setEditable(false);
+        this.add(txtTotal);
 
-	public void setScrollCarritos(JScrollPane scrollCarritos) {
-		this.scrollCarrito = scrollCarritos;
-	}
+        btnComprar = new JButton("Comprar");
+        btnComprar.setBounds(220, 390, 150, 30);
+        this.add(btnComprar);
+    }
 
-	public void setBtnMostrarCarritos(JButton btnMostrarCarritos) {
-		this.btnMostrarCarrito = btnMostrarCarritos;
-	}
+    public void aplicarTexto() {
+        btnMostrarCarrito.setText(prop.getProperty("mercadolibre.panelcarrito.btnmostrarcarrito", "Mostrar Carrito"));
+        btnCalcularTotal.setText(prop.getProperty("mercadolibre.panelcarrito.btncalculartotal", "Calcular Total"));
+        btnComprar.setText(prop.getProperty("mercadolibre.panelcarrito.btncomprar", "Comprar"));
+    }
 
-	public void setTextCarritos(JTextArea textCarritos) {
-		this.textCarrito = textCarritos;
-	}
+    public JButton getBtnMostrarCarritos() {
+        return btnMostrarCarrito;
+    }
 
-	public Properties getProp() {
-		return prop;
-	}
+    public JButton getBtnCalcularTotal() {
+        return btnCalcularTotal;
+    }
 
-	public void setProp(Properties prop) {
-		this.prop = prop;
-		aplicarTexto();
-	}
+    public JButton getBtnComprar() {
+        return btnComprar;
+    }
 
+    public JTextArea getTextCarritos() {
+        return textCarrito;
+    }
+
+    public JScrollPane getScrollCarritos() {
+        return scrollCarrito;
+    }
+
+    public JTextField getTxtTotal() {
+        return txtTotal;
+    }
+
+    public JTextField getTxtCarritoId() {
+        return txtCarritoId;
+    }
+
+    public Properties getProp() {
+        return prop;
+    }
+
+    public void setProp(Properties prop) {
+        this.prop = prop;
+        aplicarTexto();
+    }
 }
