@@ -47,14 +47,18 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (ProductoSostenible productoSostenible : listaProductoSostenible) {
-			content += productoSostenible.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaProductoSostenible.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaProductoSostenible.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -107,12 +111,11 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaProductoSostenible = (ArrayList<ProductoSostenible>) contenido;
-		}
-		else {
+		} else {
 			listaProductoSostenible = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoSostenible);
 	}
@@ -125,14 +128,6 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 		this.listaProductoSostenible = listaProductoSostenible;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -140,6 +135,5 @@ public class ProductoSostenibleDAO implements DAO<ProductoSostenible> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
-	
+
 }

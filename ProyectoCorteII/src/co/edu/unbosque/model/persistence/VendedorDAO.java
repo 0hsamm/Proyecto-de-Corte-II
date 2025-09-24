@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Vendedor;
 
 public class VendedorDAO implements DAO<Vendedor> {
-	
+
 	private ArrayList<Vendedor> listaVendedores;
 	private final String FILE_NAME = "Vendedor.csv";
 	private final String SERIAL_FILE_NAME = "Vendedor.bin";
-	
+
 	public VendedorDAO() {
 		listaVendedores = new ArrayList<Vendedor>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
@@ -21,12 +21,12 @@ public class VendedorDAO implements DAO<Vendedor> {
 		listaVendedores.add(newData);
 		escribirEnArchivoDeTexto();
 		escribirEnArchivoSerializado();
-		
+
 	}
 
 	@Override
 	public boolean delete(int index) {
-		if(index == 0 || index >= listaVendedores.size()) {
+		if (index == 0 || index >= listaVendedores.size()) {
 			return false;
 		} else {
 			listaVendedores.remove(index);
@@ -38,7 +38,7 @@ public class VendedorDAO implements DAO<Vendedor> {
 
 	@Override
 	public boolean update(int index, Vendedor newData) {
-		if(index == 0 || index >= listaVendedores.size()) {
+		if (index == 0 || index >= listaVendedores.size()) {
 			return false;
 		} else {
 			listaVendedores.set(index, newData);
@@ -47,16 +47,19 @@ public class VendedorDAO implements DAO<Vendedor> {
 			return true;
 		}
 	}
-	
-	String content = "";
-	
+
 	@Override
 	public String showAll() {
-		content = "";
-		for (Vendedor vendedor : listaVendedores) {
-			content += vendedor.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaVendedores.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaVendedores.get(i).toString());
+			sb.append("\n");
 		}
-			return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -68,15 +71,15 @@ public class VendedorDAO implements DAO<Vendedor> {
 	public void leerDesdeArchivoDeTexto(String url) {
 		String contenido;
 		contenido = FileHandler.leerDesdeArchivoDeTexto(url);
-		if(contenido == "" || contenido.isBlank()) {
+		if (contenido == "" || contenido.isBlank()) {
 			return;
-		}else {
-			String [] fila = contenido.split("\n");
+		} else {
+			String[] fila = contenido.split("\n");
 			for (int i = 0; i < fila.length; i++) {
 				String[] columna = contenido.split(";");
-				
+
 				Vendedor temp = new Vendedor();
-				
+
 				temp.setCorreo(columna[0]);
 				temp.setNombre(columna[1]);
 				temp.setTelefono(columna[2]);
@@ -85,12 +88,12 @@ public class VendedorDAO implements DAO<Vendedor> {
 				temp.setCantidadObjetosVendidos(Integer.parseInt(columna[5]));
 				temp.setObjetosEnVenta(Integer.parseInt(columna[6]));
 				temp.setPuntuacionDeVenta(Float.parseFloat(columna[7]));
-				
+
 				listaVendedores.add(temp);
-				
+
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -101,21 +104,20 @@ public class VendedorDAO implements DAO<Vendedor> {
 			sb.append(vendedor.getNombre());
 			sb.append("\n");
 		}
-		
+
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
-		
+
 	}
-	
+
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaVendedores = (ArrayList<Vendedor>) contenido;
-		}
-		else {
+		} else {
 			listaVendedores = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaVendedores);
 	}
@@ -128,14 +130,6 @@ public class VendedorDAO implements DAO<Vendedor> {
 		this.listaVendedores = listaVendedores;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -143,6 +137,5 @@ public class VendedorDAO implements DAO<Vendedor> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
 
 }

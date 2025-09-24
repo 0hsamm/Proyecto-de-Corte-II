@@ -41,7 +41,7 @@ public class PanelMostrar extends JPanel {
 	}
 
 	public void aplicarTexto() {
-
+		listaCategoria.removeAllItems();
 
 		listaCategoria.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.seleccionar"));
 		listaCategoria.addItem(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"));

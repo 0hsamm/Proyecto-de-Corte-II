@@ -14,7 +14,6 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		listaAccesorioVehiculo = new ArrayList<AccesorioVehiculo>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
 		cargarDesdeArchivoSerializado();
-		
 
 	}
 
@@ -49,15 +48,18 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		content = "";
-		for (AccesorioVehiculo accesorioVehiculo : listaAccesorioVehiculo) {
-			content += accesorioVehiculo.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaAccesorioVehiculo.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaAccesorioVehiculo.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -102,16 +104,16 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		}
 		FileHandler.escribirEnArchivoDeTexto(FILE_NAME, sb.toString());
 	}
+
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaAccesorioVehiculo = (ArrayList<AccesorioVehiculo>) contenido;
-		}
-		else {
+		} else {
 			listaAccesorioVehiculo = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaAccesorioVehiculo);
 	}
@@ -124,14 +126,6 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 		this.listaAccesorioVehiculo = listaAccesorioVehiculo;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -139,8 +133,5 @@ public class AccesorioVehiculoDAO implements DAO<AccesorioVehiculo> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
 
-	
-	
 }

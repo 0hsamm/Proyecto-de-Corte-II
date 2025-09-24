@@ -48,14 +48,18 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (PrendaDeVestir prendaDeVestir : listaPrendaDeVestir) {
-			content += prendaDeVestir.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaPrendaDeVestir.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaPrendaDeVestir.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -123,14 +127,6 @@ public class PrendaDeVestirDAO implements DAO<PrendaDeVestir> {
 
 	public void setListaPrendaDeVestir(ArrayList<PrendaDeVestir> listaPrendaDeVestir) {
 		this.listaPrendaDeVestir = listaPrendaDeVestir;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	public String getFILE_NAME() {

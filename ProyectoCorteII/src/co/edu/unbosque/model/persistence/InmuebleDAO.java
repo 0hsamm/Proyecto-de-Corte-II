@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Inmueble;
 
-
 public class InmuebleDAO implements DAO<Inmueble> {
 
 	private ArrayList<Inmueble> listaInmueble;
@@ -49,14 +48,18 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (Inmueble inmueble : listaInmueble) {
-			content += inmueble.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaInmueble.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaInmueble.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -109,12 +112,11 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaInmueble = (ArrayList<Inmueble>) contenido;
-		}
-		else {
+		} else {
 			listaInmueble = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaInmueble);
 	}
@@ -127,14 +129,6 @@ public class InmuebleDAO implements DAO<Inmueble> {
 		this.listaInmueble = listaInmueble;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -142,6 +136,5 @@ public class InmuebleDAO implements DAO<Inmueble> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
-	
+
 }

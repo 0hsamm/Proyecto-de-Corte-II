@@ -38,7 +38,7 @@ public class Controller implements ActionListener {
 		mf = new ModelFacade();
 		prop = new Properties();
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -176,15 +176,17 @@ public class Controller implements ActionListener {
 
 		vf.getVenComprar().getPanelMostrar().getBtnCrearCarrito().addActionListener(this);
 		vf.getVenComprar().getPanelMostrar().getBtnCrearCarrito().setActionCommand("BOTON_CREAR_CARRITO");
-		
+
 		vf.getVenComprar().getBtnCarrito().addActionListener(this);
 		vf.getVenComprar().getBtnCarrito().setActionCommand("BOTON_PANEL_CARRITO");
-		
+
 		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().addActionListener(this);
 		vf.getVenComprar().getPanelCarrito().getBtnMostrarCarritos().setActionCommand("BOTON_MOSTRAR_CARRITOS");
+		
+		vf.getVenCRUD().getPanelCRUD().getpEliminar().getBtnEliminar().addActionListener(this);
+		vf.getVenCRUD().getPanelCRUD().getpEliminar().getBtnEliminar().setActionCommand("ELIMINAR");
 
 	}
-
 
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
@@ -215,40 +217,45 @@ public class Controller implements ActionListener {
 		}
 		case "INICIAR_SESION_VENDEDOR": {
 
-
-		/*	String usuario = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
-
-			String usuario = vf.getVenInic2ioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			char[] contrasenaChar = vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
-
-					.getPassword();
-			String contrasena = new String(contrasenaChar);
-
-			if (mf.getVendedorDAO().getListaVendedores().contains(contrasena)
-
-					&& mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
-				vf.getVenInicioVendedor().setVisible(false);
-			
-					&& mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
-				vf.getVenInicioVendedor().setVisible(false);*/
-
-				vf.getVenCRUD().setVisible(true);
-				
-			} /*else {
-
-				JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),
-						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
-						JOptionPane.ERROR_MESSAGE);
-
-			}
-=======
-			/**
+			/*
 			 * String usuario =
-			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			 * /char[] contrasenaChar =
-			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextContrasena()
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario
+			 * ().getText(); char[] contrasenaChar =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().
+			 * getTextContrasena()
+			 * 
+			 * String usuario =
+			 * vf.getVenInic2ioVendedor().getPanelCentral().getpInicioSesion().
+			 * getTextUsuario().getText(); char[] contrasenaChar =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().
+			 * getTextContrasena()
+			 * 
 			 * .getPassword(); String contrasena = new String(contrasenaChar);
+			 * 
+			 * if (mf.getVendedorDAO().getListaVendedores().contains(contrasena)
+			 * 
+			 * && mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
+			 * vf.getVenInicioVendedor().setVisible(false);
+			 * 
+			 * && mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
+			 * vf.getVenInicioVendedor().setVisible(false);
+			 */
+
+			vf.getVenCRUD().setVisible(true);
+
+		} /*
+			 * else {
+			 * 
+			 * JOptionPane.showMessageDialog(vf.getVenInicioVendedor(),
+			 * "El usuario o la contraseña no existen en el sistema.",
+			 * "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+			 * 
+			 * } ======= /** String usuario =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().getTextUsuario
+			 * ().getText(); /char[] contrasenaChar =
+			 * vf.getVenInicioVendedor().getPanelCentral().getpInicioSesion().
+			 * getTextContrasena() .getPassword(); String contrasena = new
+			 * String(contrasenaChar);
 			 * 
 			 * if (mf.getVendedorDAO().getListaVendedores().contains(contrasena) &&
 			 * mf.getVendedorDAO().getListaVendedores().contains(usuario)) {
@@ -261,12 +268,13 @@ public class Controller implements ActionListener {
 			 * "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
 			 * 
 			 * }
-			 
-
-
-			break;
-
-		}*/
+			 * 
+			 * 
+			 * 
+			 * break;
+			 * 
+			 * }
+			 */
 
 		case "VOLVER_COMPRA": {
 			vf.getVenMenu().setVisible(true);
@@ -276,43 +284,45 @@ public class Controller implements ActionListener {
 
 		case "INICIAR_SESION_COMPRADOR": {
 
-		/*	String usuario = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			char[] contrasenaChar = vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
-					.getPassword();
-			String contrasena = new String(contrasenaChar);
-
-			// String usuario =
-			// vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextUsuario().getText();
-			// char[] contrasenaChar =
-			// vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().getTextContrasena()
-			// .getPassword();
-			// String contrasena = new String(contrasenaChar);
-
-
-
-			if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
-					&& mf.getCompradorDAO().getListaCompradores().contains(usuario)) {*/
-				vf.getVenInicioComprador().setVisible(false);
-				vf.getVenComprar().setVisible(true);
-				/*JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
-						"El usuario o la contraseña no existen en el sistema.", "Error de inicio de sesión",
-						JOptionPane.ERROR_MESSAGE);
-			}
-
-			// if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar)
-			// && mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+			/*
+			 * String usuario =
+			 * vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().
+			 * getTextUsuario().getText(); char[] contrasenaChar =
+			 * vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().
+			 * getTextContrasena() .getPassword(); String contrasena = new
+			 * String(contrasenaChar);
+			 * 
+			 * // String usuario = //
+			 * vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().
+			 * getTextUsuario().getText(); // char[] contrasenaChar = //
+			 * vf.getVenInicioComprador().getPanelCentral().getpInicioSesion().
+			 * getTextContrasena() // .getPassword(); // String contrasena = new
+			 * String(contrasenaChar);
+			 * 
+			 * 
+			 * 
+			 * if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar) &&
+			 * mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+			 */
 			vf.getVenInicioComprador().setVisible(false);
 			vf.getVenComprar().setVisible(true);
-			// JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
-			// "El usuario o la contraseña no existen en el sistema.", "Error de inicio de
-			// sesión",
-			// JOptionPane.ERROR_MESSAGE);
-			// }
-
-			break;
-*/
+			/*
+			 * JOptionPane.showMessageDialog(vf.getVenInicioComprador(),
+			 * "El usuario o la contraseña no existen en el sistema.",
+			 * "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE); }
+			 * 
+			 * // if (mf.getCompradorDAO().getListaCompradores().contains(contrasenaChar) //
+			 * && mf.getCompradorDAO().getListaCompradores().contains(usuario)) {
+			 * vf.getVenInicioComprador().setVisible(false);
+			 * vf.getVenComprar().setVisible(true); //
+			 * JOptionPane.showMessageDialog(vf.getVenInicioComprador(), //
+			 * "El usuario o la contraseña no existen en el sistema.", "Error de inicio de
+			 * // sesión", // JOptionPane.ERROR_MESSAGE); // }
+			 * 
+			 * break;
+			 */
 		}
-		case "BOTON_PANEL_CARRITO":{
+		case "BOTON_PANEL_CARRITO": {
 			vf.getVenComprar().getPanelMostrar().setVisible(false);
 			vf.getVenComprar().getPanelCarrito().setVisible(true);
 			break;
@@ -906,79 +916,130 @@ public class Controller implements ActionListener {
 			}
 			break;
 		}
+		case "ELIMINAR": {
+		    String categoria = (String) vf.getVenCRUD().getPanelCRUD().getpEliminar().getListaCategoria().getSelectedItem();
+		    String input = vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().getText();
+		    int indice = Integer.parseInt(input) - 1;
+		    boolean eliminado = false;
+		    String listaActualizada = "";
+
+		    if (categoria.equals("Accesorio para vehiculo")) {
+		        eliminado = mf.getAccesorioVehiculoDAO().delete(indice);
+		        listaActualizada = mf.getAccesorioVehiculoDAO().showAll();
+		    } else if (categoria.equals("Electrodomestico")) {
+		        eliminado = mf.getElectrodomesticoDAO().delete(indice);
+		        listaActualizada = mf.getElectrodomesticoDAO().showAll();
+		    } else if (categoria.equals("Equipo deportivo")) {
+		        eliminado = mf.getEquipoDeportivoDAO().delete(indice);
+		        listaActualizada = mf.getEquipoDeportivoDAO().showAll();
+		    } else if (categoria.equals("Herramientas")) {
+		        eliminado = mf.getHerramientaDAO().delete(indice);
+		        listaActualizada = mf.getHerramientaDAO().showAll();
+		    } else if (categoria.equals("Inmuebles")) {
+		        eliminado = mf.getInmbuenleDAO().delete(indice);
+		        listaActualizada = mf.getInmbuenleDAO().showAll();
+		    } else if (categoria.equals("Juguetes")) {
+		        eliminado = mf.getJugueteDAO().delete(indice);
+		        listaActualizada = mf.getJugueteDAO().showAll();
+		    } else if (categoria.equals("Prenda de vestir")) {
+		        eliminado = mf.getPrendaDAO().delete(indice);
+		        listaActualizada = mf.getPrendaDAO().showAll();
+		    } else if (categoria.equals("Producto farmaceutico")) {
+		        eliminado = mf.getProductoFarmaceuticoDAO().delete(indice);
+		        listaActualizada = mf.getProductoFarmaceuticoDAO().showAll();
+		    } else if (categoria.equals("Producto sostenible")) {
+		        eliminado = mf.getProductoSostenibleDAO().delete(indice);
+		        listaActualizada = mf.getProductoSostenibleDAO().showAll();
+		    } else if (categoria.equals("Tecnologia")) {
+		        eliminado = mf.getTecnologoiaDAO().delete(indice);
+		        listaActualizada = mf.getTecnologoiaDAO().showAll();
+		    }
+
+		    if (eliminado) {
+		        JOptionPane.showMessageDialog(null, "Artículo eliminado correctamente");
+		        vf.getVenCRUD().getPanelCRUD().getpMostrar().getVerObjeto().setText(listaActualizada);
+		        vf.getVenCRUD().getPanelCRUD().getpEliminar().getCampoIndice().setText("");
+		    } else {
+		        JOptionPane.showMessageDialog(null, "No se pudo eliminar, índice inválido");
+		    }
+		    break;
+		}
+
 		case "BOTON_CREAR_CARRITO": {
 			int id = mf.getCarritoDAO().getListaCarritos().size() + 1;
 			Carrito carrito = new Carrito(id);
 			mf.getCarritoDAO().create(carrito);
 			JOptionPane.showMessageDialog(null, "Carrito creado existosamente", "Carrito creado exitosamente",
-			        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.INFORMATION_MESSAGE);
 			break;
 
 		}
 
 		case "BOTON_AGREGAR_A_CARRITO": {
-		    try {
-		        String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias().getSelectedItem();
-		        int indiceAñadir = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtIndice().getText());
-		        int indiceRelativo = indiceAñadir - 1;
+			try {
+				String seleccionado = (String) vf.getVenComprar().getPanelMostrar().getListaCategorias()
+						.getSelectedItem();
+				int indiceAñadir = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtIndice().getText());
+				int indiceRelativo = indiceAñadir - 1;
 
-		        int idCarrito = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtCarrito().getText());
-		        int indexCarrito = idCarrito - 1;
+				int idCarrito = Integer.parseInt(vf.getVenComprar().getPanelMostrar().getTxtCarrito().getText());
+				int indexCarrito = idCarrito - 1;
 
-		        Producto productoSeleccionado = null;
+				Producto productoSeleccionado = null;
 
-		        if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"))) {
-		            productoSeleccionado = mf.getAccesorioVehiculoDAO().getListaAccesorioVehiculo().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"))) {
-		            productoSeleccionado = mf.getElectrodomesticoDAO().getListaElectrodomestico().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"))) {
-		            productoSeleccionado = mf.getEquipoDeportivoDAO().getListaEquipoDeportivo().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"))) {
-		            productoSeleccionado = mf.getHerramientaDAO().getListaHerramienta().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"))) {
-		            productoSeleccionado = mf.getInmbuenleDAO().getListaInmueble().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"))) {
-		            productoSeleccionado = mf.getJugueteDAO().getListaJuguete().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"))) {
-		            productoSeleccionado = mf.getPrendaDAO().getListaPrendaDeVestir().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"))) {
-		            productoSeleccionado = mf.getProductoFarmaceuticoDAO().getListaProductoFarmaceutico().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"))) {
-		            productoSeleccionado = mf.getProductoSostenibleDAO().getListaProductoSostenible().get(indiceRelativo);
-		        } else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"))) {
-		            productoSeleccionado = mf.getTecnologoiaDAO().getListaTecnologia().get(indiceRelativo);
-		        }
+				if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.accesoriovehiculo"))) {
+					productoSeleccionado = mf.getAccesorioVehiculoDAO().getListaAccesorioVehiculo().get(indiceRelativo);
+				} else if (seleccionado
+						.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.electrodomestico"))) {
+					productoSeleccionado = mf.getElectrodomesticoDAO().getListaElectrodomestico().get(indiceRelativo);
+				} else if (seleccionado
+						.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.equipodeportivo"))) {
+					productoSeleccionado = mf.getEquipoDeportivoDAO().getListaEquipoDeportivo().get(indiceRelativo);
+				} else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.herramienta"))) {
+					productoSeleccionado = mf.getHerramientaDAO().getListaHerramienta().get(indiceRelativo);
+				} else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.inmueble"))) {
+					productoSeleccionado = mf.getInmbuenleDAO().getListaInmueble().get(indiceRelativo);
+				} else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.juguete"))) {
+					productoSeleccionado = mf.getJugueteDAO().getListaJuguete().get(indiceRelativo);
+				} else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.prendavestir"))) {
+					productoSeleccionado = mf.getPrendaDAO().getListaPrendaDeVestir().get(indiceRelativo);
+				} else if (seleccionado
+						.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productofarmaceutico"))) {
+					productoSeleccionado = mf.getProductoFarmaceuticoDAO().getListaProductoFarmaceutico()
+							.get(indiceRelativo);
+				} else if (seleccionado
+						.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.productosostenible"))) {
+					productoSeleccionado = mf.getProductoSostenibleDAO().getListaProductoSostenible()
+							.get(indiceRelativo);
+				} else if (seleccionado.equals(prop.getProperty("mercadolibre.panelmostrar.combobox.tecnologia"))) {
+					productoSeleccionado = mf.getTecnologoiaDAO().getListaTecnologia().get(indiceRelativo);
+				}
 
-		        if (productoSeleccionado != null) {
-		            boolean exito = mf.getCarritoDAO().añadirProductoAlCarrito(indexCarrito, productoSeleccionado);
-		            if (exito) {
-		                JOptionPane.showMessageDialog(null, "Producto añadido al carrito #" + idCarrito,
-		                        "Éxito", JOptionPane.INFORMATION_MESSAGE);
-		            } else {
-		                JOptionPane.showMessageDialog(null, "No se pudo añadir el producto al carrito",
-		                        "Error", JOptionPane.ERROR_MESSAGE);
-		            }
-		        } else {
-		            JOptionPane.showMessageDialog(null, "Seleccione una categoría válida",
-		                    "Error", JOptionPane.ERROR_MESSAGE);
-		        }
-		    } catch (Exception e1) {
-		        JOptionPane.showMessageDialog(null, "Error al añadir producto: " + e1.getMessage(),
-		                "Error", JOptionPane.ERROR_MESSAGE);
-		    }
-		    break;
+				if (productoSeleccionado != null) {
+					boolean exito = mf.getCarritoDAO().añadirProductoAlCarrito(indexCarrito, productoSeleccionado);
+					if (exito) {
+						JOptionPane.showMessageDialog(null, "Producto añadido al carrito #" + idCarrito, "Éxito",
+								JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(null, "No se pudo añadir el producto al carrito", "Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "Seleccione una categoría válida", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(null, "Error al añadir producto: " + e1.getMessage(), "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			break;
 		}
 
-		
-		
 		case "BOTON_MOSTRAR_CARRITOS": {
-		    String contenido = mf.getCarritoDAO().showAll(); 
-		    vf.getVenComprar().getPanelCarrito().getTextCarritos().setText(contenido);
-		    break;
+			String contenido = mf.getCarritoDAO().showAll();
+			vf.getVenComprar().getPanelCarrito().getTextCarritos().setText(contenido);
+			break;
 		}
-		
-		
-
 
 		}
 

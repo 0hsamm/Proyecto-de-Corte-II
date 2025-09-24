@@ -47,14 +47,19 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (Tecnologia tecnologia : listaTecnologia) {
-			content += tecnologia.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaTecnologia.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaTecnologia.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
+
 	}
 
 	@Override
@@ -106,12 +111,11 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaTecnologia = (ArrayList<Tecnologia>) contenido;
-		}
-		else {
+		} else {
 			listaTecnologia = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaTecnologia);
 	}
@@ -124,14 +128,6 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 		this.listaTecnologia = listaTecnologia;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -139,6 +135,5 @@ public class TecnologiaDAO implements DAO<Tecnologia> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
-	
+
 }

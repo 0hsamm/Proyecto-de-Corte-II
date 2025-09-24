@@ -48,14 +48,18 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (EquipoDeportivo equipoDeportivo : listaEquipoDeportivo) {
-			content += equipoDeportivo.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaEquipoDeportivo.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaEquipoDeportivo.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -105,12 +109,11 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaEquipoDeportivo = (ArrayList<EquipoDeportivo>) contenido;
-		}
-		else {
+		} else {
 			listaEquipoDeportivo = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaEquipoDeportivo);
 	}
@@ -123,14 +126,6 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 		this.listaEquipoDeportivo = listaEquipoDeportivo;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -138,7 +133,5 @@ public class EquipoDeportivoDAO implements DAO<EquipoDeportivo> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
-	
-	
+
 }

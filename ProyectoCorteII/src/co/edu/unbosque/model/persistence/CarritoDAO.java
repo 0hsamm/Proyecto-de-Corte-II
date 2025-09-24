@@ -19,8 +19,8 @@ public class CarritoDAO implements DAO<Carrito> {
 	@Override
 	public void create(Carrito newData) {
 		listaCarritos.add(newData);
-	//	escribirEnArchivoDeTexto();
-	//	escribirEnArchivoSerializado();
+		// escribirEnArchivoDeTexto();
+		// escribirEnArchivoSerializado();
 
 	}
 
@@ -30,8 +30,8 @@ public class CarritoDAO implements DAO<Carrito> {
 			return false;
 		} else {
 			listaCarritos.remove(index);
-		//	escribirEnArchivoDeTexto();
-		//	escribirEnArchivoSerializado();
+			// escribirEnArchivoDeTexto();
+			// escribirEnArchivoSerializado();
 			return true;
 		}
 	}
@@ -42,21 +42,24 @@ public class CarritoDAO implements DAO<Carrito> {
 			return false;
 		} else {
 			listaCarritos.set(index, newData);
-		//	escribirEnArchivoDeTexto();
-		//	escribirEnArchivoSerializado();
+			// escribirEnArchivoDeTexto();
+			// escribirEnArchivoSerializado();
 			return true;
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		content = "";
-		for (Carrito carrito : listaCarritos) {
-			content += carrito.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaCarritos.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaCarritos.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -67,25 +70,24 @@ public class CarritoDAO implements DAO<Carrito> {
 
 	@Override
 	public void leerDesdeArchivoDeTexto(String url) {
-	
-		
+
 	}
 
 	@Override
 	public void escribirEnArchivoDeTexto() {
-		
 
 	}
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaCarritos);
 	}
-	
+
 	public boolean añadirProductoAlCarrito(int indexCarrito, Producto p) {
-	    if (indexCarrito < 0 || indexCarrito >= listaCarritos.size()) {
-	        return false;
-	    } else
-	    listaCarritos.get(indexCarrito).añadirProducto(p);
-	    return true;
+		if (indexCarrito < 0 || indexCarrito >= listaCarritos.size()) {
+			return false;
+		} else
+			listaCarritos.get(indexCarrito).añadirProducto(p);
+		return true;
 	}
 
 	public ArrayList<Carrito> getListaCarritos() {
@@ -96,14 +98,6 @@ public class CarritoDAO implements DAO<Carrito> {
 		this.listaCarritos = listaCarritos;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -111,6 +105,5 @@ public class CarritoDAO implements DAO<Carrito> {
 	public String getSERIAL_FILE_NAME() {
 		return SERIAL_FILE_NAME;
 	}
-	
 
 }

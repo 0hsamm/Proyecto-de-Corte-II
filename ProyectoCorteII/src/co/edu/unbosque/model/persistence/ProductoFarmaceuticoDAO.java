@@ -49,14 +49,18 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		}
 	}
 
-	String content = "";
-
 	@Override
 	public String showAll() {
-		for (ProductoFarmaceutico productoFarmaceutico : listaProductoFarmaceutico) {
-			content += productoFarmaceutico.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < listaProductoFarmaceutico.size(); i++) {
+			sb.append(i + 1);
+			sb.append(" - ");
+			sb.append(listaProductoFarmaceutico.get(i).toString());
+			sb.append("\n");
 		}
-		return content;
+
+		return sb.toString();
 	}
 
 	@Override
@@ -107,12 +111,11 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
 			listaProductoFarmaceutico = (ArrayList<ProductoFarmaceutico>) contenido;
-		}
-		else {
+		} else {
 			listaProductoFarmaceutico = new ArrayList<>();
 		}
 	}
-	
+
 	public void escribirEnArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductoFarmaceutico);
 	}
@@ -125,14 +128,6 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		this.listaProductoFarmaceutico = listaProductoFarmaceutico;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getFILE_NAME() {
 		return FILE_NAME;
 	}
@@ -141,8 +136,4 @@ public class ProductoFarmaceuticoDAO implements DAO<ProductoFarmaceutico> {
 		return SERIAL_FILE_NAME;
 	}
 
-	
-	
-	
-	
 }
